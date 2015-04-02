@@ -212,6 +212,12 @@ body > #wrap {
 #weixinicon:focus {
   background-image: url(../img/footer/weixin-after.png);
 }
+#endoftext {
+  height: 2px;
+  width: 100%;
+  background: #DEDEDE;
+  margin-top: 25px;
+}
 #image {
   width: 100%;
   margin: 0 auto;
@@ -348,4 +354,279 @@ body > #wrap {
   position: absolute;
   margin-top: -80px;
   margin-left: 900px;
+}
+#financing img {
+  width: 100%;
+}
+#financing #introduction {
+  width: auto;
+  height: 92px;
+  opacity: 0.85;
+}
+#financing #introduction .t1 {
+  margin-top: 0px;
+  font-family: 微软雅黑;
+  font-size: 24px;
+  color: white;
+}
+#financing #introduction .t3 {
+  font-family: 微软雅黑;
+  font-size: 16px;
+  color: white;
+}
+#financing #introduction #vertical-line {
+  width: 5px;
+  height: 92px;
+  background-color: white;
+  opacity: 0.8;
+  margin-right: 25px;
+  float: left;
+}
+#financing #introduction .title1 {
+  line-height: 24px;
+  margin-bottom: 14px;
+}
+#financing #introduction #horizontal-line {
+  width: 560px;
+  height: 2px;
+  border-right: 530px solid white;
+}
+#financing #introduction .title2 {
+  line-height: 21px;
+  margin-top: 10px;
+  width: 560px;
+}
+#financing #options {
+  width: 1189px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin: auto;
+}
+#financing #opt0 {
+  width: auto;
+  height: 46px;
+  background-color: #8e5a96;
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#financing .opt {
+  width: auto;
+  height: 46px;
+  position: relative;
+  background-color: #848286;
+  float: left;
+  margin: auto;
+  cursor: pointer;
+  z-index: 9999;
+}
+#financing .opt:hover {
+  background-color: #8e5a96;
+  opacity: 0.9;
+}
+#financing .opt ul {
+  position: absolute;
+  background: #8e5a96;
+  padding: 20px;
+  width: 360px;
+  top: 46px;
+}
+#financing .opt ul li {
+  color: #FFF;
+  display: block;
+  float: left;
+  margin: 1px 5px;
+  padding: 2px 5px;
+}
+#financing .opt ul li:hover {
+  background: #3e2438;
+}
+#financing .opt-text {
+  width: auto;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  float: left;
+}
+#financing .opt-pos0 {
+  width: 50px;
+  height: 46px;
+  float: left;
+}
+#financing .opt-pos {
+  width: 61px;
+  height: 46px;
+  float: left;
+}
+#financing .opt-img {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 12px;
+}
+#financing .w1 {
+  position: relative;
+  border: 0 solid black;
+  margin: 50px auto 0 auto;
+  height: 270px;
+  width: 1180px;
+  font-family: '微软雅黑 Regular', '微软雅黑';
+}
+#financing .w10 {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 70px;
+  height: 35px;
+  font-size: 12px;
+  padding: 5px 0 0 11px;
+  color: #f9f9f9;
+  background-image: url(../img/project/label.png);
+}
+#financing .w11 {
+  height: 270px;
+  width: 480px;
+  float: left;
+  background-color: #dcdcdc;
+}
+#financing .w12 {
+  height: 270px;
+  width: 642px;
+  float: left;
+  color: #848286;
+  background-color: #f2f2f2;
+}
+#financing .w121 {
+  margin: 15px 0 0 20px;
+  font-size: 25px;
+}
+#financing .w122 {
+  margin: 9px 0 0 20px;
+  font-size: 14px;
+}
+#financing .w1220 {
+  float: left;
+}
+#financing .w12201 {
+  float: left;
+  margin-left: 5px;
+}
+#financing .w12202 {
+  float: left;
+  margin: 0 12px 0 10px;
+}
+#financing .w123 {
+  font-size: 13px;
+  line-height: 19px;
+  margin: 32px 20px 0 20px;
+  color: #999;
+}
+#financing .w124 {
+  position: absolute;
+  top: 214px;
+  border-top: 2px solid #bbb;
+  padding: 10px 0 0 0;
+  margin-left: 20px;
+}
+#financing .w1240 {
+  float: left;
+  height: 24px;
+  background-color: #7495ca;
+  color: #f9f9f9;
+  font-size: 11px;
+  line-height: 24px;
+  padding: 0 20px 0 20px;
+  margin-right: 4px;
+  border-radius: 4px;
+}
+#financing .w13 {
+  height: 30px;
+  width: 18px;
+  float: left;
+  background-color: #dcdcdc;
+  padding: 135px 29px 135px 20px;
+}
+#financing .w2 {
+  margin: 22px auto 38px auto;
+  width: 439px;
+  height: 60px;
+  color: #848286;
+  font-size: 15px;
+  font-family: '微软雅黑 Regular', '微软雅黑';
+}
+#financing .w21 {
+  float: left;
+  height: 15px;
+  width: 9px;
+  padding: 20px 22px 40px 13px;
+  background-color: #f2f2f2;
+  margin-right: 10px;
+}
+#financing .w21:hover {
+  background-color: #8e8e8e;
+}
+#financing .w22 {
+  float: left;
+  height: 60px;
+  background-color: #f2f2f2;
+  margin-right: 10px;
+}
+#financing .w220 {
+  padding: 24px 15px 20px 15px;
+  border-bottom: 4px;
+  line-height: 12px;
+  float: left;
+}
+#financing .w23 {
+  float: left;
+  height: 15px;
+  width: 9px;
+  padding: 20px 22px 40px 13px;
+  background-color: #f2f2f2;
+}
+#financing .w3 {
+  position: absolute;
+  display: none;
+  width: 339.5px;
+  height: 186px;
+  z-index: 100;
+  color: #f9f9f9;
+  font-family: '微软雅黑 Regular', '微软雅黑';
+  font-size: 11px;
+  background-color: rgba(139, 96, 155, 0.9);
+  padding: 0 0 0 20.5px;
+}
+#financing .w30 {
+  float: left;
+  margin: 19.5px 3px 19.5px 0;
+}
+#financing .w300 {
+  padding: 5.5px 9.5px 5.5px 9.5px;
+  margin-bottom: 8px;
+  line-height: 12px;
+  cursor: pointer;
+}
+#financing .w300:hover {
+  background-color: #3d2243;
+}
+#financing .purplebdbt {
+  border-bottom: 4px solid #c45fd9;
+}
+#financing .graybg {
+  background-color: #8e8e8e;
+}
+#financing .purplebg {
+  background-color: #8d5a95;
+}
+#financing .clearfix {
+  clear: both;
+}
+#financing .blank {
+  height: 15px;
+}
+#financing .purplew3 {
+  background-color: #3d2243;
 }

@@ -36,9 +36,9 @@ angular.module('chuangplus', [
         //Route configure
         $locationProvider.html5Mode(true);
         $locationProvider.hashPrefix = '';
-        $routeProvider.when('/', {templateUrl: urls.part + '/homepage.html', controller: 'HomepageCtrl', title: 'Homepage'});
-        $routeProvider.when('/invest', {templateUrl: urls.part + '/invest.html', controller: 'InvestCtrl', title: "invest"});
-        $routeProvider.when('/dev', {templateUrl: urls.part + '/dev.html', controller: 'DevCtrl', title: 'Dev page'});
+        $routeProvider.when('/', {templateUrl: urls.part + '/homepage.html', controller: 'HomepageCtrl', title: 'HomePage'});
+        $routeProvider.when('/invest', {templateUrl: urls.part + '/invest.html', controller: 'Homepage_InvCtrl', title: "InvestPage"});
+        $routeProvider.when('/financing', {templateUrl: urls.part + '/financing.html', controller: 'FinancingCtrl', title: 'FinancingPage'});
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]).

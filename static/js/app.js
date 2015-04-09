@@ -40,9 +40,9 @@ angular.module('chuangplus', [
         $routeProvider.when('/invest', {templateUrl: urls.part + '/invest.html', controller: 'Homepage_InvCtrl', title: "InvestPage"});
         $routeProvider.when('/financing', {templateUrl: urls.part + '/financing.html', controller: 'FinancingCtrl', title: 'FinancingPage'});
         $routeProvider.when('/about', {templateUrl: urls.part + '/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
-        $routeProvider.when('/login', {templateUrl: urls.part + '/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
-        $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
-        $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
+        $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
+        $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
+        $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]).

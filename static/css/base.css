@@ -640,8 +640,11 @@ body > #wrap {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-#container #bg #login .input-group {
+#container #bg #login .first {
   margin-top: 40px;
+}
+#container #bg #login .input-group {
+  margin-top: 20px;
   height: 60px;
 }
 #container #bg #login .input-group #username {
@@ -654,4 +657,20 @@ body > #wrap {
   margin: 0 auto;
   width: 100%;
   height: 60px;
+}
+#container #headimg {
+  display: block;
+  margin: 0 auto;
+}
+#container #bg_reg {
+  background-image: url(../img/login/login-bg.png);
+  height: 500px;
+}
+#container #bg_reg #left {
+  background-image: url(../img/regist/start-up2.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 40%;
+  margin-top: 68px;
+  margin-left: 72px;
 }

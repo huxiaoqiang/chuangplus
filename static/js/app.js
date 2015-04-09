@@ -41,7 +41,8 @@ angular.module('chuangplus', [
         $routeProvider.when('/financing', {templateUrl: urls.part + '/financing.html', controller: 'FinancingCtrl', title: 'FinancingPage'});
         $routeProvider.when('/about', {templateUrl: urls.part + '/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/login', {templateUrl: urls.part + '/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
-        $routeProvider.when('/regist', {templateUrl: urls.part + '/regist.html', controller: 'RegistCtrl', title: 'RegistPage'});
+        $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
+        $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]).

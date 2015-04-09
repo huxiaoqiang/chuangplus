@@ -21,6 +21,12 @@ angular.module('chuangplus.controllers', []).
         {image: "/static/img/index/banner3.jpg"}
       ];
     }]).
+    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('LoginCtrl');
+    }]).
+    controller('RegistCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistCtrl');
+    }]).
     controller('FinancingCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('FinancingCtrl');
         $scope.myInterval = 3000;

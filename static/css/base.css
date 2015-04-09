@@ -630,3 +630,28 @@ body > #wrap {
 #financing .purplew3 {
   background-color: #3d2243;
 }
+#container #bg {
+  background-image: url(../img/login/login-bg.png);
+  height: 500px;
+}
+#container #bg #login {
+  height: 400px;
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#container #bg #login .input-group {
+  margin-top: 40px;
+  height: 60px;
+}
+#container #bg #login .input-group #username {
+  height: 60px;
+}
+#container #bg #login .input-group #password {
+  height: 60px;
+}
+#container #bg #login #login_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+}

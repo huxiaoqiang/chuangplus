@@ -40,6 +40,8 @@ angular.module('chuangplus', [
         $routeProvider.when('/invest', {templateUrl: urls.part + '/invest.html', controller: 'Homepage_InvCtrl', title: "InvestPage"});
         $routeProvider.when('/financing', {templateUrl: urls.part + '/financing.html', controller: 'FinancingCtrl', title: 'FinancingPage'});
         $routeProvider.when('/about', {templateUrl: urls.part + '/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
+        $routeProvider.when('/login', {templateUrl: urls.part + '/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
+        $routeProvider.when('/regist', {templateUrl: urls.part + '/regist.html', controller: 'RegistCtrl', title: 'RegistPage'});
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]).

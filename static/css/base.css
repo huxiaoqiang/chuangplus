@@ -673,6 +673,14 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
+#container #bg_reg #startup_reg_finish {
+  background-image: url(../img/regist/start-up.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 25%;
+  margin-top: 68px;
+  margin-left: 22%;
+}
 #container #bg_reg #invest_reg {
   background-image: url(../img/regist/vc2.png);
   background-repeat: no-repeat;

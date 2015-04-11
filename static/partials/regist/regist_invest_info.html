@@ -1,52 +1,52 @@
-<div id="container" ng-controller="RegistStartupCtrl">
+<div id="container" ng-controller="RegistStartupInfoCtrl">
 	<div class="tab-bar">
 	    <div class="width-limited">
 	      <a href="/regist_startup"><div class="tab tab-active">我是创业者</div></a>
 	      <a href="/regist_invest_auth"><div class="tab">我是投资人</div>
 	      <img class="xiaojiao" src="static/img/index/jiao.png"></a>
 	    </div>
-	 </div>
-	 <img src="static/img/regist/start-up-1.png" id="headimg">
-	 <div class="row" id="bg_reg">
-		<div class="col-md-6" id="startup_reg">
+	  </div>
+	<div>
+	<img src="static/img/regist/invest-2.png" id="headimg">
+	<div class="row" id="bg_reg">
+		<div class="col-md-6" id="invest_reg">
 		</div>
 		<div class="col-md-6" >
-			<form class="ui form segment" ng-submit="startup_regist()" id="login">
+			<form class="ui form segment" ng-submit="login_user()" id="login">
 				<div class="form-group">  
 				    <div class="input-group">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="startup_regist.username" required>
-				    </div>
-				</div>
-				<div class="form-group">  
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="realname" placeholder="真实姓名" ng-model="startup_regist.realname" required>
+				      <input type="text" class="form-control" id="email" placeholder="邮箱" ng-model="invest.email" required>
 				    </div>
 				</div>
 				<div class="form-group">  
 				    <div class="input-group">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="password" placeholder="密码" ng-model="startup_regist.password" required>	
+				      <input type="text" class="form-control" id="password" placeholder="真实姓名" ng-model="invest.realname" required>	
 				    </div>
 				</div>
-
 				<div class="form-group">  
 				    <div class="input-group">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="password" placeholder="再次输入密码" ng-model="startup_regist.repassword" required>	
+				      <input type="text" class="form-control" id="phonenumber" placeholder="手机号" ng-model="invest.phonenumber" required>	
 				    </div>
 				</div>
-
 				<div class="form-group">  
 				    <div class="input-group">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="password" placeholder="验证码" ng-model="startup_regist.authcode" required>	
+				      <input type="text" class="form-control" id="password" placeholder="输入密码" ng-model="invest.password" required>	
+				    </div>
+				</div>
+				<div class="form-group">  
+				    <div class="input-group">
+				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				      <input type="text" class="form-control" id="repassword" placeholder="再次输入密码" ng-model="invest.repassword" required>	
 				    </div>
 				</div>
 				<error-message error="error"></error-message>
-	        	<input type="submit" value="注册" class="button" id="regist_button">
+	        	<input type="submit" value="验证信息" class="button" id="login_button">
 	        	<br/>
+	        	<span>已有账号？请点击</span><a href="/login">登录</a>
 	        </form>
 		</div>
 	</div>

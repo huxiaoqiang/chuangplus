@@ -1,35 +1,32 @@
-<div id="container" ng-controller="RegistInvestCtrl">
+<div id="container" ng-controller="RegistStartupFinishCtrl">
 	<div class="tab-bar">
 	    <div class="width-limited">
 	      <a href="/regist_startup"><div class="tab tab-active">我是创业者</div></a>
-	      <a href="/regist_invest"><div class="tab">我是投资人</div>
+	      <a href="/regist_invest_auth"><div class="tab">我是投资人</div>
 	      <img class="xiaojiao" src="static/img/index/jiao.png"></a>
 	    </div>
 	  </div>
 	<div>
-	<img src="static/img/regist/invest-1.png" id="headimg">
+	<img src="static/img/regist/invest-3.png" id="headimg">
 	<div class="row" id="bg_reg">
-		<div class="col-md-6" id="invest_reg">
+		<div class="col-md-6" id="invest_reg_finish">
 		</div>
-		<div class="col-md-6" >
-			<form class="ui form segment" ng-submit="login_user()" id="login">
-				<div class="form-group">  
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="username" placeholder="输入用户名" ng-model="login_info.username" required>
-				    </div>
-				</div>
-				<div class="form-group">  
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="password" placeholder="输入密码" ng-model="login_info.password" required>	
-				    </div>
-				</div>
-				<error-message error="error"></error-message>
-	        	<input type="submit" value="登录" class="button" id="login_button">
-	        	<br/>
-	        	<span>没有账号，请点击</span><a href="/regist">注册</a>
-	        </form>
+		<div class="col-md-6">
+			<div>
+				<span>
+					<img src="/static/img/regist/gou.png">	
+					<h5>恭喜你注册成功！创加祝您投资愉快</h5>
+				</span>
+				<span>
+					<img src="/static/img/regist/view.png">	
+					<a href="">查看正在融资的项目</a>					
+				</span>
+				<br/>
+				<span>
+					<img src="/static/img/regist/return.png">	
+					<a href="">返回注册前页面</a>					
+				</span>
+			</div>
 		</div>
 	</div>
 </div>

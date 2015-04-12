@@ -28,16 +28,47 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
+        $scope.login_info = {};
+        $scope.login_user = function(){
+            $csrf.set_csrf($scope.login_info);
+            $http.post('/account/login', $.param($scope.login_info)).success(function(data){
+                console.log(data);
+            //     if(data.error.code != 1){
+            //         $scope.error = $csrf.format_error(data.error);
+            //     }else{
+            //         if ($user.isFromProject()){
+            //             window.location.href="/project_apply";
+            //          }
+            //         else{
+            //             window.location.href="/";
+            //         }
+            //     }
+            });
+        };
     }]).
     controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
-        $scope.getauthcode=function(){
-            $http.get('/captcha/image').success(function(data){
+        $scope.startup = {};
+        $scope.startup_regist = function(){
+            console.log($scope.startup);
+            if($scope.startup.password != $scope.startup.repassword){
+                console.log("请检查您的输入, 两次输入密码不同");
+                //$zmodal.alert('请检查您的输入', '两次输入密码不同');
+                return;
+            }
+            $csrf.set_csrf($scope.startup);
+            //console.log($scope.startup);
+            $http.post('/account/register/', $.param($scope.startup)).success(function(data){
+
+                // if(data.error.code != 1){
+                //     $scope.error = $csrf.format_error(data.error);
+                // }else{
+                //     window.location.href="/user/info";
+                // }
                 console.log(data);
-                $scope.authcode=data;
-        });
-        }
-        $scope.getauthcode();
+
+            });
+        };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupFinishCtrl');

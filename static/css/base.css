@@ -736,3 +736,40 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
+#financingprocess img {
+  width: 100;
+}
+#financingprocess #navigation {
+  margin-left: 10%;
+  margin-top: 29px;
+}
+#financingprocess #navigation li {
+  list-style-type: none;
+  float: left;
+}
+#financingprocess #process {
+  padding-top: 60px;
+  width: 80%;
+  margin: 0 auto;
+}
+#financingprocess #process .row .col-md-3 {
+  height: 260px;
+  width: 220px;
+  background-color: #eeeeee;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+#financingprocess #process .row .col-md-3 img {
+  margin: 0 auto;
+  padding-top: 30%;
+  display: block;
+  height: 150px;
+}
+#financingprocess #process .row .col-md-3 h4 {
+  font-family: 微软雅黑;
+  font-size: 21px;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #8a847c;
+  padding-top: 44px;
+}

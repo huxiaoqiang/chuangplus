@@ -6,7 +6,7 @@
 python2.7 django1.5 mysql数据库
 ##接口使用
 ###获得验证码
-访问 /Captcha/ 获得一张 png 格式的验证码图片
+访问 /Captcha/image 获得一张 png 格式的验证码图片
 ###注册
 向 /Account/Register/ POST 一个 json 来注册。格式：
 ```javascript

@@ -31,6 +31,13 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
+        $scope.getauthcode=function(){
+            $http.get('/captcha/image').success(function(data){
+                console.log(data);
+                $scope.authcode=data;
+        });
+        }
+        $scope.getauthcode();
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupFinishCtrl');

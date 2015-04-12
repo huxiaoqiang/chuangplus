@@ -27,5 +27,5 @@ Django 具有CSRF机制。所以POST的时候，需要在HTTP请求添加头 X-C
         "password":"secret"
     }
 后台将返回一个json，只有一个键 token。得到 token 后，遇到需要验证身份的请求，在请求HTTP加入头 Authorization。注意键值应该以字符串 "Token" 开头。例如：
-    Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+`Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`
 

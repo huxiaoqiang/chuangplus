@@ -17,5 +17,5 @@ def register(request):
         user_data = {field: data for (field, data) in request.data.items() if field in VALID_USER_FIELDS}
         user = User.objects.create_user(**user_data)
         return Response(UserSerializer(instance=user).data, status=status.HTTP_201_CREATED)
-
+    
     return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)

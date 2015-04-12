@@ -9,7 +9,7 @@ python2.7 django1.5 mysql数据库
 访问 /Captcha/ 获得一张 png 格式的验证码图片
 ###注册
 向 /Account/Register/ POST 一个 json 来注册。格式：
-<!--lang: json-->
+<!--lang: javascript-->
     {
         "username":"someone",
         "email":"someone@somewhere.com",
@@ -21,7 +21,7 @@ Django 具有CSRF机制。所以POST的时候，需要在HTTP请求添加头 X-C
 [https://docs.djangoproject.com/en/1.8/ref/csrf/#ajax](https://docs.djangoproject.com/en/1.8/ref/csrf/#ajax)
 ###登陆
 后台使用的是token登陆模式。向 /Account/Login/ POST 一个json来获得token。格式：
-<!--lang: json-->
+<!--lang: javascript-->
     {
         "username":"someone",
         "password":"secret"

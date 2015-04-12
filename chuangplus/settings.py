@@ -36,8 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account',
-    'captcha',
+    'rest_framework',
+    'rest_framework.authtoken',
+    #'account',
+    #'captcha',
     'app',
     'captcha_rest',
     'account_rest',
@@ -53,6 +55,14 @@ MIDDLEWARE_CLASSES = (
     "account.middleware.LocaleMiddleware",
     "account.middleware.TimezoneMiddleware",
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 ROOT_URLCONF = 'chuangplus.urls'
 
@@ -104,7 +114,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    "account.auth_backends.EmailAuthenticationBackend",
+    #"account.auth_backends.EmailAuthenticationBackend",
+    "django.contrib.auth.backends.ModelBackend",
 )
 
 TEMPLATE_DIRS = (

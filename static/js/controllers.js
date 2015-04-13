@@ -50,23 +50,22 @@ angular.module('chuangplus.controllers', []).
         console.log('RegistStartupCtrl');
         $scope.startup = {};
         $scope.startup_regist = function(){
-            console.log($scope.startup);
+            //console.log($scope.startup);
             if($scope.startup.password != $scope.startup.repassword){
                 console.log("请检查您的输入, 两次输入密码不同");
                 //$zmodal.alert('请检查您的输入', '两次输入密码不同');
                 return;
             }
             $csrf.set_csrf($scope.startup);
-            //console.log($scope.startup);
+            console.log($scope.startup);
             $http.post('/account/register/', $.param($scope.startup)).success(function(data){
-
+                
                 // if(data.error.code != 1){
                 //     $scope.error = $csrf.format_error(data.error);
                 // }else{
                 //     window.location.href="/user/info";
                 // }
                 console.log(data);
-
             });
         };
     }]).

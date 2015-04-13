@@ -11,7 +11,7 @@
 		<div class="col-md-6" id="startup_reg">
 		</div>
 		<div class="col-md-6" >
-			<form class="ui form segment" ng-submit="startup_regist()">
+			<form class="ui form segment" ng-submit="startup_regist()">{% csrf_token %}
 				<div class="form-group">  
 				    <div class="input-group">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>

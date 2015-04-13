@@ -30,7 +30,7 @@ angular.module('chuangplus', [
         $interpolateProvider.endSymbol(']]');
     }]).
     config(['$httpProvider', function($httpProvider){
-        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     }]).
     config(['$routeProvider', '$locationProvider', 'urls', function($routeProvider, $locationProvider, urls) {
         //Route configure
@@ -46,6 +46,7 @@ angular.module('chuangplus', [
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistInvestInfoCtrl', title: 'RegistInvestInfoPage'});
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
+        $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
         $routeProvider.otherwise({redirectTo: '/'});
     }]).
 //  apply a acount number for the detection~

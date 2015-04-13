@@ -10,7 +10,10 @@ def register(request):
     VALID_USER_FIELDS = [f.name for f in User._meta.fields]
     serialized = UserSerializer(data=request.DATA)
 
-    if request.session['captcha'] != request.data['captcha']:
+    session_captcha = request.session.get('captcha', False)
+    if not session_captcha:
+        return Response('No Captcha')
+    if session_captcha != request.data['captcha']:
         return Response('Wrong Captcha.', status=status.HTTP_400_BAD_REQUEST)
 
     if serialized.is_valid():

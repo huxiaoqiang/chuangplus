@@ -736,8 +736,8 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
-#financingprocess img {
-  width: 100;
+#financingprocess .header {
+  width: 100%;
 }
 #financingprocess #navigation {
   margin-left: 10%;
@@ -772,4 +772,36 @@ body > #wrap {
   margin-bottom: 0px;
   color: #8a847c;
   padding-top: 44px;
+}
+#privacypolicy .header {
+  width: 100%;
+  height: 240px;
+  background-color: #8c5c94;
+}
+#privacypolicy #navigation {
+  margin-left: 10%;
+  margin-top: 29px;
+}
+#privacypolicy #navigation h4 {
+  color: #8c5c94;
+}
+#privacypolicy #navigation li {
+  list-style-type: none;
+  float: left;
+}
+#privacypolicy .text {
+  font-family: 微软雅黑;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+#privacypolicy .text h2 {
+  font-family: 微软雅黑;
+  text-align: center;
+  color: darkgray;
+}
+#privacypolicy .text h3,
+#privacypolicy .text h4 {
+  font-family: 微软雅黑;
+  color: darkgray;
 }

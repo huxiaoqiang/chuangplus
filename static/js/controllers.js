@@ -20,6 +20,29 @@ angular.module('chuangplus.controllers', []).
         {image: "/static/img/index/banner2.jpg"},
         {image: "/static/img/index/banner3.jpg"}
       ];
+        $scope.roadshow = [
+        {image: "/static/img/index/bannerslide.jpg"},
+        {image: "/static/img/index/bannerslide1.jpg"},
+        {image: "/static/img/index/bannerslide2.jpg"}
+      ];
+    }]).
+    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('LoginCtrl');
+    }]).
+    controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistStartupCtrl');
+    }]).
+    controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistStartupFinishCtrl');
+    }]).
+    controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestAuthCtrl');
+    }]).
+    controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestAuthCtrl');
+    }]).
+    controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestAuthCtrl');
     }]).
     controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');

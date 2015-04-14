@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'account',
     'captcha',
     'app',
+    'captcha_rest',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,7 +66,7 @@ DATABASES = {
         'ENGINE' : 'django.db.backends.mysql' ,
         'NAME' : 'djangodb' ,
         'USER' : 'root' ,
-        'PASSWORD' : 'THUcj2014' ,
+        'PASSWORD' : 'THUcj2014' ,#joodo93528
         'HOST' : '127.0.0.1' ,
         'PORT' : '3306' ,
     }
@@ -113,8 +114,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.dummy'
-    }
-}

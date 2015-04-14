@@ -24,10 +24,9 @@
   <body style="margin: 0px;">
     <div id='wrap'>
       {% include "header.html" %}
-      <div class="ui grid page">
-        <div ng-view autoscroll="true" class="column clearfix" id="main-container"></div>
-      </div>
+      <div ng-view autoscroll="true" class="column clearfix" id="main-container"></div>
     </div>
+    <!--  <div class="ui grid page"> -->
 	{% include "footer.html" %}
     <script src="/static/js/app.js"></script>
     <script src="/static/js/services.js"></script>

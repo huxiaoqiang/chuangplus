@@ -42,7 +42,13 @@ angular.module('chuangplus', [
         $routeProvider.when('/about', {templateUrl: urls.part + '/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
         $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
+<<<<<<< HEAD
         $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
+=======
+        $routeProvider.when('/regist_invest_auth', {templateUrl: urls.part + '/regist/regist_invest_auth.html', controller: 'RegistInvestAuthCtrl', title: 'RegistInvestAuthPage'});
+        $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistStartupInfoCtrl', title: 'RegistStartupInfoPage'});
+        $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
+>>>>>>> b1768b2f8b7fc90341016d44ecf68e8eb75e545b
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]).

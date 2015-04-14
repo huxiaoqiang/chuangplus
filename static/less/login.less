@@ -1,0 +1,50 @@
+#container{
+	#bg{
+		background-image: url(../img/login/login-bg.png);
+		height: 500px;
+		#login{
+			height:400px;
+			width:500px;
+			margin-top:50px;
+			margin-bottom:50px;
+			.first{
+				margin-top:40px;
+			}
+			.input-group{
+				margin-top:20px;
+				height:60px;
+				#username{
+					height:60px;
+				}
+				#password{
+					height:60px;
+				}
+			}
+			#login_button{
+				margin:0 auto;
+				width:100%;
+				height:60px;
+			}
+		}
+	}
+}
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}

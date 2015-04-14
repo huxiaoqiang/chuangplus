@@ -24,6 +24,10 @@ body > #wrap {
   margin-right: auto;
   padding-bottom: 100px;
 }
+#container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .clearfix:after {
   content: ".";
   display: block;
@@ -266,6 +270,41 @@ body > #wrap {
 .cyz-icon h3 {
   text-align: center;
   font-size: 24px;
+}
+#viewpage {
+  height: 630px;
+  width: 100%;
+}
+.dashiji {
+  background-image: url(../img/index/dashiji-bg.jpg);
+  width: 100%;
+  height: 800px;
+}
+.dashiji .invest h1 {
+  color: white;
+  font-family: 微软雅黑;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 70px;
+}
+.dashiji .invest .roadshowlaout {
+  margin-top: 62px;
+  margin-left: 10%;
+}
+.dashiji .invest .roadshowlaout .roadshow {
+  width: 640px;
+  height: 360px;
+}
+.hzdw {
+  height: 400px;
+  background-color: #eeeeee;
+}
+.hzdw h1 {
+  color: slategray;
+  font-family: 微软雅黑;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 #chuangp-header {
   font-family: "微软雅黑";
@@ -673,6 +712,17 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
+<<<<<<< HEAD
+=======
+#container #bg_reg #startup_reg_finish {
+  background-image: url(../img/regist/start-up.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 25%;
+  margin-top: 68px;
+  margin-left: 22%;
+}
+>>>>>>> b1768b2f8b7fc90341016d44ecf68e8eb75e545b
 #container #bg_reg #invest_reg {
   background-image: url(../img/regist/vc2.png);
   background-repeat: no-repeat;
@@ -681,3 +731,14 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
+<<<<<<< HEAD
+=======
+#container #bg_reg #invest_reg_finish {
+  background-image: url(../img/regist/vc.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 25%;
+  margin-top: 68px;
+  margin-left: 22%;
+}
+>>>>>>> b1768b2f8b7fc90341016d44ecf68e8eb75e545b

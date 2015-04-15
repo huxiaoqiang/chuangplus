@@ -31,7 +31,7 @@ angular.module('chuangplus.controllers', []).
         $scope.login_info = {};
         $scope.login_user = function(){
             $csrf.set_csrf($scope.login_info);
-            $http.post('/account/login', $.param($scope.login_info)).success(function(data){
+            $http.post('/account/login', JSON.stringify($scope.login_info)).success(function(data){
                 console.log(data);
             //     if(data.error.code != 1){
             //         $scope.error = $csrf.format_error(data.error);
@@ -57,20 +57,17 @@ angular.module('chuangplus.controllers', []).
                 return;
             }
             $csrf.set_csrf($scope.startup);
-            console.log($scope.startup);
-            $http.post('/account/register/', $.param($scope.startup)).success(function(data){
-                
-                // if(data.error.code != 1){
-                //     $scope.error = $csrf.format_error(data.error);
-                // }else{
-                //     window.location.href="/user/info";
-                // }
+            $http.post('/account/register/', JSON.stringify($scope.startup)).success(function(data){
+                window.location.href="/regist_startup_finish";
+            }).error(function(data,status,headers, config){
                 console.log(data);
+                alert('failure');
             });
         };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupFinishCtrl');
+
     }]).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');

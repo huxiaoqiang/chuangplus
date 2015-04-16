@@ -152,7 +152,35 @@ angular.module('chuangplus.controllers', []).
                 ]
             }
         ];
-        
+        $scope.projects=[
+        {
+            image:"/static/img/index/inacup_pumpkin.jpg",
+            projectName:"我是一个项目",
+            CEO:"我是CEO",
+            financing:"A轮",
+            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+            tags:"游戏 社交 虚拟现实",
+            isRoadshow:"yes"
+        },
+        {
+            image:"/static/img/index/inacup_pumpkin.jpg",
+            projectName:"我是一个项目",
+            CEO:"我是CEO",
+            financing:"A轮",
+            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+            tags:"游戏 社交 虚拟现实",
+            isRoadshow:"yes"
+        },
+        {
+            image:"/static/img/index/inacup_pumpkin.jpg",
+            projectName:"我是一个项目",
+            CEO:"我是CEO",
+            financing:"A轮",
+            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+            tags:"游戏 社交 虚拟现实",
+            isRoadshow:"yes"
+        }
+        ];
     }]).
     controller('UserCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserCtrl');

@@ -1,0 +1,56 @@
+ <header>
+    <div id="chuangp-header">
+        <nav id="headernavbar" class="navbar navbar-inverse navbar-fixed-top">
+            <div id="headercontainer" class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div id="header-navbar-logo" class="navbar-logo">
+                        <a href="/"><img src="static/img/header/logo-purple.png"/></a>
+                    </div>
+                    <div id="header-navbar-brand" class="navbar-brand">
+                        <a style="font-size: 15px;">创加与您携手创业</a>
+                        <a style="font-size: 11px; letter-spacing: 0.5px;">CHUANGPLUS.COM</a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+						<li class="activeheader" id="index">
+							<a href="/">首页</a>
+						</li>
+						<li id="financing">
+							<a href="/financing/">正在融资</a>
+						</li>
+						<li id="projectlibrary">
+							<a href="/library">项目库</a>
+						</li>
+					</ul>
+                </div>
+                <div class="user-info block right" ng-controller="UserCtrl">
+			      <div class="level-1">
+			        {% if user.is_authenticated %}
+			        <a class="item" href="/user/project_list">{{user.username}}</a>&nbsp;&nbsp;&nbsp;
+			        {% if role == 0 %}
+			        <a class="item" href="/manager/projects">管理</a>&nbsp;&nbsp;&nbsp;
+			        {% endif %}
+			        <a class="item" ng-click="logout()">注销</a>
+			        {% else %}
+			        <a class="item" href="/login">登录</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
+			        <a class="item" href="/regist_startup">注册</a>
+			        {% endif %}
+			      </div>
+			      <div class="level-2">
+			        <form action="/project_list" method="get">
+			          <div class="ui icon input">
+			            <input type="text" name="search">
+			            <input type="submit" style="display:none;">
+			            <i class="icon search" id="search-icon"></i>
+			          </div>
+			        </form>
+			      </div>
+			    </div>
+            </div>	
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,51 @@
+<div controller="FinancingCtrl">
+	<div id="financing">
+	    <carousel interval="myInterval">
+	      <slide ng-repeat="slide in slides" active="slide.active">
+	        <img ng-src="[[slide.image]]">
+	        <div class="carousel-caption">
+	        	<div id="introduction">
+    				<div id="vertical-line"></div>
+    				<p class="t1 title1">[[slide.title]]</p>
+    				<div id="horizontal-line"></div>
+    				<p class="t3 title2">[[slide.detail]]</p>
+    			</div>
+	        </div>
+	      </slide>
+	    </carousel>
+	    <div id="options">
+    		<div id="opt0" align="center">
+    			<div class="opt-pos0"></div>
+    			<p class="t3 opt-text">筛选项目</p>
+    			<div class="opt-pos0"></div>
+    		</div>
+    		<div class="opt" ng-repeat="branch in branches" ng-mouseenter="show = true" ng-mouseleave="show = false">
+    			<a href="#"><div class="opt-pos"></div>
+	    			<p class="t3 opt-text">[[branch.name]]<i class="icon-angle-down"></i></p>
+	    			<div class="opt-pos"></div>
+    			</a>
+    			<ul ng-show="show">
+    				<a ng-repeat="type in branch.types" href="?field=[[type.tag]]"><li>[[type.name]]</li></a>
+    			</ul>
+    		</div>
+    	</div>
+	</div>
+    <div class="tab-bar">
+      <div class="width-limited">
+        <a href="#"><div class="tab tab-active">当期路演</div></a>
+        <a href="#"><div class="tab">往期路演</div>
+        <img class="xiaojiao" src="static/img/index/jiao.png"></a>
+      </div>
+    </div>
+    <div class="row" id="project" ng-repeat="project in projects">
+        <div class="col-md-5 projectImg"><img ng-src="[[project.image]]"></div>
+        <div class="col-md-6 projectDetail">
+            <h2>[[project.projectName]]</h2>
+            <h4><i class="icon-user"></i>&nbsp;&nbsp;[[project.CEO]]&nbsp;&nbsp;<i class="icon-globe"></i>&nbsp;&nbsp;[[project.financing]]</h4>
+            <h4>[[project.detail]]</h4>
+            <div id="endoftext"></div>
+            
+        </div>
+        <div class="col-md-1 rightBar"><img src="static/img/project/seemore.png"></div>
+    </div>
+</div>

@@ -251,7 +251,7 @@ body > #wrap {
 }
 .xiaojiao {
   position: absolute;
-  margin-left: -910px;
+  margin-left: -861px;
   margin-top: 55px;
 }
 .xiaojiao-inv {
@@ -270,30 +270,86 @@ body > #wrap {
 .cyz-icon h3 {
   text-align: center;
   font-size: 24px;
+  font-family: 微软雅黑;
+  color: darkgray;
 }
 #viewpage {
   height: 630px;
   width: 100%;
 }
 .dashiji {
-  background-image: url(../img/index/dashiji-bg.jpg);
+  position: relative;
   width: 100%;
-  height: 800px;
+  height: 0px;
+  padding-bottom: 55.53%;
+}
+.dashiji img {
+  width: 100%;
+}
+.dashiji .startup {
+  position: absolute;
+  left: 33.5%;
+  top: 28%;
+  background-color: #404040;
+  padding-bottom: 27.33%;
+  width: 33.33%;
+  height: 0;
+}
+.dashiji .startup img {
+  width: 87.2%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 3%;
+  padding-bottom: 21.50%;
+}
+.dashiji .startup #endoftext {
+  width: 87.2%;
+  display: block;
+  margin: 0 auto;
+}
+.dashiji .startup #info {
+  width: 87.2%;
+  display: block;
+  margin: 0 auto;
+  word-wrap: break-word;
+  word-break: normal;
+}
+.dashiji .startup #info #head {
+  color: darkgray;
+  font-size: 10%;
+}
+.dashiji .startup #info #text {
+  color: darkgray;
+  font-size: 5%;
+}
+.dashiji #event {
+  font-size: 36px;
+  position: absolute;
+  left: 41%;
+  top: 80%;
+  color: white;
+  font-family: 微软雅黑;
+}
+.dashiji .invest {
+  position: absolute;
+  left: 5%;
+  top: 0%;
 }
 .dashiji .invest h1 {
   color: white;
   font-family: 微软雅黑;
   font-weight: 600;
   text-align: center;
-  padding-top: 70px;
+  padding-top: 5%;
 }
-.dashiji .invest .roadshowlaout {
-  margin-top: 62px;
+.dashiji .invest .roadshowlayout {
+  margin-top: 4%;
   margin-left: 10%;
 }
-.dashiji .invest .roadshowlaout .roadshow {
-  width: 640px;
-  height: 360px;
+.dashiji .invest .roadshowlayout .roadshow {
+  padding-bottom: 32%;
+  width: 58%;
+  height: 0;
 }
 .hzdw {
   height: 400px;
@@ -393,6 +449,9 @@ body > #wrap {
   margin-top: -80px;
   margin-left: 900px;
 }
+#financing {
+  position: relative;
+}
 #financing img {
   width: 100%;
 }
@@ -400,6 +459,7 @@ body > #wrap {
   width: auto;
   height: 92px;
   opacity: 0.85;
+  margin-bottom: 25%;
 }
 #financing #introduction .t1 {
   margin-top: 0px;
@@ -421,6 +481,7 @@ body > #wrap {
   float: left;
 }
 #financing #introduction .title1 {
+  padding-right: 76%;
   line-height: 24px;
   margin-bottom: 14px;
 }
@@ -435,6 +496,9 @@ body > #wrap {
   width: 560px;
 }
 #financing #options {
+  position: absolute;
+  left: 10%;
+  top: 75%;
   width: 1189px;
   height: 70px;
   background-color: rgba(255, 255, 255, 0.3);
@@ -449,6 +513,8 @@ body > #wrap {
   float: left;
   margin-left: 10px;
   cursor: pointer;
+  font-family: 微软雅黑;
+  color: white;
 }
 #financing .opt {
   width: auto;
@@ -487,6 +553,9 @@ body > #wrap {
   margin-top: 12px;
   margin-bottom: 12px;
   float: left;
+  font-size: 17px;
+  font-family: 微软雅黑;
+  color: white;
 }
 #financing .opt-pos0 {
   width: 50px;
@@ -667,6 +736,36 @@ body > #wrap {
 }
 #financing .purplew3 {
   background-color: #3d2243;
+}
+#project {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+#project h2,
+#project h4 {
+  font-family: 微软雅黑;
+  color: #989699;
+}
+#project .projectImg img {
+  width: 100%;
+}
+#project .projectDetail {
+  background-color: #f2f2f2;
+  height: 314px;
+  width: 54%;
+}
+#project .rightBar {
+  background-color: #8e5b96;
+  height: 314px;
+  width: 4%;
+}
+#project .rightBar img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #container #bg {
   background-image: url(../img/login/login-bg.png);

@@ -39,12 +39,16 @@ angular.module('chuangplus', [
         $routeProvider.when('/', {templateUrl: urls.part + '/homepage.html', controller: 'HomepageCtrl', title: 'HomePage'});
         $routeProvider.when('/invest', {templateUrl: urls.part + '/invest.html', controller: 'Homepage_InvCtrl', title: "InvestPage"});
         $routeProvider.when('/financing', {templateUrl: urls.part + '/financing.html', controller: 'FinancingCtrl', title: 'FinancingPage'});
-        $routeProvider.when('/about', {templateUrl: urls.part + '/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
+        $routeProvider.when('/about', {templateUrl: urls.part + '/staticpage/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
         $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
+<<<<<<< HEAD
 
         $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
 
+=======
+        $routeProvider.when('/regist_startup_finish', {templateUrl: urls.part + '/regist/regist_startup_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
+>>>>>>> 2f1cbfc3321601b9d6916db801e52814134767ff
         $routeProvider.when('/regist_invest_auth', {templateUrl: urls.part + '/regist/regist_invest_auth.html', controller: 'RegistInvestAuthCtrl', title: 'RegistInvestAuthPage'});
 
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistStartupInfoCtrl', title: 'RegistStartupInfoPage'});
@@ -55,8 +59,17 @@ angular.module('chuangplus', [
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistInvestInfoCtrl', title: 'RegistInvestInfoPage'});
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
+<<<<<<< HEAD
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
 
+=======
+        
+
+        // staticpage of "aboutus"
+        $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/staticpage/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
+        $routeProvider.when('/contact', {templateUrl: urls.part + '/staticpage/contact.html', controller: 'ContactCtrl', title: 'ContactPage'});
+        $routeProvider.when('/jobs', {templateUrl: urls.part + '/staticpage/jobs.html', controller: 'JobsCtrl', title: 'JobsPage'});
+>>>>>>> 2f1cbfc3321601b9d6916db801e52814134767ff
         $routeProvider.otherwise({redirectTo: '/'});
     }]).
 //  apply a acount number for the detection~

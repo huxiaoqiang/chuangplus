@@ -42,7 +42,6 @@ angular.module('chuangplus', [
         $routeProvider.when('/about', {templateUrl: urls.part + '/staticpage/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
         $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
-        HEAD
 
         $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
 
@@ -52,13 +51,11 @@ angular.module('chuangplus', [
 
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistStartupInfoCtrl', title: 'RegistStartupInfoPage'});
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
-		b1768b2f8b7fc90341016d44ecf68e8eb75e545b
 
 
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistInvestInfoCtrl', title: 'RegistInvestInfoPage'});
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
-        HEAD
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
 
 

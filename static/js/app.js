@@ -9,6 +9,7 @@ angular.module('chuangplus', [
     'ngCookies',
     'angularFileUpload',
     'angular-google-analytics',
+    'angularFileUpload',
     'chuangplus.filters',
     'chuangplus.services',
     'chuangplus.directives',
@@ -60,6 +61,7 @@ angular.module('chuangplus', [
 
 
         
+        $routeProvider.when('/createproject', {templateUrl: urls.part + '/createproject.html', controller: 'createproject', title: 'createproject'});
         //createproject pages
         $routeProvider.when('/createproject/step1', {templateUrl: urls.part + '/createproject/step1.html', controller: 'Step1Ctrl', title: 'Step1'});
         $routeProvider.when('/createproject/step2', {templateUrl: urls.part + '/createproject/step2.html', controller: 'Step2Ctrl', title: 'Step2'});

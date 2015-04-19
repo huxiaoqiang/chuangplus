@@ -1,9 +1,8 @@
 <div class="project-apply">
   <h2 class="page-header">创建你的项目</h2>
-  <form class="apply-form ui form" ng-submit="create_project()">
+  <form name="form" class="apply-form ui form" ng-submit="create_project()">
     <h3 class="sub-title">step1：基本信息</h3>
     <div class="sub-form">
-      
       <div class="field">
         <label>项目名称</label>
         <div class="ui corner labeled input">
@@ -13,6 +12,7 @@
           </div>
         </div>
       </div>
+
       <div class="field">
         <label>项目理念</label>
         <div class="ui corner labeled input">
@@ -22,23 +22,50 @@
           </div>
         </div>
       </div>
-      <div class="field">
+      <div class="field" id="area">
         <label>项目领域</label>
-        <div class="ui corner labeled input">
-          <input type="text" ng-model="apply_info.area" placeholder="不超过5个" required>
-          <div class="ui corner label">
-            <i class="asterisk icon"></i>
-          </div>
-        </div>
-      </div>
-      <div class="field">
+        <div class="row">
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.game" ><label>游戏</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.social" ><label>社交</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.ebusiness" ><label>电子商务</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.media" ><label>媒体</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.education" ><label>教育</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.health" ><label>健康医疗</label></div>		  
+		</div>
+		<div class="row">
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.search" ><label>搜索安全</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.PE" ><label>体育</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.financial" ><label>金融</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.travel" ><label>旅游</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.culture" ><label>文化艺术</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.livingConsumption" ><label>生活消费</label></div>	
+		</div>
+		<div class="row">
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.tools"><label>工具</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.hardware"><label>硬件</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.housingAuto"><label>房产汽车</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.energyMaterials "><label>能源材料</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.enterpriseService"><label>企业服务</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.stationAgentTools"><label>站长工具</label></div>	
+		</div>
+		<div class="row">
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.entrepreneurServices"><label>创业服务</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.marketingCampaign"><label>营销广告</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.mobileInternet"><label>移动互联网</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.videoEntertainment"><label>视频娱乐</label></div>
+		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.others"><label>其他</label></div>
+		</div>
+	</div>
+
+      <div class="field" id="type">
         <label>项目类型</label>
-        <div class="ui corner labeled input">
-          <input type="text" ng-model="apply_info.type" placeholder="不超过5个" required>
-          <div class="ui corner label">
-            <i class="asterisk icon"></i>
-          </div>
-        </div>
+          <div class="row">
+		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="entityProduct"><label>实体产品</label></div>
+		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="onlineProduct"><label>线上产品</label></div>
+		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="offlineProduct"><label>线下服务</label></div>
+		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="O2O"><label>O2O</label></div>
+		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="others"><label>其他</label></div>
+		</div>
       </div>
 
       <div class="field">
@@ -50,6 +77,7 @@
           </div>
         </div>
       </div>
+
       <div class="field">
         <label>项目所在地</label>
         <div class="ui corner labeled input">
@@ -59,6 +87,7 @@
           </div>
         </div>
       </div>
+
        <div class="field">
         <label>融资情况</label>
         <div class="ui corner labeled input">
@@ -68,18 +97,19 @@
           </div>
         </div>
       </div>
-      <div class="field">
-        <label>项目logo</label>
-        <div class="ui corner labeled input">
-          <input type="text" ng-model="apply_info.logo" placeholder="项目logo" required>
-          <div class="ui corner label">
-            <i class="asterisk icon"></i>
-          </div>
-        </div>
-      </div>
+
+        <div class="field">
+      	    <label>项目logo</label>
+    		<div ng-repeat="item in uploader.queue" class="ng-scope">
+       			<div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height:100 }"></div>
+       		</div>
+        	<input type="file" nv-file-select uploader="uploader" required><br/>
+      	</div>
+
     </div>
     <error-message error="error"></error-message>
+    <input type="bottom" class="button ui green" value="下一步">
+    <input type="bottom" class="button ui green" value="提交">
     <input type="submit" class="submit button ui green" value="提交">
-    
-  </form>
+    </form>
 </div>

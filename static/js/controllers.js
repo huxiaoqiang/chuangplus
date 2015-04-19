@@ -194,7 +194,31 @@ angular.module('chuangplus.controllers', []).
     controller('UserCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserCtrl');
     }]).
+    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('createproject');
+        $scope.tabs = [
+            { title:'Dynamic Title 1', content:'Dynamic content 1' },
+            { title:'Dynamic Title 2', content:'Dynamic content 2' }
+          ];
+        $scope.CreateProjectTab=[];
+    }]).
+    controller('Step1Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
+        console.log('Step1Ctrl');
+        $scope.uploader = new FileUploader();
+    }]).
+    controller('Step3Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
+        console.log('Step3Ctrl');
+        $scope.AvatarUploader = new FileUploader();
+        $scope.member_list = [];  
+        $scope.add_member = function(){
+            $scope.member_list.push({});
+        };
+        $scope.del_member = function(member_index){
+            $scope.member_list.splice(member_index, 1);
+        };
+        
+        
+    }]).
     controller('AboutCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('AboutCtrl');
-        
     }]);

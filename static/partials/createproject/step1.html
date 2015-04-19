@@ -1,0 +1,85 @@
+<div class="project-apply">
+  <h2 class="page-header">创建你的项目</h2>
+  <form class="apply-form ui form" ng-submit="create_project()">
+    <h3 class="sub-title">step1：基本信息</h3>
+    <div class="sub-form">
+      
+      <div class="field">
+        <label>项目名称</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.name" placeholder="不超过8个字" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>项目理念</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.value" placeholder="不超过20字" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>项目领域</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.area" placeholder="不超过5个" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>项目类型</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.type" placeholder="不超过5个" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>项目总览</label>
+        <div class="ui left labeled input">
+          <textarea ng-model="apply_info.description" placeholder="任意长度" required></textarea>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>项目所在地</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.place" placeholder="项目所在地" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+       <div class="field">
+        <label>融资情况</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.financing" placeholder="融资情况" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>项目logo</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.logo" placeholder="项目logo" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <error-message error="error"></error-message>
+    <input type="submit" class="submit button ui green" value="提交">
+    
+  </form>
+</div>

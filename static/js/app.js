@@ -48,11 +48,19 @@ angular.module('chuangplus', [
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
         
-
+        //createproject pages
+        $routeProvider.when('/createproject/step1', {templateUrl: urls.part + '/createproject/step1.html', controller: 'Step1Ctrl', title: 'Step1'});
+        $routeProvider.when('/createproject/step2', {templateUrl: urls.part + '/createproject/step2.html', controller: 'Step2Ctrl', title: 'Step2'});
+        $routeProvider.when('/createproject/step3', {templateUrl: urls.part + '/createproject/step3.html', controller: 'Step3Ctrl', title: 'Step3'});
+        $routeProvider.when('/createproject/step4', {templateUrl: urls.part + '/createproject/step4.html', controller: 'Step4Ctrl', title: 'Step4'});
+        $routeProvider.when('/createproject/step5', {templateUrl: urls.part + '/createproject/step5.html', controller: 'Step5Ctrl', title: 'Step5'});
+        $routeProvider.when('/createproject/step6', {templateUrl: urls.part + '/createproject/step6.html', controller: 'Step6Ctrl', title: 'Step6'});
+        
         // staticpage of "aboutus"
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/staticpage/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
         $routeProvider.when('/contact', {templateUrl: urls.part + '/staticpage/contact.html', controller: 'ContactCtrl', title: 'ContactPage'});
         $routeProvider.when('/jobs', {templateUrl: urls.part + '/staticpage/jobs.html', controller: 'JobsCtrl', title: 'JobsPage'});
+        
         $routeProvider.otherwise({redirectTo: '/'});
     }]).
 //  apply a acount number for the detection~

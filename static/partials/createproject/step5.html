@@ -1,0 +1,27 @@
+<div class="project-apply">
+  <h2 class="page-header">创建你的项目</h2>
+  <form class="apply-form ui form" ng-submit="create_project()">
+    <h3 class="sub-title">step5：未来规划</h3>
+    <div class="sub-form">
+      <div class="field">
+        <label>商业模式</label>
+        <div class="ui left labeled input">
+          <textarea ng-model="apply_info.description" placeholder="商业模式（100字）" required></textarea>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>短/中/长期规划</label>
+        <div class="ui left labeled input">
+          <textarea ng-model="apply_info.advantage" placeholder="规划（100字）"></textarea>
+        </div>
+      </div>
+    </div>
+    <label>保密说明：本部分只对投资人可见</label>
+    <error-message error="error"></error-message>
+    <input type="submit" class="submit button ui green" value="提交">
+  </form>
+</div>

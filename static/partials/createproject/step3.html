@@ -1,0 +1,55 @@
+<div class="project-apply">
+  <h2 class="page-header">核心团队介绍</h2>
+  <form class="apply-form ui form" ng-submit="create_project()">
+    <h3 class="sub-title">团队成员 <span class="button" ng-click="add_member()">添加新成员</span></h3>
+    <div class="">
+
+      <div ng-repeat="member_info in member_list">
+        <div class="member-info sub-form ui segment member-list">
+            <div class="field">
+              <label>姓名</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.name" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>头像</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.photo" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>职位</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.position" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+        
+          <div class="field">
+            <label>职位简介</label>
+            <div class="ui corner labeled input">
+              <input type="text" ng-model="member_info.pos_description" required>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+          <button class="ui button red" ng-click="del_member($index)">删除</button>
+        </div>
+      </div>
+    </div>
+
+    <error-message error="error"></error-message>
+    <input type="submit" class="submit button ui green" value="提交">
+    
+  </form>
+</div>

@@ -904,3 +904,45 @@ body > #wrap {
   font-family: 微软雅黑;
   color: darkgray;
 }
+.project-apply {
+  background: url('/static/img/createproject/bg.png') no-repeat center -100px fixed;
+  padding: 70px;
+  width: 80%;
+  diplay: block;
+  margin: 0 auto;
+}
+.project-apply .page-header {
+  color: white;
+  margin: 0px;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+.project-apply .member-info {
+  margin-top: 20px;
+}
+.project-apply .sub-title {
+  margin-bottom: 10px;
+}
+.project-apply .sub-title .button,
+.project-apply .sub-title .button:hover {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #3490dd;
+  text-decoration: none;
+  cursor: pointer;
+}
+.project-apply .sub-form {
+  padding: 10px;
+}
+.project-apply .apply-form.ui.form {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.project-apply .apply-form.ui.form .field input[type='text'],
+.project-apply .apply-form.ui.form textarea {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.project-apply .ui.segment.member-list {
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+}

@@ -42,11 +42,23 @@ angular.module('chuangplus', [
         $routeProvider.when('/about', {templateUrl: urls.part + '/staticpage/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
         $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
+
+        $routeProvider.when('/regist_invest', {templateUrl: urls.part + '/regist/regist_invest.html', controller: 'RegistInvestCtrl', title: 'RegistInvestPage'});
+
         $routeProvider.when('/regist_startup_finish', {templateUrl: urls.part + '/regist/regist_startup_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
+
         $routeProvider.when('/regist_invest_auth', {templateUrl: urls.part + '/regist/regist_invest_auth.html', controller: 'RegistInvestAuthCtrl', title: 'RegistInvestAuthPage'});
+
+        $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistStartupInfoCtrl', title: 'RegistStartupInfoPage'});
+        $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
+
+
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistInvestInfoCtrl', title: 'RegistInvestInfoPage'});
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
+        $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
+
+
         
         //createproject pages
         $routeProvider.when('/createproject/step1', {templateUrl: urls.part + '/createproject/step1.html', controller: 'Step1Ctrl', title: 'Step1'});
@@ -60,7 +72,6 @@ angular.module('chuangplus', [
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/staticpage/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
         $routeProvider.when('/contact', {templateUrl: urls.part + '/staticpage/contact.html', controller: 'ContactCtrl', title: 'ContactPage'});
         $routeProvider.when('/jobs', {templateUrl: urls.part + '/staticpage/jobs.html', controller: 'JobsCtrl', title: 'JobsPage'});
-        
         $routeProvider.otherwise({redirectTo: '/'});
     }]).
 //  apply a acount number for the detection~

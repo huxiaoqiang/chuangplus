@@ -78,6 +78,15 @@ angular.module('chuangplus.controllers', []).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');
     }]).
+    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('LoginCtrl');
+    }]).
+    controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistStartupCtrl');
+    }]).
+    controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestCtrl');
+    }]).
     controller('FinancingCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('FinancingCtrl');
         $scope.myInterval = 3000;

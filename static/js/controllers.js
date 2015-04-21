@@ -111,6 +111,7 @@ angular.module('chuangplus.controllers', []).
                         {name:"文化艺术",tag:"whys"},
                     ]
             },
+            
             {
                 name:"地区",
                 types:[

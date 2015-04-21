@@ -58,7 +58,11 @@ angular.module('chuangplus', [
         $routeProvider.when('/regist_invest_finish', {templateUrl: urls.part + '/regist/regist_invest_finish.html', controller: 'RegistInvestFinishCtrl', title: 'RegistStartupFinishPage'});
         $routeProvider.when('/financingprocess', {templateUrl: urls.part + '/financingprocess.html', controller: 'FinancingProcessCtrl', title: 'FinancingProcessPage'});
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
+        $routeProvider.when('/library', {templateUrl: urls.part + '/library.html', controller: 'libraryCtrl', title: 'library'});
 
+        $routeProvider.when('/projectdetail/roadshow', {templateUrl: urls.part + '/projectdetail/roadshow.html', controller: 'projectdetailRoadshowCtrl', title: 'projectdetailRoadshow'});
+        $routeProvider.when('/projectdetail/text', {templateUrl: urls.part + '/projectdetail/text.html', controller: 'projectdetailTextCtrl', title: 'projectdetailText'});
+        $routeProvider.when('/projectdetail/joinus', {templateUrl: urls.part + '/projectdetail/joinus.html', controller: 'projectdetailJoinusCtrl', title: 'projectdetailJoinus'});
 
         
         $routeProvider.when('/createproject', {templateUrl: urls.part + '/createproject.html', controller: 'createproject', title: 'createproject'});

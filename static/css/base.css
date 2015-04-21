@@ -1287,6 +1287,7 @@ body > #wrap {
   width: 130px;
 }
 #projectdetail #roadshowimg img {
-  width: 80%;
-  position: center;
+  width: 76%;
+  margin: 0 auto;
+  display: block;
 }

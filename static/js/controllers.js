@@ -87,6 +87,10 @@ angular.module('chuangplus.controllers', []).
     controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestCtrl');
     }]).
+    controller('internshipCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('internshipCtrl');
+        
+    }]).
     controller('FinancingCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('FinancingCtrl');
         $scope.myInterval = 3000;
@@ -228,6 +232,12 @@ angular.module('chuangplus.controllers', []).
             tags: "游戏 社交 虚拟现实",
             financing: "天使轮"
         };
+    }]).
+    controller('projectdetailTextCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('projectdetailTextCtrl');
+    }]).
+    controller('projectdetailJoinusCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('projectdetailJoinusCtrl');
     }]).
     controller('libraryCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('libraryCtrl');

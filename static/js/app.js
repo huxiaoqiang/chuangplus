@@ -64,6 +64,8 @@ angular.module('chuangplus', [
         $routeProvider.when('/projectdetail/text', {templateUrl: urls.part + '/projectdetail/text.html', controller: 'projectdetailTextCtrl', title: 'projectdetailText'});
         $routeProvider.when('/projectdetail/joinus', {templateUrl: urls.part + '/projectdetail/joinus.html', controller: 'projectdetailJoinusCtrl', title: 'projectdetailJoinus'});
 
+        $routeProvider.when('/internship', {templateUrl: urls.part + '/internship.html', controller: 'internshipCtrl', title: 'internship'});
+
         
         $routeProvider.when('/createproject', {templateUrl: urls.part + '/createproject.html', controller: 'createproject', title: 'createproject'});
         //createproject pages

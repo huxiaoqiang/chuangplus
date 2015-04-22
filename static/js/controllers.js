@@ -209,6 +209,10 @@ angular.module('chuangplus.controllers', []).
     controller('Step1Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step1Ctrl');
         $scope.uploader = new FileUploader();
+        $scope.$watch('apply_info',function(newValue, oldValue){
+            console.log(oldValue);
+            console.log(newValue);
+        });
     }]).
     controller('Step3Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step3Ctrl');

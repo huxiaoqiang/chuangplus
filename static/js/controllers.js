@@ -212,10 +212,34 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('Step3Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step3Ctrl');
-        $scope.AvatarUploader = new FileUploader();
-        $scope.member_list = [];  
+        $scope.AvatarUploader = [];
+         // = new FileUploader();
+        $scope.member_list = [];
         $scope.add_member = function(){
             $scope.member_list.push({});
+                if ($scope.member_list.length==0){
+            $scope.submit = false;
+            }
+            else{
+                $scope.submit = true;
+            }
+        };
+        $scope.del_member = function(member_index){
+            $scope.member_list.splice(member_index, 1);
+                                if ($scope.member_list.length==0) {
+            $scope.submit = false;
+            }
+            else{
+                $scope.submit = true;
+            }
+        };
+    }]).
+    controller('Step6Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
+        console.log('Step6Ctrl');
+        // $scope.uploader = new FileUploader();
+        $scope.event_list = [];
+        $scope.add_event = function(){
+            $scope.event_list.push({});
         };
         $scope.del_member = function(member_index){
             $scope.member_list.splice(member_index, 1);

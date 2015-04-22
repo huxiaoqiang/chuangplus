@@ -41,7 +41,9 @@
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
 				      <input type="text" class="form-control" id="password" placeholder="验证码" ng-model="startup.captcha" required>
 				    </div>
-				    <img ng-src="/captcha/image" id="captcha">
+				    <img ng-src='[[captcha_url]]' id="captcha" alt="验证码">
+
+				    <button type="button" ng-click="refresh()" class="btn btn-link">看不清？刷新验证码</button>
 				</div>
 				<error-message error="error"></error-message>
 	        	<input type="submit" value="注册" class="button" id="regist_button">

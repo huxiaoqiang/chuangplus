@@ -1291,3 +1291,16 @@ body > #wrap {
   margin: 0 auto;
   display: block;
 }
+#feedback {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+#feedback .sub-title {
+  text-align: center;
+  font-family: 微软雅黑;
+}
+#feedback .button {
+  margin-left: 44%;
+}

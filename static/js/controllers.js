@@ -49,8 +49,8 @@ angular.module('chuangplus.controllers', []).
     controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
         $scope.startup = {};
+        $scope.captcha_url = '/captcha/image';
         $scope.startup_regist = function(){
-            //console.log($scope.startup);
             if($scope.startup.password != $scope.startup.repassword){
                 console.log("请检查您的输入, 两次输入密码不同");
                 //$zmodal.alert('请检查您的输入', '两次输入密码不同');
@@ -63,6 +63,9 @@ angular.module('chuangplus.controllers', []).
                 console.log(data);
                 alert('failure');
             });
+        };
+        $scope.refresh=function(){
+            $scope.captcha_url = '/captcha/image?'+Math.random();
         };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -80,9 +83,6 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
-    }]).
-    controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistStartupCtrl');
     }]).
     controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestCtrl');

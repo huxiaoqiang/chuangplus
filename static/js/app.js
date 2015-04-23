@@ -43,6 +43,10 @@ angular.module('chuangplus', [
         $routeProvider.when('/login', {templateUrl: urls.part + '/login/login.html', controller: 'LoginCtrl', title: 'LoginPage'});
         $routeProvider.when('/regist_startup', {templateUrl: urls.part + '/regist/regist_startup.html', controller: 'RegistStartupCtrl', title: 'RegistStartupPage'});
         $routeProvider.when('/regist_startup_finish', {templateUrl: urls.part + '/regist/regist_startup_finish.html', controller: 'RegistStartupFinishCtrl', title: 'RegistStartupFinishPage'});
+        
+        //personalcenter
+        $routeProvider.when('/user/myproject', {templateUrl: urls.part + '/personalcenter/myproject.html', controller: 'MyprojectCtrl', title: 'MyprojectPage'});
+        $routeProvider.when('/user/userinfo', {templateUrl: urls.part + '/personalcenter/userinfo.html', controller: 'UserinfoCtrl', title: 'UserinfoPage'});
 
         $routeProvider.when('/regist_invest_auth', {templateUrl: urls.part + '/regist/regist_invest_auth.html', controller: 'RegistInvestAuthCtrl', title: 'RegistInvestAuthPage'});
         $routeProvider.when('/regist_invest_info', {templateUrl: urls.part + '/regist/regist_invest_info.html', controller: 'RegistInvestInfoCtrl', title: 'RegistInvestInfoPage'});
@@ -78,7 +82,6 @@ angular.module('chuangplus', [
         $routeProvider.when('/privacypolicy', {templateUrl: urls.part + '/staticpage/privacypolicy.html', controller: 'PrivacyPolicyCtrl', title: 'PrivacyPolicyPage'});
         
         $routeProvider.when('/feedback', {templateUrl: urls.part + '/feedback.html', controller: 'feedbackCtrl', title: 'feedbackPage'});
-        
         $routeProvider.otherwise({redirectTo: '/'});
     }]).
 //  apply a acount number for the detection~

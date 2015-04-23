@@ -49,7 +49,7 @@ class Project(models.Model):
 
 # 项目成员表
 class Member(models.Model):
-    pro_id = models.IntegerField()
+    pro_id = models.ForeignKey('Project')
     m_name = models.CharField(max_length=30)
     m_head_path = models.CharField(max_length=250)
     m_title = models.CharField(max_length=30)
@@ -68,8 +68,8 @@ class Post(models.Model):
 
 # 关系表
 class Relation(models.Model):
-    user_id = models.IntegerField()
-    pro_id = models.IntegerField()
+    user_id = models.ForeignKey(User)
+    pro_id = models.IntegerField(Project)
     date = models.DateField()
     type = models.IntegerField(default=0) # 0:用户创建项目; 1:关注; 2:收藏; 3:爆灯
 

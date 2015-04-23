@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import data_rest.models
 from django.conf import settings
 
 
@@ -13,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='image',
+            name='Image',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('pro_id', models.IntegerField()),
@@ -25,10 +26,9 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='member',
+            name='Member',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('pro_id', models.IntegerField()),
                 ('m_name', models.CharField(max_length=30)),
                 ('m_head_path', models.CharField(max_length=250)),
                 ('m_title', models.CharField(max_length=30)),
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='post',
+            name='Post',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('pro_id', models.IntegerField(default=0)),
@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='project',
+            name='Project',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=30)),
@@ -76,17 +76,17 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='relation',
+            name='Relation',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('user_id', models.IntegerField()),
-                ('pro_id', models.IntegerField()),
+                ('pro_id', models.IntegerField(verbose_name=data_rest.models.Project)),
                 ('date', models.DateField()),
                 ('type', models.IntegerField(default=0)),
+                ('user_id', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
-            name='userinfo',
+            name='Userinfo',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('role', models.IntegerField(default=1)),
@@ -103,5 +103,10 @@ class Migration(migrations.Migration):
                 ('introduction', models.TextField(blank=True)),
                 ('user', models.OneToOneField(related_name='userinfo', to=settings.AUTH_USER_MODEL)),
             ],
+        ),
+        migrations.AddField(
+            model_name='member',
+            name='pro_id',
+            field=models.ForeignKey(to='data_rest.Project'),
         ),
     ]

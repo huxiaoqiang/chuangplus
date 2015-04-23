@@ -1,11 +1,11 @@
 # encoding:utf-8
 
 from django.contrib.auth.models import User
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import UserinfoSerializer
-from .models import Userinfo
+from .serializers import UserinfoSerializer, ProjectSerializer
+from .models import Userinfo, Project
 
 
 @api_view(['POST', 'PUT'])
@@ -44,3 +44,12 @@ def userinfo_retrieve(request, username):
 
     serialized = UserinfoSerializer(userinfo)
     return Response(serialized.data)
+
+class ProjectList(generics.ListCreateAPIView):
+    serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Project.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Project.objects.all()

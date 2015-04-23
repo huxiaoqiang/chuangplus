@@ -49,7 +49,7 @@ angular.module('chuangplus.controllers', []).
     controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
         $scope.startup = {};
-        $scope.captcha_url = '/captcha/image/';
+        $scope.captcha_url = urls.api+'/captcha/image/';
         $scope.startup_regist = function(){
             if($scope.startup.password != $scope.startup.repassword){
                 console.log("请检查您的输入, 两次输入密码不同");
@@ -57,7 +57,7 @@ angular.module('chuangplus.controllers', []).
                 return;
             }
             $csrf.set_csrf($scope.startup);
-            $http.post('/account/register/', JSON.stringify($scope.startup)).success(function(data){
+            $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
                 window.location.href="/regist_startup_finish";
             }).error(function(data,status,headers, config){
                 console.log(data);
@@ -65,7 +65,7 @@ angular.module('chuangplus.controllers', []).
             });
         };
         $scope.refresh=function(){
-            $scope.captcha_url = '/captcha/image/?'+Math.random();
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -86,13 +86,13 @@ angular.module('chuangplus.controllers', []).
         $scope.login_info = {};
         $scope.login_user = function(){
             $csrf.set_csrf($scope.login_info);
-            $http.post('/account/login/',JSON.stringify($scope.login_info))
+            $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
                 .success(function(data){
                     window.location.href="/";
                 })
                 .error(function(data){
                     console.log(data);
-                });
+                }); 
         };
     }]).
     controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){

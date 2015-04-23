@@ -95,8 +95,12 @@ angular.module('chuangplus.controllers', []).
                 }); 
         };
     }]).
-    controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistInvestCtrl');
+    controller('RegistInvestInfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestInfoCtrl');
+        $scope.captcha_url = urls.api+'/captcha/image/';
+        $scope.refresh=function(){
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
+        };
     }]).
     controller('internshipCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('internshipCtrl');

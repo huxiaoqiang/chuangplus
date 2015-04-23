@@ -776,9 +776,9 @@ body > #wrap {
   margin-left: 140px;
 }
 #container #bg #login {
-  height: 400px;
+  height: 300px;
   width: 500px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 #container #bg #login .first {
@@ -786,18 +786,23 @@ body > #wrap {
 }
 #container #bg #login .input-group {
   margin-top: 20px;
-  height: 60px;
+  height: 50px;
+}
+#container #bg #login .input-group .input-group-addon {
+  width: 50px;
 }
 #container #bg #login .input-group #username {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login .input-group #password {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login #login_button {
   margin: 0 auto;
   width: 100%;
-  height: 60px;
+  height: 50px;
   color: white;
   background-color: #8d5a95;
 }
@@ -820,6 +825,9 @@ body > #wrap {
 #container #bg_reg #invest-rrregist {
   margin-top: 40px;
   height: 300px;
+}
+#container #bg_reg #investinfo {
+  margin-top: 40px;
 }
 #container #bg_reg #startup_reg {
   background-image: url(../img/regist/start-up2.png);
@@ -845,6 +853,9 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
+#container #bg_reg #invest_auth {
+  margin-top: 15%;
+}
 #container #bg_reg #invest_reg_finish {
   background-image: url(../img/regist/vc.png);
   background-repeat: no-repeat;
@@ -853,7 +864,6 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
-
 #container #bg_reg #regist_button {
   margin: 0 auto;
   width: 100%;
@@ -872,7 +882,10 @@ body > #wrap {
   margin-left: 35%;
   height: 50%;
 }
-
+#container #captcha {
+  width: 100px;
+  margin-top: 10px;
+}
 #financingprocess .header {
   width: 100%;
 }
@@ -942,9 +955,8 @@ body > #wrap {
   font-family: 微软雅黑;
   color: darkgray;
 }
-
 .project-apply {
-  background: url('/static/img/createproject/bg.png') no-repeat center -100px fixed;
+  background: url('/static/img/createproject/bg.jpg') no-repeat center -100px fixed;
   padding: 70px;
   width: 80%;
   diplay: block;
@@ -1348,4 +1360,3 @@ body > #wrap {
 #feedback .button {
   margin-left: 44%;
 }
-

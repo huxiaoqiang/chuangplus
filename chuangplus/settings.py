@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -52,8 +52,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "account.middleware.LocaleMiddleware",
-    "account.middleware.TimezoneMiddleware",
+    #"account.middleware.LocaleMiddleware",
+    #"account.middleware.TimezoneMiddleware",
 )
 
 REST_FRAMEWORK = {
@@ -77,8 +77,8 @@ DATABASES = {
         'ENGINE' : 'django.db.backends.mysql' ,
         'NAME' : 'djangodb' ,
         'USER' : 'root' ,
-        'PASSWORD' : 'THUcj2014' ,
-        #'PASSWORD' : 'joodo93528',
+        #'PASSWORD' : 'THUcj2014' ,
+        'PASSWORD' : 'joodo93528',
         'HOST' : '127.0.0.1' ,
         'PORT' : '3306' ,
     }
@@ -87,7 +87,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
 TIME_ZONE = 'UTC'
 
@@ -110,7 +110,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.csrf",
-    "account.context_processors.account",
+    #"account.context_processors.account",
 )
 
 AUTHENTICATION_BACKENDS = (

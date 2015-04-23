@@ -53,3 +53,7 @@ class ProjectList(generics.ListCreateAPIView):
             return Project.objects.filter(**eval(self.request.GET['filter']))
         else:
             return Project.objects.all()
+
+class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer

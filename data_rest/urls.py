@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^userinfo/createorupdate/$', views.userinfo_create_or_update),
 
     url(r'^project/$', views.ProjectList.as_view()),
+    url(r'^project/(?P<pk>[0-9]+)/$', views.ProjectDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

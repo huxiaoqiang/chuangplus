@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import UserinfoSerializer, ProjectSerializer
-from .models import Userinfo, Project
+from .serializers import UserinfoSerializer, ProjectSerializer, MemberSerializer, PostSerializer, RelationSerializer, ImageSerializer
+from .models import Userinfo, Project, Member, Post, Relation, Image
 
 
 @api_view(['POST', 'PUT'])
@@ -57,3 +57,55 @@ class ProjectList(generics.ListCreateAPIView):
 class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+class MemberList(generics.ListCreateAPIView):
+    serializer_class = MemberSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Member.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Member.objects.all()
+
+class MemberDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
+
+class PostList(generics.ListCreateAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Post.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Post.objects.all()
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class RelationList(generics.ListCreateAPIView):
+    serializer_class = RelationSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Relation.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Relation.objects.all()
+
+class RelationDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Relation.objects.all()
+    serializer_class = RelationSerializer
+
+class ImageList(generics.ListCreateAPIView):
+    serializer_class = ImageSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Image.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Image.objects.all()
+
+class ImageDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Image.objects.all()
+    serializer_class = RelationSerializer

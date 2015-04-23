@@ -81,13 +81,14 @@ angular.module('chuangplus.controllers', []).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');
     }]).
-    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('LoginCtrl', ['$scope','$cookieStore', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
         $scope.login_info = {};
         $scope.login_user = function(){
             $csrf.set_csrf($scope.login_info);
             $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
                 .success(function(data){
+                    $cookieStore.put("user",$scope.login_info.username);
                     window.location.href="/";
                 })
                 .error(function(data){
@@ -210,8 +211,21 @@ angular.module('chuangplus.controllers', []).
         }
         ];
     }]).
-    controller('UserCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('UserCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope,$cookieStore,$http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserCtrl');
+        $scope.user = $cookieStore.get("user");
+        console.log("user"+$scope.user);
+        $scope.login = false;
+        if ($scope.user==undefined){
+             $scope.login = false;
+         }
+         else{
+            $scope.login = true; 
+         }
+         $scope.logout=function(){
+            $cookieStore.remove("user");
+            window.location.href="/";
+         };
     }]).
     controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('createproject');

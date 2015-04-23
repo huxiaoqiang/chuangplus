@@ -13,6 +13,7 @@ urlpatterns = patterns(
     
     url(r'^captcha/', include('captcha_rest.urls')),
     url(r'^account/', include('account_rest.urls')),
+    url(r'^data/', include('data_rest.urls')),
 
     url(r'^.*$', 'app.views.index'),
 )

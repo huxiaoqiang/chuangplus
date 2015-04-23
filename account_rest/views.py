@@ -40,6 +40,6 @@ def check_username(request):
         return Response({'detail': '请填写要检查的用户名。'}, status=status.HTTP_400_BAD_REQUEST)
 
     if User.objects.filter(username=name).count() != 0:
-        return Response({'exist': True})
+        return Response({'exist': 'True'})
     else:
-        return Response({'exist': False})
+        return Response({'exist': 'False'})

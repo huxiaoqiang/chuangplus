@@ -229,11 +229,16 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('createproject');
-        $scope.tabs = [
-            { title:'Dynamic Title 1', content:'Dynamic content 1' },
-            { title:'Dynamic Title 2', content:'Dynamic content 2' }
-          ];
-        $scope.CreateProjectTab=[];
+        $scope.tabindex = 1;
+        $scope.view_tab = "tab"+$scope.tabindex;
+        $scope.tabnext=function(){
+            $scope.tabindex = $scope.tabindex+1;
+            $scope.view_tab = "tab" + $scope.tabindex;
+        };
+        $scope.tabprior=function(){
+            $scope.tabindex = $scope.tabindex-1;
+            $scope.view_tab = "tab" + $scope.tabindex;
+        };
     }]).
     controller('Step1Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step1Ctrl');

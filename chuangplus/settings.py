@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'app',
     'captcha_rest',
     'account_rest',
+    'data_rest',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,7 +62,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    'PAGINATE_BY': 10,
+    'PAGINATE_BY_PARAM': 'page_size',
 }
 
 ROOT_URLCONF = 'chuangplus.urls'

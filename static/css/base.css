@@ -770,6 +770,11 @@ body > #wrap {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
 }
+#container #bg #words {
+  width: 370px;
+  margin-top: 216px;
+  margin-left: 140px;
+}
 #container #bg #login {
   height: 400px;
   width: 500px;
@@ -793,6 +798,12 @@ body > #wrap {
   margin: 0 auto;
   width: 100%;
   height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg #login #regist_link {
+  margin-left: 35%;
+  height: 50%;
 }
 #container #headimg {
   display: block;
@@ -801,6 +812,14 @@ body > #wrap {
 #container #bg_reg {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
+}
+#container #bg_reg #startup-rrregist {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#container #bg_reg #invest-rrregist {
+  margin-top: 40px;
+  height: 300px;
 }
 #container #bg_reg #startup_reg {
   background-image: url(../img/regist/start-up2.png);
@@ -834,6 +853,26 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
+
+#container #bg_reg #regist_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_link {
+  margin-left: 35%;
+  height: 50%;
+}
+
 #financingprocess .header {
   width: 100%;
 }
@@ -903,6 +942,7 @@ body > #wrap {
   font-family: 微软雅黑;
   color: darkgray;
 }
+
 .project-apply {
   background: url('/static/img/createproject/bg.png') no-repeat center -100px fixed;
   padding: 70px;
@@ -1308,3 +1348,4 @@ body > #wrap {
 #feedback .button {
   margin-left: 44%;
 }
+

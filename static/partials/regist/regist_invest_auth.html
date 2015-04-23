@@ -11,16 +11,16 @@
 	<div class="row" id="bg_reg">
 		<div class="col-md-6" id="invest_reg">
 		</div>
-		<div class="col-md-6" >
+		<div class="col-md-6" id="invest-rrregist">
 			<form class="ui form segment" ng-submit="login_user()" id="login">
 				<div class="form-group">  
-				    <div class="input-group">
+				    <div class="input-group" id="1">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
 				      <input type="text" class="form-control" id="name" placeholder="投资机构" ng-model="invest.name" required>
 				    </div>
 				</div>
 				<div class="form-group">  
-				    <div class="input-group">
+				    <div class="input-group" id="2">
 				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
 				      <input type="text" class="form-control" id="invitecode" placeholder="邀请码" ng-model="invest.invitecode" required>
 				    </div>
@@ -28,7 +28,7 @@
 				<error-message error="error"></error-message>
 	        	<input type="submit" value="验证信息" class="button" id="login_button">
 	        	<br/>
-	        	<span>已有账号？请点击</span><a href="/login">登录</a>
+	        	<span style="font-family:'Microsoft YaHei UI'" id="login_link" >已有账号？请点击<a style="font-family:'Microsoft YaHei UI'" href="/login"><font color="#8d5a95">登录</font></a></span>
 	        </form>
 		</div>
 	</div>

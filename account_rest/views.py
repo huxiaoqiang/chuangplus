@@ -31,3 +31,15 @@ def register(request):
         return Response(UserSerializer(instance=user).data, status=status.HTTP_201_CREATED)
     
     return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def check_username(request):
+    try:
+        name = request.data['username']
+    except KeyError:
+        return Response({'detail': '请填写要检查的用户名。'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if User.objects.filter(username=name).count() != 0:
+        return Response({'exist': True})
+    else:
+        return Response({'exist': False})

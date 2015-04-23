@@ -7,7 +7,7 @@
                         <span class="fa fa-bars"></span>
                     </button>
                     <div id="header-navbar-logo" class="navbar-logo">
-                        <a href="/"><img src="static/img/header/logo-purple.png"/></a>
+                        <a href="/"><img src="/static/img/header/logo-purple.png"/></a>
                     </div>
                     <div id="header-navbar-brand" class="navbar-brand">
                         <a style="font-size: 15px;">创加与您携手创业</a>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
-						<li class="activeheader" id="index">
+						<li id="index">
 							<a href="/">首页</a>
 						</li>
 						<li id="financing">
@@ -24,6 +24,9 @@
 						</li>
 						<li id="projectlibrary">
 							<a href="/library">项目库</a>
+						</li>
+						<li id="internship">
+							<a href="/internship">创业实习</a>
 						</li>
 					</ul>
                 </div>
@@ -37,7 +40,8 @@
 			        <a class="item" ng-click="logout()">注销</a>
 			        {% else %}
 			        <a class="item" href="/login">登录</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
-			        <a class="item" href="/regist_startup">注册</a>
+			        <a class="item" href="/regist_startup">注册</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
+			        <a class="item" href="/adminlogin">管理员登录</a>
 			        {% endif %}
 			      </div>
 			      <div class="level-2">

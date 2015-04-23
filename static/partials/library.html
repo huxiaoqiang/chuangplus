@@ -1,0 +1,32 @@
+<div>
+	<div id="library">
+		<!-- <img src="static/img/process/policy.jpg"> -->
+		<p id="head">清华大学  优质项目</p>
+		<div id="options">
+			<div id="opt0" align="center">
+				<div class="opt-pos0"></div>
+				<p class="t3 opt-text">筛选项目</p>
+				<div class="opt-pos0"></div>
+			</div>
+			<div class="opt" ng-repeat="branch in branches" ng-mouseenter="show = true" ng-mouseleave="show = false">
+				<a href="#"><div class="opt-pos"></div>
+					<p class="t3 opt-text">[[branch.name]]<i class="icon-angle-down"></i></p>
+					<div class="opt-pos"></div>
+				</a>
+				<ul ng-show="show">
+					<a ng-repeat="type in branch.types" href="?field=[[type.tag]]"><li>[[type.name]]</li></a>
+				</ul>
+			</div>
+	    </div>
+	</div>
+	<div class="row" id="project" ng-repeat="project in projects">
+        <div class="col-md-5 projectImg"><img ng-src="[[project.image]]"></div>
+        <div class="col-md-6 projectDetail">
+            <h2>[[project.projectName]]</h2>
+            <h4><i class="icon-user"></i>&nbsp;&nbsp;[[project.CEO]]&nbsp;&nbsp;<i class="icon-globe"></i>&nbsp;&nbsp;[[project.financing]]</h4>
+            <h4>[[project.detail]]</h4>
+            <div id="endoftext"></div>
+        </div>
+        <a href="/projectdetail/roadshow"><div class="col-md-1 rightBar"><img src="static/img/project/seemore.png"></div></a>
+    </div>
+</div>

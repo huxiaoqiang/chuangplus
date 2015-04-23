@@ -1,0 +1,58 @@
+<div class="project-apply">
+  <h2 class="page-header">创建你的项目</h2>
+  <form class="apply-form ui form" ng-submit="create_project()" ng-init="submit=false;">
+    <h3 class="sub-title">团队成员</h3>
+      <div ng-repeat="member_info in member_list">
+        <div class="sub-form ui segment member-list">
+            <div class="field">
+              <label>姓名</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.name" placeholder="成员姓名" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>头像</label>
+              <div ng-repeat="item in uploader.queue" class="ng-scope">
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+              </div>
+              <input type="file" nv-file-select uploader="AvatarUploader" required><br/>
+            </div>
+
+            <div class="field">
+              <label>职位</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.position" placeholder="成员职位" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+
+          <div class="field">
+            <label>职位简介</label>
+            <div class="ui corner labeled input">
+              <textarea ng-model="member_info.pos_description" placeholder="成员职位简介（100字左右）" required></textarea>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+          <input type="botton" class="ui button red" ng-click="show=!show" value="删除">
+          <div ng-init="show=false" class="alert alert-danger alert-dismissible fade in" role="alert" ng-show="show">
+            <h4 id="oh-snap!-you-got-an-error!">确认删除？</h4>
+            <button type="button" class="btn btn-danger" ng-click="del_member(member_info)">确认</button>
+            <button type="button" class="btn btn-default" ng-click="show=!show">取消</button>
+            </p>
+        </div>
+        </div>
+      </div>
+
+    <error-message error="error"></error-message>
+    <input type="button" class="submit button ui green" ng-click="add_member()" value="添加新成员">
+    <input type="submit" class="submit button ui green" value="提交" ng-show="submit">
+  </form>
+</div>

@@ -771,6 +771,11 @@ body > #wrap {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
 }
+#container #bg #words {
+  width: 370px;
+  margin-top: 216px;
+  margin-left: 140px;
+}
 #container #bg #login {
   height: 400px;
   width: 500px;
@@ -794,6 +799,12 @@ body > #wrap {
   margin: 0 auto;
   width: 100%;
   height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg #login #regist_link {
+  margin-left: 35%;
+  height: 50%;
 }
 #container #headimg {
   display: block;
@@ -803,6 +814,14 @@ body > #wrap {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
 }
+#container #bg_reg #startup-rrregist {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#container #bg_reg #invest-rrregist {
+  margin-top: 40px;
+  height: 300px;
+}
 #container #bg_reg #startup_reg {
   background-image: url(../img/regist/start-up2.png);
   background-repeat: no-repeat;
@@ -811,8 +830,6 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
-<<<<<<< HEAD
-=======
 #container #bg_reg #startup_reg_finish {
   background-image: url(../img/regist/start-up.png);
   background-repeat: no-repeat;
@@ -821,7 +838,6 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
->>>>>>> b1768b2f8b7fc90341016d44ecf68e8eb75e545b
 #container #bg_reg #invest_reg {
   background-image: url(../img/regist/vc2.png);
   background-repeat: no-repeat;
@@ -830,8 +846,6 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
-<<<<<<< HEAD
-=======
 #container #bg_reg #invest_reg_finish {
   background-image: url(../img/regist/vc.png);
   background-repeat: no-repeat;
@@ -840,9 +854,24 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 22%;
 }
-<<<<<<< HEAD
->>>>>>> b1768b2f8b7fc90341016d44ecf68e8eb75e545b
-=======
+#container #bg_reg #regist_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_link {
+  margin-left: 35%;
+  height: 50%;
+}
 #financingprocess .header {
   width: 100%;
 }
@@ -912,4 +941,3 @@ body > #wrap {
   font-family: 微软雅黑;
   color: darkgray;
 }
->>>>>>> 98739a6a09609d165efaa6b5a0473363a6572328

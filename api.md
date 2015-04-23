@@ -19,7 +19,7 @@ Django 具有 CSRF 机制。所以 POST 的时候，需要在 HTTP 请求添加�
 <https://docs.djangoproject.com/en/1.8/ref/csrf/#ajax>
 ### /api/checkusername
 验证用户名是否可用。
-在注册页面，可以通过Ajax来测试用户名是否可用。向该 url 发送一个 json 来检测。发送内容只有一个键 "username"，内容是需要检测的用户名。返回的 json 也只有一个健 "exist"，即用户是否存在。
+在注册页面，可以通过Ajax来测试用户名是否可用。向该 url 发送一个 json 来检测。发送内容只有一个键 "username"，内容是需要检测的用户名。返回的 json 也只有一个键 "exist"，即用户是否存在。
 ### /api/account/login/
 使用用户名和密码登陆。
 后台使用的是 token 登陆模式。向该 url 发送一个 json 格式的 POST 请求来获得 token。格式：
@@ -34,8 +34,8 @@ Django 具有 CSRF 机制。所以 POST 的时候，需要在 HTTP 请求添加�
 Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 ```
 ## Userinfo 用户信息数据
-### /api/data/userinfo/someone/
-获取 someone 的用户信息。
+### /api/data/userinfo/[username]/
+获取 username 的用户信息。其中 username 为对应账户的用户名。
 ### /api/data/userinfo/createorupdate/
 创建或更新当前登陆用户的用户信息。
 ## Project、Member、Post、Relation、Image 等数据

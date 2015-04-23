@@ -393,4 +393,22 @@ angular.module('chuangplus.controllers', []).
             isRoadshow:"yes"
         }
         ];
+    }]).   
+    controller('MyprojectCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('MyprojectCtrl');
+        $scope.view_tab = 'tab1';
+        $scope.changeTab = function(tab) {
+            $scope.view_tab = tab;
+        };
+        $scope.createproject=function(){
+            window.location.href="/createproject/step1";
+        };
+        $scope.financing=function(){
+            window.location.href="/financingprocess";
+        };
+    }]).  
+    controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('UserinfoCtrl');
+        $scope.view_tab = 'tab1';
     }]);
+

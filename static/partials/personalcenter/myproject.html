@@ -1,7 +1,45 @@
 <div class="tab-bar">
   <div class="width-limited">
-    <a href="/"><div class="tab tab-active">我是创业者</div></a>
-    <a href="/invest"><div class="tab">我是投资人</div>
+    <a href="/user/myproject"><div class="tab tab-active">我的项目</div></a>
+    <a href="/user/userinfo"><div class="tab">个人信息管理</div>
     <img class="xiaojiao" src="/static/img/index/jiao.png"></a>
   </div>
+</div>
+<div id="user">
+	<div class="row">
+		<div class="col-sm-3">
+		    <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+		        <li ng-class="{'active': view_tab == 'tab1'}">
+		            <a class="btn-lg" ng-click="changeTab('tab1')" href="">我的项目</a>
+		        </li>
+		        <li ng-class="{'active': view_tab == 'tab2'}">
+		            <a class="btn-lg" ng-click="changeTab('tab2')" href="">我关注的项目</a>
+		        </li>
+		       	<li ng-class="{'active': view_tab == 'tab3'}">
+		            <a class="btn-lg" ng-click="changeTab('tab3')" href="">我邀请路演项目</a>
+		        </li>
+		        <li ng-class="{'active': view_tab == 'tab4'}">
+		            <a class="btn-lg" ng-click="changeTab('tab4')" href="">我直接联系的项目</a>
+		        </li>
+		    </ul>
+		</div>
+	        <div class="tab-pane" ng-show="view_tab == 'tab1'">
+	            <div>
+	            	<span>
+	            		<button type="button" class="btn btn-info" ng-click="createproject()">创建新项目</button>
+	            		<button type="button" class="btn btn-info" ng-click="financing()">我要融资</button>
+	            	</span>
+
+	            </div>
+	        </div>
+	        <div class="tab-pane" ng-show="view_tab == 'tab2'">
+	            This is tab 2 contentfsdafadsfadsf
+	        </div>
+	       	<div class="tab-pane" ng-show="view_tab == 'tab3'">
+	            This is tab 1 contentfdsafadsfadsfdas
+	        </div>
+	        <div class="tab-pane" ng-show="view_tab == 'tab4'">
+	            This is tab 2 contentfsdafadsfadsf
+	        </div>
+	</div>
 </div>

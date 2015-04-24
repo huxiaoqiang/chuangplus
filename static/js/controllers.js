@@ -230,6 +230,21 @@ angular.module('chuangplus.controllers', []).
             financing: "天使轮"
         };
     }]).
+    controller('projectdetailTextCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('projectdetailTextCtrl');
+        $scope.projectdetail = {
+            name:"我是一个项目而且这是我的名字",
+            philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",
+            tags:[
+                    {name:"游戏",tag:"yx"},
+                    {name:"社交",tag:"sj"},
+                    {name:"虚拟现实",tag:"xnxs"},
+            ],
+            financing: "天使轮",
+            guanzhu:"888",
+            overview:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio."
+        };
+    }]).
     controller('libraryCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('libraryCtrl');
          $scope.branches = [

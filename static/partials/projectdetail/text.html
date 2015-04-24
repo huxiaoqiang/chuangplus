@@ -1,35 +1,37 @@
 <div id="projectdetail">
 	<div class="tab-bar">
       <div class="width-limited">
-        <a href="/projectdetail/roadshow"><div class="tab tab-active">项目路演</div></a>
-        <a href="/projectdetail/text"><div class="tab">项目文本</div></a>
+        <a href="/projectdetail/roadshow"><div class="tab">项目路演</div></a>
+        <a href="/projectdetail/text"><div class="tab tab-active">项目文本</div></a>
         <a href="/projectdetail/joinus"><div class="tab">创业实习招聘</div></a>
-        <img class="pulldown_roadshow" src="static/img/index/jiao.png">
+        <img class="pulldown_text" src="/static/img/index/jiao.png">
       </div>
     </div>
-    <div id="header">
-		<img src="static/img/projectdetail/logo.jpg" class="img-circle">
-		<div class="name">
-			<span id="sizeh3">
-				[[projectdetail.name]]
+    <div id="text">
+    	<div class="name">
+    		<span id="sizeh3">
+    			[[projectdetail.name]]
+    		</span>
+    		<span id="sizeh4" ng-repeat="tag in projectdetail.tags">
+				[[tag.name]]
 			</span>
-			<span id="sizeh4">
-				[[projectdetail.financing]]
-			</span>
+			<img src="/static/img/projectdetail/guanzhuicon.png" class="img-guanzhuicon">
+			<span id="sizeh5">[[projectdetail.guanzhu]]人关注</span>
+    	</div>
+		<div class="project">
+			<img src="/static/img/projectdetail/logo2.jpg" class="img-square">
+				<span class="sizeh6">项目理念</span>
+				<span class="sizeh6">项目总览</span>
+				<span class="sizeh6">相关链接</span>
+				<span class="sizeh6">融资情况</span>
 		</div>
-		<h4>[[projectdetail.philosophy]]</h4>
-		<p>
-			<h4>[[projectdetail.tags]]</h4>
-		</p>
-		<div id="leftbar">
-			<img src="static/img/projectdetail/addattention.png">
+		<div id="rightbar">
+			<img src="/static/img/projectdetail/addattention.png">
 			    <div id="endoftext"></div>
-			<img src="static/img/projectdetail/addinvite.png">
+			<img src="/static/img/projectdetail/addinvite.png">
 			    <div id="endoftext"></div>
-			<img src="static/img/projectdetail/tocontact.png">
+			<img src="/static/img/projectdetail/tocontact.png">
 		</div>
-    </div>s
-    <div id="roadshowimg">
-    	<img src="static/img/projectdetail/images.jpg">
     </div>
+    
 </div>

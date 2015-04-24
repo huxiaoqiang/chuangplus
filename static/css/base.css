@@ -22,7 +22,6 @@ body > #wrap {
 #main-container {
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 100px;
 }
 #container {
   margin-left: 10%;
@@ -771,10 +770,15 @@ body > #wrap {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
 }
+#container #bg #words {
+  width: 370px;
+  margin-top: 216px;
+  margin-left: 140px;
+}
 #container #bg #login {
-  height: 400px;
+  height: 300px;
   width: 500px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 #container #bg #login .first {
@@ -782,18 +786,29 @@ body > #wrap {
 }
 #container #bg #login .input-group {
   margin-top: 20px;
-  height: 60px;
+  height: 50px;
+}
+#container #bg #login .input-group .input-group-addon {
+  width: 50px;
 }
 #container #bg #login .input-group #username {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login .input-group #password {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login #login_button {
   margin: 0 auto;
   width: 100%;
-  height: 60px;
+  height: 50px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg #login #regist_link {
+  margin-left: 35%;
+  height: 50%;
 }
 #container #headimg {
   display: block;
@@ -802,6 +817,17 @@ body > #wrap {
 #container #bg_reg {
   background-image: url(../img/login/login-bg.png);
   height: 500px;
+}
+#container #bg_reg #startup-rrregist {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#container #bg_reg #invest-rrregist {
+  margin-top: 40px;
+  height: 300px;
+}
+#container #bg_reg #investinfo {
+  margin-top: 40px;
 }
 #container #bg_reg #startup_reg {
   background-image: url(../img/regist/start-up2.png);
@@ -827,6 +853,9 @@ body > #wrap {
   margin-top: 68px;
   margin-left: 72px;
 }
+#container #bg_reg #invest_auth {
+  margin-top: 15%;
+}
 #container #bg_reg #invest_reg_finish {
   background-image: url(../img/regist/vc.png);
   background-repeat: no-repeat;
@@ -834,6 +863,28 @@ body > #wrap {
   width: 25%;
   margin-top: 68px;
   margin-left: 22%;
+}
+#container #bg_reg #regist_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_button {
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  color: white;
+  background-color: #8d5a95;
+}
+#container #bg_reg #login_link {
+  margin-left: 35%;
+  height: 50%;
+}
+#container #captcha {
+  width: 100px;
+  margin-top: 10px;
 }
 #financingprocess .header {
   width: 100%;
@@ -905,7 +956,7 @@ body > #wrap {
   color: darkgray;
 }
 .project-apply {
-  background: url('/static/img/createproject/bg.png') no-repeat center -100px fixed;
+  background: url('/static/img/createproject/bg.jpg') no-repeat center -100px fixed;
   padding: 70px;
   width: 80%;
   diplay: block;
@@ -948,6 +999,9 @@ body > #wrap {
 .project-apply .apply-form.ui.form textarea {
   background-color: rgba(255, 255, 255, 0.6);
 }
+.project-apply .apply-form.ui.form .alert.alert-danger.alert-dismissible.fade.in {
+  margin-top: 10px;
+}
 .project-apply .ui.segment.member-list {
   background-color: rgba(255, 255, 255, 0.4);
   margin-bottom: 20px;
@@ -959,7 +1013,8 @@ body > #wrap {
   width: 100%;
   height: 240px;
 }
-#library h2 {
+#library #head {
+  font-size: 30px;
   font-family: "微软雅黑";
   padding-top: 5%;
   padding-left: 8%;
@@ -1251,12 +1306,13 @@ body > #wrap {
 #projectdetail #header img {
   margin: 0 auto;
   display: block;
-  padding-top: 45px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #projectdetail #header .name {
   margin: 0 auto;
   display: table;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 #projectdetail #header .name #sizeh3 {
   font-family: '黑体', 'Arial';
@@ -1356,4 +1412,22 @@ body > #wrap {
   background-color: #959595;
   height: 418px;
   width: 130px;
+#feedback {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+#feedback .sub-title {
+  text-align: center;
+  font-family: 微软雅黑;
+}
+#feedback .button {
+  margin-left: 44%;
+}
+#user {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
 }

@@ -1,0 +1,32 @@
+<div class="project-apply">
+  <h2 class="page-header">创建你的项目</h2>
+  <form class="apply-form ui form" ng-submit="create_project()">
+    <h3 class="sub-title">项目大事记</h3>
+      <div ng-repeat="event in event_list">
+        <div class="sub-form ui segment member-list">
+            <div class="field">
+              <label>事件日期</label>
+              <div class="ui left labeled input">
+                <input type="date" separator="/" min-date="2013-09-10" max-date="2013-09-20" limit="1 day" ng-model="event.date" placeholder="事件日期" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+                <label>事件内容</label>
+                <div class="ui left labeled input">
+                  <textarea ng-model="event.detail" placeholder="事件内容" required></textarea>
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+            </div>
+            </div>
+      </div>
+    <error-message error="error"></error-message>
+    <input type="button" class="submit button ui green" ng-click="add_event()" value="添加事件">
+    <input type="submit" class="submit button ui green" value="提交">
+    </div>
+  </form>
+</div>

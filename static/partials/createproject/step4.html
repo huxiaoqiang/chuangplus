@@ -3,56 +3,29 @@
   <form class="apply-form ui form" ng-submit="create_project()">
     <h3 class="sub-title">产品/服务图文介绍</h3>
     <div class="sub-form">
+    <div class="field">
+      <label>图文介绍</label>
+          <input type="file" nv-file-select uploader="imagetextuploader" required><br/>
+    </div>
 
-        <div class="field">
-          <label>姓名</label>
-          <div class="ui left labeled input">
-            <input type="text" ng-model="apply_info.name" placeholder="姓名" required>
-            <div class="ui corner label">
-              <i class="asterisk icon"></i>
-            </div>
+    <div class="field">
+        <label>相关链接</label>
+        <div class="ui corner labeled input">
+          <input type="text" ng-model="apply_info.financing" placeholder="相关链接" required>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
           </div>
         </div>
+      </div>
 
-        <div class="field">
-          <label>职位</label>
-          <div class="ui left labeled input">
-            <input type="text" ng-model="apply_info.position" placeholder="职位" required>
-            <div class="ui corner label">
-              <i class="asterisk icon"></i>
-            </div>
+    <div class="field">
+      <label>项目相关二维码</label>
+        <div ng-repeat="item in uploader.queue" class="ng-scope">
+            <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height:100 }"></div>
           </div>
-        </div>
-      
-        <div class="field">
-          <label>手机号</label>
-          <div class="ui left labeled input">
-            <input type="text" ng-model="apply_info.phonenumber" placeholder="手机号" required>
-            <div class="ui corner label">
-              <i class="asterisk icon"></i>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>邮箱</label>
-          <div class="ui left labeled input">
-            <input type="text" ng-model="apply_info.email" placeholder="邮箱" required>
-            <div class="ui corner label">
-              <i class="asterisk icon"></i>
-            </div>
-          </div>
-        </div>
-      
-        <div class="field">
-          <label>微信号</label>
-          <div class="ui left labeled input">
-            <input type="text" ng-model="apply_info.wechat" placeholder="微信号" required>
-            <div class="ui corner label">
-              <i class="asterisk icon"></i>
-            </div>
-          </div>
-        </div>
-
+          <input type="file" nv-file-select uploader="QRcodeuploader" required><br/>
+    </div>
+    <label>保密说明：本部分只对投资人可见</label>
     <error-message error="error"></error-message>
     <input type="submit" class="submit button ui green" value="提交">
     </div>

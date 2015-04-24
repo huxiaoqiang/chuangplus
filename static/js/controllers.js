@@ -49,20 +49,23 @@ angular.module('chuangplus.controllers', []).
     controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
         $scope.startup = {};
+        $scope.captcha_url = urls.api+'/captcha/image/';
         $scope.startup_regist = function(){
-            //console.log($scope.startup);
             if($scope.startup.password != $scope.startup.repassword){
                 console.log("请检查您的输入, 两次输入密码不同");
                 //$zmodal.alert('请检查您的输入', '两次输入密码不同');
                 return;
             }
             $csrf.set_csrf($scope.startup);
-            $http.post('/account/register/', JSON.stringify($scope.startup)).success(function(data){
+            $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
                 window.location.href="/regist_startup_finish";
             }).error(function(data,status,headers, config){
                 console.log(data);
                 alert('failure');
             });
+        };
+        $scope.refresh=function(){
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -78,14 +81,31 @@ angular.module('chuangplus.controllers', []).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');
     }]).
-    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('LoginCtrl', ['$scope','$cookieStore', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
+        $scope.login_info = {};
+        $scope.login_user = function(){
+            $csrf.set_csrf($scope.login_info);
+            $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
+                .success(function(data){
+                    $cookieStore.put("user",$scope.login_info.username);
+                    window.location.href="/";
+                })
+                .error(function(data){
+                    console.log(data);
+                }); 
+        };
     }]).
-    controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistStartupCtrl');
+    controller('RegistInvestInfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestInfoCtrl');
+        $scope.captcha_url = urls.api+'/captcha/image/';
+        $scope.refresh=function(){
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
+        };
     }]).
-    controller('RegistInvestCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistInvestCtrl');
+    controller('internshipCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('internshipCtrl');
+        
     }]).
     controller('FinancingCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('FinancingCtrl');
@@ -192,27 +212,73 @@ angular.module('chuangplus.controllers', []).
         }
         ];
     }]).
-    controller('UserCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('UserCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope,$cookieStore,$http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserCtrl');
+        $scope.user = $cookieStore.get("user");
+        console.log("user"+$scope.user);
+        $scope.login = false;
+        if ($scope.user==undefined){
+             $scope.login = false;
+         }
+         else{
+            $scope.login = true; 
+         }
+         $scope.logout=function(){
+            $cookieStore.remove("user");
+            window.location.href="/";
+         };
     }]).
     controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('createproject');
-        $scope.tabs = [
-            { title:'Dynamic Title 1', content:'Dynamic content 1' },
-            { title:'Dynamic Title 2', content:'Dynamic content 2' }
-          ];
-        $scope.CreateProjectTab=[];
+        $scope.tabindex = 1;
+        $scope.view_tab = "tab"+$scope.tabindex;
+        $scope.tabnext=function(){
+            $scope.tabindex = $scope.tabindex+1;
+            $scope.view_tab = "tab" + $scope.tabindex;
+        };
+        $scope.tabprior=function(){
+            $scope.tabindex = $scope.tabindex-1;
+            $scope.view_tab = "tab" + $scope.tabindex;
+        };
     }]).
     controller('Step1Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step1Ctrl');
         $scope.uploader = new FileUploader();
+        $scope.$watch('apply_info',function(newValue, oldValue){
+            console.log(oldValue);
+            console.log(newValue);
+        });
     }]).
     controller('Step3Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('Step3Ctrl');
-        $scope.AvatarUploader = new FileUploader();
-        $scope.member_list = [];  
+        $scope.AvatarUploader = [];
+         // = new FileUploader();
+        $scope.member_list = [];
         $scope.add_member = function(){
             $scope.member_list.push({});
+                if ($scope.member_list.length==0){
+            $scope.submit = false;
+            }
+            else{
+                $scope.submit = true;
+            }
+        };
+        $scope.del_member = function(member_index){
+            $scope.member_list.splice(member_index, 1);
+                                if ($scope.member_list.length==0) {
+            $scope.submit = false;
+            }
+            else{
+                $scope.submit = true;
+            }
+        };
+    }]).
+    controller('Step6Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
+        console.log('Step6Ctrl');
+        // $scope.uploader = new FileUploader();
+        $scope.event_list = [];
+        $scope.add_event = function(){
+            $scope.event_list.push({});
         };
         $scope.del_member = function(member_index){
             $scope.member_list.splice(member_index, 1);
@@ -244,6 +310,9 @@ angular.module('chuangplus.controllers', []).
             guanzhu:"888",
             overview:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio."
         };
+    }]).
+    controller('projectdetailJoinusCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('projectdetailJoinusCtrl');
     }]).
     controller('libraryCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('libraryCtrl');
@@ -342,4 +411,22 @@ angular.module('chuangplus.controllers', []).
             isRoadshow:"yes"
         }
         ];
+    }]).   
+    controller('MyprojectCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('MyprojectCtrl');
+        $scope.view_tab = 'tab1';
+        $scope.changeTab = function(tab) {
+            $scope.view_tab = tab;
+        };
+        $scope.createproject=function(){
+            window.location.href="/createproject/step1";
+        };
+        $scope.financing=function(){
+            window.location.href="/financingprocess";
+        };
+    }]).  
+    controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('UserinfoCtrl');
+        $scope.view_tab = 'tab1';
     }]);
+

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""
 from django.db import models
 from account.compat import AUTH_USER_MODEL
 import json
@@ -82,3 +83,5 @@ class image(models.Model):
     text = models.CharField(max_length=60)
     link = models.CharField(max_length=250)
     date = models.DateField()
+
+"""

@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'app',
     'captcha_rest',
     'account_rest',
+    'data_rest',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,8 +53,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "account.middleware.LocaleMiddleware",
-    "account.middleware.TimezoneMiddleware",
+    #"account.middleware.LocaleMiddleware",
+    #"account.middleware.TimezoneMiddleware",
 )
 
 REST_FRAMEWORK = {
@@ -61,7 +62,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    'PAGINATE_BY': 10,
+    'PAGINATE_BY_PARAM': 'page_size',
 }
 
 ROOT_URLCONF = 'chuangplus.urls'
@@ -87,7 +90,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
 TIME_ZONE = 'UTC'
 
@@ -110,7 +113,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.csrf",
-    "account.context_processors.account",
+    #"account.context_processors.account",
 )
 
 AUTHENTICATION_BACKENDS = (

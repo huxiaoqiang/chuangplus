@@ -1,34 +1,34 @@
-<div class="tab-bar">
+<div class="tab-bar regist_invest">
     <div class="width-limited">
-      <a href="/regist_startup"><div class="tab tab-active">我是创业者</div></a>
-      <a href="/regist_invest_auth"><div class="tab">我是投资人</div>
-      <img class="xiaojiao" src="static/img/index/jiao.png"></a>
+      <a href="/regist_startup"><div class="tab">我是创业者</div></a>
+      <a href="/regist_invest_auth"><div class="tab tab-active">我是投资人</div>
+      <img class="xiaojiao-inv" src="static/img/index/jiao.png"></a>
     </div>
   </div>
 <div>
-<div id="container" n	g-controller="RegistInvestAuthCtrl">
+<div id="container" ng-controller="RegistInvestAuthCtrl">
 	<img src="static/img/regist/invest-1.png" id="headimg">
 	<div class="row" id="bg_reg">
 		<div class="col-md-6" id="invest_reg">
 		</div>
-		<div class="col-md-6" >
-			<form class="ui form segment" ng-submit="login_user()" id="login">
+		<div class="col-md-6" id="invest-rrregist">
+			<form class="ui form segment" ng-submit="login_user()" id="invest_auth">
 				<div class="form-group">  
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+				    <div class="input-group" id="1">
+				      <div class="input-group-addon"><i class="icon-building icon-large"></i></div>
 				      <input type="text" class="form-control" id="name" placeholder="投资机构" ng-model="invest.name" required>
 				    </div>
 				</div>
 				<div class="form-group">  
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				    <div class="input-group" id="2">
+				      <div class="input-group-addon"><i class="icon-bookmark-empty icon-large"></i></div>
 				      <input type="text" class="form-control" id="invitecode" placeholder="邀请码" ng-model="invest.invitecode" required>
 				    </div>
 				</div>
 				<error-message error="error"></error-message>
 	        	<input type="submit" value="验证信息" class="button" id="login_button">
 	        	<br/>
-	        	<span>已有账号？请点击</span><a href="/login">登录</a>
+	        	<span style="font-family:'Microsoft YaHei UI'" id="login_link" >已有账号？请点击<a style="font-family:'Microsoft YaHei UI'" href="/login"><font color="#8d5a95">登录</font></a></span>
 	        </form>
 		</div>
 	</div>

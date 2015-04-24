@@ -1,0 +1,23 @@
+<form class="apply-form ui form" ng-submit="feedback()" id="feedback">
+<h3 class="sub-title">用户反馈</h3>
+    <div class="field">
+        <label>反馈内容</label>
+        <div class="ui corner labeled input">
+          <textarea type="text" ng-model="feedback.content" required></textarea>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+    </div>
+	<div class="field">
+        <label>您的邮箱</label>
+        <div class="ui corner labeled input">
+          <input type="email" ng-model="feedback.email" required></textarea>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+    </div>
+    <error-message error="error"></error-message>
+    <input type="submit" class="submit button ui green" value="提交">
+</form>

@@ -59,20 +59,22 @@ angular.module('chuangplus.controllers', []).
             $csrf.set_csrf($scope.startup);
             $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
                 $cookieStore.put("user",$scope.startup.username);
-                $scope.userinfo = {
-                    "role":1,
-                    "name":$scope.startup_regist.username
-                };
-                $csrf.set_csrf($scope.userinfo);
-                $http.post(urls.api+"/data/userinfo/createorupdate/",JSON.stringify($scope.userinfo)).
-                    success(function(data){
-                        console.log("新建用户成功");
-                    }).
-                    error(function(data){
-                        console.log("新建用户失败");
-                    });
                 window.location.href="/regist_startup_finish";
+                // $scope.userinfo = {
+                //     "role": 1,
+                //     "name": $scope.startup_regist.username
+                // };
+                // $csrf.set_csrf($scope.userinfo);
 
+                // $http.post(urls.api+"/data/userinfo/createorupdate/", JSON.stringify($scope.userinfo)).
+                //     success(function(data){
+                //         console.log(data);
+
+                //     }).
+                //     error(function(data){
+                //         console.log(data);
+                //     });
+                console.log("success");
             }).error(function(data,status,headers, config){
                 if (data.email){
                     $scope.error =  $csrf.format_error(data.email[0]);
@@ -80,9 +82,12 @@ angular.module('chuangplus.controllers', []).
                 else if (data.detail){
                     $scope.error =  $csrf.format_error(data.detail);
                 }
+                else if (data.username){
+                    $scope.error =  $csrf.format_error("该用户名已经被注册");
+                }
                 else if (data){
                     $scope.error =  $csrf.format_error(data);
-                };
+                }
                 console.log(data);
             });
         };
@@ -400,7 +405,7 @@ angular.module('chuangplus.controllers', []).
            $csrf.set_csrf($scope.apply_info);
            console.log($scope.apply_info);
            $http.post(urls.api+'/data/project/',JSON.stringify($scope.apply_info)).
-           success(function(data){
+            success(function(data){
                 console.log(data);
                 //上传团队成员信息
                 for(var i = 0; i < $scope.apply_info.member_list.length;i++){

@@ -46,22 +46,44 @@ angular.module('chuangplus.controllers', []).
             });
         };
     }]).
-    controller('RegistStartupCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('RegistStartupCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
         $scope.startup = {};
         $scope.captcha_url = urls.api+'/captcha/image/';
         $scope.startup_regist = function(){
             if($scope.startup.password != $scope.startup.repassword){
                 console.log("请检查您的输入, 两次输入密码不同");
-                //$zmodal.alert('请检查您的输入', '两次输入密码不同');
+                $scope.error =  $csrf.format_error("请检查您的输入, 两次输入密码不同");
                 return;
             }
             $csrf.set_csrf($scope.startup);
             $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
+                $cookieStore.put("user",$scope.startup.username);
+                $scope.userinfo = {
+                    "role":1,
+                    "name":$scope.startup_regist.username
+                };
+                $csrf.set_csrf($scope.userinfo);
+                $http.post(urls.api+"/data/userinfo/createorupdate/",JSON.stringify($scope.userinfo)).
+                    success(function(data){
+                        console.log("新建用户成功");
+                    }).
+                    error(function(data){
+                        console.log("新建用户失败");
+                    });
                 window.location.href="/regist_startup_finish";
+
             }).error(function(data,status,headers, config){
+                if (data.email){
+                    $scope.error =  $csrf.format_error(data.email[0]);
+                }
+                else if (data.detail){
+                    $scope.error =  $csrf.format_error(data.detail);
+                }
+                else if (data){
+                    $scope.error =  $csrf.format_error(data);
+                };
                 console.log(data);
-                alert('failure');
             });
         };
         $scope.refresh=function(){
@@ -75,11 +97,11 @@ angular.module('chuangplus.controllers', []).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');
     }]).
-    controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistInvestAuthCtrl');
+    controller('RegistInvestInfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestInfoCtrl');
     }]).
-    controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistInvestAuthCtrl');
+    controller('RegistInvestFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('RegistInvestFinishCtrl');
     }]).
     controller('LoginCtrl', ['$scope','$cookieStore', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
@@ -89,10 +111,11 @@ angular.module('chuangplus.controllers', []).
             $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
                 .success(function(data){
                     $cookieStore.put("user",$scope.login_info.username);
+                    // $cookieStore.put("userID",);
                     window.location.href="/";
                 })
                 .error(function(data){
-                    console.log(data);
+                    $scope.error = $csrf.format_error(data.non_field_errors[0]);
                 }); 
         };
     }]).
@@ -228,60 +251,189 @@ angular.module('chuangplus.controllers', []).
             window.location.href="/";
          };
     }]).
-    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
         console.log('createproject');
+        // 处理翻页
+        $scope.apply_info = {};
+        $scope.apply_info.field1 = "";
+        $scope.apply_info.field2 = "";
+        $scope.apply_info.field3 = "";
+        $scope.field = [];
+        $scope.fieldCount = 0;
         $scope.tabindex = 1;
         $scope.view_tab = "tab"+$scope.tabindex;
+        $scope.checkboxNum = function(){
+            $scope.fieldCount=0;
+            $scope.field = [];
+            if ($scope.apply_info.area==undefined){
+                return;
+            }
+            else{
+                for (var i in $scope.apply_info.area){
+                if ($scope.apply_info.area[i]){
+                    $scope.fieldCount++;
+                    $scope.field.push(i);
+                }
+            }
+            }
+        }
         $scope.tabnext=function(){
-            $scope.tabindex = $scope.tabindex+1;
-            $scope.view_tab = "tab" + $scope.tabindex;
-        };
+            switch($scope.tabindex)
+            {
+                case 1:
+                if ($scope.basicInfoForm.$valid){
+                    $scope.checkboxNum();
+                    console.log($scope.field);
+                    if ($scope.fieldCount == 0 || $scope.fieldCount>3) {
+                        $scope.error = $csrf.format_error("项目领域个数需在1个到三个之间");
+                        return;
+                    }
+                    else if ($scope.apply_info.type == undefined){
+                        $scope.error = $csrf.format_error("请选择项目类型");
+                    }
+                    else if($scope.apply_info.stage == undefined){
+                        $scope.error = $csrf.format_error("请选择融资情况");
+                    }
+                    else if ($scope.apply_info.logo==undefined){
+                        $scope.error = $csrf.format_error("请上传项目logo");
+                    }
+                    else{
+                        $scope.apply_info.field1 = $scope.field[0];
+                        $scope.apply_info.field2 = $scope.field[1];
+                        $scope.apply_info.field3 = $scope.field[2];                        $scope.tabindex = $scope.tabindex+1;
+                        $scope.view_tab = "tab" + $scope.tabindex;
+                        $csrf.remove_error();
+                    }
+                }
+                else{
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                break;
+                case 2:
+                if($scope.contactInfoForm.$invalid && $scope.contactInfoForm.phoneNumber.$valid && $scope.contactInfoForm.email.$valid){
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                else if ($scope.contactInfoForm.phoneNumber.$invalid){
+                    $scope.error = $csrf.format_error("手机号请填写数字");
+                } 
+                else if ($scope.contactInfoForm.email.$invalid){
+                    $scope.error = $csrf.format_error("请输入正确的邮箱地址");
+                }
+                else if($scope.contactInfoForm.$valid){
+                    $scope.tabindex = $scope.tabindex+1;
+                    $scope.view_tab = "tab" + $scope.tabindex;
+                    $csrf.remove_error();
+                }
+                break;
+                case 3:
+                if($scope.groupMemberForm.$invalid){
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                else{
+                    $scope.tabindex = $scope.tabindex+1;
+                    $scope.view_tab = "tab" + $scope.tabindex;
+                    $csrf.remove_error();
+                }
+                // for (var i =$scope.apply_info.member_list.length - 1; i >= 0; i--) {
+                //     console.log($scope.apply_info.member_list[i]);
+                // }
+                break;
+
+                case 4:
+                if($scope.imageTextForm.$invalid ){
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                else{
+                    $scope.tabindex = $scope.tabindex+1;
+                    $scope.view_tab = "tab" + $scope.tabindex;
+                    $csrf.remove_error();
+                }
+                break;
+
+                case 5:
+                if($scope.planningForm.$invalid){
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                else{
+                    $scope.tabindex = $scope.tabindex+1;
+                    $scope.view_tab = "tab" + $scope.tabindex;
+                    $csrf.remove_error();
+                }
+                break;
+
+                case 6:
+                if($scope.chronicleForm.$invalid ){
+                    $scope.error = $csrf.format_error("请检查您填写的内容是否漏填");
+                }
+                else{
+                    $scope.tabindex = $scope.tabindex+1;
+                    $scope.view_tab = "tab" + $scope.tabindex;
+                    $csrf.remove_error();
+                }
+                break;
+            }
+        }
         $scope.tabprior=function(){
             $scope.tabindex = $scope.tabindex-1;
             $scope.view_tab = "tab" + $scope.tabindex;
-        };
-    }]).
-    controller('Step1Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
-        console.log('Step1Ctrl');
+        }
+        // 处理第一步
         $scope.uploader = new FileUploader();
-        $scope.$watch('apply_info',function(newValue, oldValue){
-            console.log(oldValue);
-            console.log(newValue);
-        });
-    }]).
-    controller('Step3Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
-        console.log('Step3Ctrl');
-        $scope.AvatarUploader = [];
-         // = new FileUploader();
-        $scope.member_list = [];
+        // 处理第三步
+        $scope.apply_info.member_list = [];
         $scope.add_member = function(){
-            $scope.member_list.push({});
-                if ($scope.member_list.length==0){
-            $scope.submit = false;
-            }
-            else{
-                $scope.submit = true;
-            }
+            $scope.apply_info.member_list.push({});
         };
         $scope.del_member = function(member_index){
-            $scope.member_list.splice(member_index, 1);
-                                if ($scope.member_list.length==0) {
-            $scope.submit = false;
-            }
-            else{
-                $scope.submit = true;
-            }
+            $scope.apply_info.member_list.splice(member_index, 1);
         };
-    }]).
-    controller('Step6Ctrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
-        console.log('Step6Ctrl');
-        // $scope.uploader = new FileUploader();
-        $scope.event_list = [];
+        // 处理第四步
+        // 处理第六步
+        $scope.apply_info.event_list = [];
         $scope.add_event = function(){
-            $scope.event_list.push({});
+            $scope.apply_info.event_list.push({});
         };
-        $scope.del_member = function(member_index){
-            $scope.member_list.splice(member_index, 1);
+        $scope.del_event = function(event_index){
+            $scope.apply_info.event_list.splice(event_index, 1);
+        };
+        $scope.create_project=function(){
+           $csrf.set_csrf($scope.apply_info);
+           console.log($scope.apply_info);
+           $http.post(urls.api+'/data/project/',JSON.stringify($scope.apply_info)).
+           success(function(data){
+                console.log(data);
+                //上传团队成员信息
+                for(var i = 0; i < $scope.apply_info.member_list.length;i++){
+                    $scope.apply_info.member_list[i].pro_id = data.id;
+                    $csrf.set_csrf($scope.apply_info.member_list[i]);
+                    $http.post(urls.api+'/data/member/',JSON.stringify($scope.apply_info.member_list[i])).
+                    success(function(memberdata){
+                        console.log("memberdata"+memberdata);
+                    }).
+                    error(function(memberdata){
+                        console.log("memberdata"+memberdata);
+                    });
+                }
+                //上传大事记信息
+                for(var i = 0; i < $scope.apply_info.event_list.length;i++){
+                    $scope.apply_info.event_list[i].pro_id = data.id;
+                    $csrf.set_csrf($scope.apply_info.event_list[i]);
+                    $http.post(urls.api+'/data/post/',JSON.stringify($scope.apply_info.event_list[i])).
+                    success(function(eventdata){
+                        console.log("eventdata"+eventdata);
+                    }).
+                    error(function(eventdata){
+                        console.log("eventdata"+eventdata);
+                    });
+                }
+                //图片上传
+                $scope.uploader.uploadAll();
+                window.location.href="/user/myproject";
+
+           }).
+           error(function(data){
+                console.log(data);
+           });
         };
     }]).
     controller('AboutCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -412,21 +564,32 @@ angular.module('chuangplus.controllers', []).
         }
         ];
     }]).   
-    controller('MyprojectCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('MyprojectCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope,$cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('MyprojectCtrl');
         $scope.view_tab = 'tab1';
         $scope.changeTab = function(tab) {
             $scope.view_tab = tab;
         };
         $scope.createproject=function(){
-            window.location.href="/createproject/step1";
+            window.location.href="/createproject";
         };
         $scope.financing=function(){
             window.location.href="/financingprocess";
+        };
+        $scope.getproject = function(){
+            $scope.user = $cookieStore.get("user");
+            $http.get(urls.api+'/data/userinfo/'+$scope.user+"/").
+            success(function(data){
+
+            });
+            $http.get(urls.api+'/data/project/').
+                success(function(data){
+                }).
+                error();
+
         };
     }]).  
     controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserinfoCtrl');
         $scope.view_tab = 'tab1';
     }]);
-

@@ -8,11 +8,11 @@ import json
 # Create your views here.
 
 def index(request):
-    request.META["CSRF_OOKIE_USED"] = True
+    request.META["CSRF_COOKIE_USED"] = True
     context = {
         'role': request.session.get('role', 1)
     }
-    return render_to_response('index.html', RequestContext(request, context))
+    return render_to_response('index.html', context_instance=RequestContext(request))
 
 def test(request):
     return HttpResponse('test')

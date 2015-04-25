@@ -7,4 +7,140 @@
         <img class="pulldown_text" src="/static/img/index/jiao.png">
       </div>
     </div>
+    <div id="text">
+    	<div class="name">
+    		<span id="sizeh3">
+    			[[projectdetail.name]]
+    		</span>
+    		<span id="sizeh4" ng-repeat="tag in projectdetail.tags">
+				[[tag.name]]
+			</span>
+			<img src="/static/img/projectdetail/guanzhuicon.png" class="img-guanzhuicon">
+			<span id="sizeh5">[[projectdetail.guanzhu]]人关注</span>
+    	</div>
+		<div class="project">
+			<img src="/static/img/projectdetail/logo2.jpg" class="img-square">
+			<table id="projecttext">
+				<tr>
+					<td class="td1"><span class="sizeh6">项目理念</span></td>
+					<td class="td2"><span class="sizeh7">[[projectdetail.philosophy]]</span></td>
+				</tr>
+				<tr>
+					<td class="td1"><span class="sizeh6">项目总览</span></td>
+					<td class="td2"><span class="sizeh7">[[projectdetail.overview]]</span></td>
+				</tr>
+				<tr>
+					<td class="td1"><span class="sizeh6">相关链接</span></td>
+					<td class="td2"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></td>
+				</tr>
+				<tr>
+					<td class="td1"><span class="sizeh6">融资情况</span></td>
+					<td class="td2"><span class="sizeh7">[[projectdetail.financing]]</span></td>
+				</tr>
+			</table>		
+		</div>
+		<div id="rightbar">
+			<img src="/static/img/projectdetail/addattention.png">
+			    <div id="endoftext"></div>
+			<img src="/static/img/projectdetail/addinvite.png">
+			    <div id="endoftext"></div>
+			<img src="/static/img/projectdetail/tocontact.png">
+		</div>
+    </div>
+   	<div id="projectinfo">
+		<div class="info" align="center" ng-click="controlinfo = 'teaminfo'">
+			<div class="info1"></div>
+			<p class="info2">团队介绍</p>
+			<div class="info1"></div>
+		</div>
+		<div class="info" align="center" ng-click="controlinfo = 'productinfo'">
+			<div class="info1"></div>
+			<p class="info2">产品介绍</p>
+			<div class="info1"></div>
+		</div>
+		<div class="info" align="center" ng-click="controlinfo = 'industryanalysis'">
+			<div class="info1"></div>
+			<p class="info2">同行业分析</p>
+			<div class="info1"></div>
+		</div>
+		<div class="info" align="center" ng-click="controlinfo = 'futureplan'">
+			<div class="info1"></div>
+			<p class="info2">未来规划</p>
+			<div class="info1"></div>
+		</div>
+		<div class="info" align="center" ng-click="controlinfo = 'breaknews'">
+			<div class="info1"></div>
+			<p class="info2">项目大事记</p>
+			<div class="info1"></div>
+		</div>
+	</div>
+	<div id="projectcontent">
+		<div ng-show="controlinfo=='teaminfo'">
+			<div id="teammember" ng-repeat="teammember in projectdetail.teammembers">
+				<img src=[[teammember.image]]>
+				<span id="sizeh8">[[teammember.name]]</span>
+				<span id="sizeh9">[[teammember.position]]</span>
+				<span id="sizeh10">[[teammember.introduction]]</span>
+			</div>
+		</div>
+		<div ng-show="controlinfo=='productinfo'" id="productinfo">
+			<span class="sizeh11">产品详细图文介绍</span>
+			<img src=[[projectdetail.introduction]]>
+			<table>
+				<tr>
+					<td><span class="sizeh11">网站链接</span></td>
+					<td><a href=[[projectdetail.link]] class="sizeh12">[[projectdetail.link]]</a></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh11">二维码</span></td>
+					<td><img src=[[projectdetail.code2D]]></td>
+				</tr>
+			</table>
+		</div>
+		<div ng-show="controlinfo=='industryanalysis'" id="industryanalysis">
+			<table>
+				<tr>
+					<td><span class="sizeh11">总体市场分析</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh12">[[projectdetail.marketanalysis]]</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh11">竞争者分析</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh12">[[projectdetail.competitoranalysis]]</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh11">消费者分析</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh12">[[projectdetail.consumeranalysis]]</span></td>
+				</tr>
+			</table>
+		</div>
+		<div ng-show="controlinfo=='futureplan'" id="futureplan">
+			<table>
+				<tr>
+					<td><span class="sizeh11">商业模式</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh12">[[projectdetail.businessmodel]]</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh11">未来规划</span></td>
+				</tr>
+				<tr>
+					<td><span class="sizeh12">[[projectdetail.futureplan]]</span></td>
+				</tr>
+			</table>
+		</div>
+		<div ng-show="controlinfo=='breaknews'" id="breaknew">
+			<div ng-repeat="breaknew in projectdetail.breaknews">
+				<span class="sizeh14">[[breaknew.date]]</span>
+				<span class="sizeh14">[[breaknew.content]]</span>
+				<a href=[[breaknew.link]] class="sizeh14">[[breaknew.link]]</a>
+			</div>
+		</div>
+	</div>
 </div>

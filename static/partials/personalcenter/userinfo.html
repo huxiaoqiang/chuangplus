@@ -1,0 +1,55 @@
+<div class="tab-bar">
+  <div class="width-limited">
+    <a href="/user/myproject"><div class="tab">我的项目</div></a>
+    <a href="/user/userinfo"><div class="tab tab-active">个人信息管理</div>
+    <img class="xiaojiao-inv" src="/static/img/index/jiao.png"></a>
+  </div>
+</div>
+<div id="user">
+	<div class="row">
+		<div class="col-sm-3">
+		    <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+		        <li ng-class="{'active': view_tab == 'tab1'}">
+		            <a class="btn-lg" ng-click="changeTab('tab1')" href="">修改密码</a>
+		        </li>
+		    </ul>
+		</div>
+		<div class="col-sm-9">
+	        <div class="tab-pane" ng-show="view_tab == 'tab1'">
+	            <div id="changepassword">
+	             <form name="form" class="apply-form ui form" ng-submit="changepassword()">
+	            	<h2>修改密码</h2>
+	    	        <div class="field">
+				        <label>旧密码</label>
+				        <div class="ui corner labeled input">
+				          <input type="password" ng-model="password.old" placeholder="旧密码" required>
+				          <div class="ui corner label">
+				            <i class="asterisk icon"></i>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="field">
+				        <label>新密码</label>
+				        <div class="ui corner labeled input">
+				          <input type="password" ng-model="password.new" placeholder="新密码" required>
+				          <div class="ui corner label">
+				            <i class="asterisk icon"></i>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="field">
+				        <label>再次输入新密码</label>
+				        <div class="ui corner labeled input">
+				          <input type="password" ng-model="password.renew" placeholder="再次输入新密码" required>
+				          <div class="ui corner label">
+				            <i class="asterisk icon"></i>
+				          </div>
+				        </div>
+		            </div>
+	        </div>
+	        <input type="submit" class="submit button ui green" value="提交">
+	        </form>
+        </div>
+
+	</div>
+</div>

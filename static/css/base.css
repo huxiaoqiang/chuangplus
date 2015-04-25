@@ -776,9 +776,9 @@ body > #wrap {
   margin-left: 140px;
 }
 #container #bg #login {
-  height: 400px;
+  height: 300px;
   width: 500px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 #container #bg #login .first {
@@ -786,18 +786,23 @@ body > #wrap {
 }
 #container #bg #login .input-group {
   margin-top: 20px;
-  height: 60px;
+  height: 50px;
+}
+#container #bg #login .input-group .input-group-addon {
+  width: 50px;
 }
 #container #bg #login .input-group #username {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login .input-group #password {
-  height: 60px;
+  height: 50px;
+  width: 200%;
 }
 #container #bg #login #login_button {
   margin: 0 auto;
   width: 100%;
-  height: 60px;
+  height: 50px;
   color: white;
   background-color: #8d5a95;
 }
@@ -820,6 +825,9 @@ body > #wrap {
 #container #bg_reg #invest-rrregist {
   margin-top: 40px;
   height: 300px;
+}
+#container #bg_reg #investinfo {
+  margin-top: 40px;
 }
 #container #bg_reg #startup_reg {
   background-image: url(../img/regist/start-up2.png);
@@ -844,6 +852,9 @@ body > #wrap {
   width: 40%;
   margin-top: 68px;
   margin-left: 72px;
+}
+#container #bg_reg #invest_auth {
+  margin-top: 15%;
 }
 #container #bg_reg #invest_reg_finish {
   background-image: url(../img/regist/vc.png);
@@ -871,6 +882,7 @@ body > #wrap {
   margin-left: 35%;
   height: 50%;
 }
+
 #container #bg_reg #finish_check_button {
   margin-top: 30px;
   width: 70%;
@@ -892,6 +904,11 @@ body > #wrap {
 #container #bg_reg #inv_reg_success {
   margin-left: 60px;
   margin-top: 130px;
+
+#container #captcha {
+  width: 100px;
+  margin-top: 10px;
+
 }
 #financingprocess .header {
   width: 100%;
@@ -1354,6 +1371,201 @@ body > #wrap {
   margin: 0 auto;
   display: block;
 }
+#projectdetail #text .name {
+  margin: 0 auto;
+  display: table;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 90px;
+}
+#projectdetail #text .name .img-guanzhuicon {
+  margin-left: 20px;
+}
+#projectdetail #text .name #sizeh3 {
+  font-family: '黑体', 'Arial';
+  color: #777777;
+  text-align: center;
+  font-size: 20px;
+}
+#projectdetail #text .name #sizeh4 {
+  height: 20px;
+  font-family: '黑体', 'Arial';
+  text-align: center;
+  font-size: 12px;
+  background: #926197;
+  border-radius: 4px;
+  padding: 3px;
+  color: #FFFFFF;
+  margin: 3px;
+  margin-bottom: 3px;
+}
+#projectdetail #text .name #sizeh5 {
+  font-family: '黑体', 'Arial';
+  color: #777777;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 20px;
+}
+#projectdetail #text .project {
+  position: relative;
+  background: url(../img/projectdetail/bg.jpg) no-repeat;
+  background-size: cover;
+  height: 418px;
+}
+#projectdetail #text .project img {
+  width: 338px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  margin-left: 90px;
+}
+#projectdetail #text .project #projecttext {
+  position: absolute;
+  left: 460px;
+  top: 40px;
+}
+#projectdetail #text .project #projecttext .td1 {
+  width: 80px;
+}
+#projectdetail #text .project #projecttext .td1 .sizeh6 {
+  font-family: '黑体', 'Arial';
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+}
+#projectdetail #text .project #projecttext .td2 {
+  width: 565px;
+}
+#projectdetail #text .project #projecttext .td2 .sizeh7 {
+  font-family: '黑体', 'Arial';
+  color: #e1e1e1;
+  text-align: center;
+  font-size: 16px;
+}
+#projectdetail #text #rightbar {
+  position: absolute;
+  right: 90px;
+  top: 232px;
+  background-color: #959595;
+  height: 300px;
+  width: 90px;
+}
+#projectdetail #projectinfo {
+  position: relative;
+  left: 90px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 20px;
+}
+#projectdetail #projectinfo .info {
+  width: 240px;
+  height: 80px;
+  background-color: #8e5a96;
+  float: left;
+  cursor: pointer;
+  font-family: 微软雅黑;
+  color: white;
+}
+#projectdetail #projectinfo .info .info1 {
+  width: 50px;
+  height: 46px;
+  float: left;
+}
+#projectdetail #projectinfo .info .info2 {
+  width: auto;
+  text-align: center;
+  margin-top: 25px;
+  float: left;
+  font-size: 20px;
+  font-family: 微软雅黑;
+  color: #FFFFFF;
+}
+#projectdetail #projectcontent {
+  margin-left: 90px;
+  width: 1200px;
+  background-color: #e1e1e1;
+}
+#projectdetail #projectcontent #teammember {
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+#projectdetail #projectcontent #teammember #sizeh8 {
+  font-size: 18px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #teammember #sizeh9 {
+  font-size: 14px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #teammember #sizeh10 {
+  font-size: 16px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #productinfo {
+  margin-top: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+#projectdetail #projectcontent #productinfo .sizeh11 {
+  font-size: 24px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #productinfo .sizeh12 {
+  font-size: 16px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #industryanalysis {
+  margin-top: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+#projectdetail #projectcontent #industryanalysis .sizeh11 {
+  font-size: 24px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #industryanalysis .sizeh12 {
+  font-size: 16px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #futureplan {
+  margin-top: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+#projectdetail #projectcontent #futureplan .sizeh11 {
+  font-size: 24px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #futureplan .sizeh12 {
+  font-size: 16px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #breaknew {
+  margin-top: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+#projectdetail #projectcontent #breaknew .sizeh13 {
+  font-size: 24px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #breaknew .sizeh14 {
+  font-size: 16px;
+  color: #777777;
+  font-family: 微软雅黑;
+}
 #feedback {
   width: 60%;
   display: block;
@@ -1367,3 +1579,11 @@ body > #wrap {
 #feedback .button {
   margin-left: 44%;
 }
+
+#user {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
+}
+

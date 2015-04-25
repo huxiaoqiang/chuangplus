@@ -25,24 +25,22 @@
 						<li id="projectlibrary">
 							<a href="/library">项目库</a>
 						</li>
-						<li id="internship">
+<!-- 						<li id="internship">
 							<a href="/internship">创业实习</a>
-						</li>
+						</li> -->
 					</ul>
                 </div>
                 <div class="user-info block right" ng-controller="UserCtrl">
 			      <div class="level-1">
-			        {% if user.is_authenticated %}
-			        <a class="item" href="/user/project_list">{{user.username}}</a>&nbsp;&nbsp;&nbsp;
-			        {% if role == 0 %}
-			        <a class="item" href="/manager/projects">管理</a>&nbsp;&nbsp;&nbsp;
-			        {% endif %}
-			        <a class="item" ng-click="logout()">注销</a>
-			        {% else %}
-			        <a class="item" href="/login">登录</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
-			        <a class="item" href="/regist_startup">注册</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
-			        <a class="item" href="/adminlogin">管理员登录</a>
-			        {% endif %}
+			        <div ng-show="login">
+			        	<a class="item" href="/user/myproject">[[user]]</a>&nbsp;&nbsp;&nbsp;
+			        	<a class="item" href="#" ng-click="logout()">注销</a>
+			        </div>
+			        
+			        <div ng-show = "!login">
+			      		<a class="item" href="/login">登录</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;
+			        	<a class="item" href="/regist_startup">注册</a>&nbsp;&nbsp;&nbsp;
+			        </div>
 			      </div>
 			      <div class="level-2">
 			        <form action="/project_list" method="get">

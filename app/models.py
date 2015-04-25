@@ -83,4 +83,5 @@ class image(models.Model):
     text = models.CharField(max_length=60)
     link = models.CharField(max_length=250)
     date = models.DateField()
+
 """

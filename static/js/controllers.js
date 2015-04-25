@@ -455,6 +455,7 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('projectdetailTextCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('projectdetailTextCtrl');
+        $scope.controlinfo = "teaminfo";
         $scope.projectdetail = {
             name:"我是一个项目而且这是我的名字",
             philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",

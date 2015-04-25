@@ -465,7 +465,25 @@ angular.module('chuangplus.controllers', []).
             ],
             financing: "天使轮",
             guanzhu:"888",
-            overview:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio."
+            link:"http://www.woyaomaishuiguo.com",
+            overview:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            teammembers:[
+                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CEO",introduction:"王自如，ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CTO",introduction:"王自如，ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CMO",introduction:"王自如，ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+            ],
+            introduction:"/static/img/projectdetail/introduction.png",
+            code2D:"/static/img/projectdetail/2Dcode.png",
+            marketanalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            competitoranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            consumeranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            businessmodel:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            futureplan:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+            breaknews:[
+                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+            ],
         };
     }]).
     controller('projectdetailJoinusCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){

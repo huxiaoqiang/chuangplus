@@ -20,7 +20,7 @@
 				      </span>
 				      </div>
 
-				      <input type="text" class="form-control" id="username" placeholder="输入用户名" ng-model="login_info.username" required>
+				      <input type="username" class="form-control" id="username" placeholder="输入用户名" ng-model="login_info.username" required>
 				    
 				    </div>
 
@@ -29,17 +29,11 @@
 				<div class="form-group">  
 				    
 				    <div class="input-group">
-
-				      
-				      <div class="input-group-addon">
-				      <span class="glyphicon glyphicon-lock" aria-hidden="true">
-				      </span>
-				      </div>
-				     
-				      <input type="text" class="form-control" id="password" placeholder="输入密码" ng-model="login_info.password" required>	
 				    
 
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				      <div class="input-group-addon">
+				      <span class="glyphicon glyphicon-lock" aria-hidden="true">
+				      </span></div>
 				      <input type="password" class="form-control" id="password" placeholder="输入密码" ng-model="login_info.password" required>	
 
 				    </div>
@@ -47,13 +41,14 @@
 				</div>
 			
 				<error-message error="error"></error-message>
-	        	<input type="submit" value="登录" class="button" id="login_button">
+				<button id="login_button"><font face="Microsoft YaHei UI">登录</font><img src='/static/img/regist/narrow.png'></button>
+	        	<!--<input type="submit" value="登录" class="button" id="login_button">-->
 	        	<br/>
 
-	        	<span style="font-family:'Microsoft YaHei UI'" id="regist_link" >没有账号，请点击
+	        	<span style="font-family:'Microsoft YaHei UI'" id="regist_link">没有账号，请点击
 	        	<a style="font-family:'Microsoft YaHei UI'" href="/regist"><font color="#8d5a95">注册</font></a></span>
 
-	        	<span>没有账号，请点击</span><a href="/regist_startup">注册</a>
+	        	
 
 	        </form>
 		</div>

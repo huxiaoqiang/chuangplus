@@ -882,7 +882,6 @@ body > #wrap {
   margin-left: 35%;
   height: 50%;
 }
-
 #container #bg_reg #finish_check_button {
   margin-top: 30px;
   width: 70%;
@@ -904,11 +903,10 @@ body > #wrap {
 #container #bg_reg #inv_reg_success {
   margin-left: 60px;
   margin-top: 130px;
-
+}
 #container #captcha {
   width: 100px;
   margin-top: 10px;
-
 }
 #financingprocess .header {
   width: 100%;
@@ -1585,11 +1583,9 @@ body > #wrap {
 #feedback .button {
   margin-left: 44%;
 }
-
 #user {
   width: 80%;
   margin: 0 auto;
   display: block;
   margin-top: 25px;
 }
-

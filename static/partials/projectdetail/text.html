@@ -20,22 +20,22 @@
     	</div>
 		<div class="project">
 			<img src="/static/img/projectdetail/logo2.jpg" class="img-square">
-			<table id="projecttext">
+			<table style="width:660px;height:350px" id="projecttext">
 				<tr>
-					<td class="td1"><span class="sizeh6">项目理念</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.philosophy]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目理念</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.philosophy]]</span></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">项目总览</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.overview]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目总览</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span  class="sizeh7">[[projectdetail.overview]]</span></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">相关链接</span></td>
-					<td class="td2"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">相关链接</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">融资情况</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.financing]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">融资情况</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.financing]]</span></div></td>
 				</tr>
 			</table>		
 		</div>
@@ -80,13 +80,12 @@
 				<img src=[[teammember.image]]>
 				<span id="sizeh8">[[teammember.name]]</span>
 				<span id="sizeh9">[[teammember.position]]</span>
-				<span id="sizeh10">[[teammember.introduction]]</span>
+				<div id="sizeh10"><span>[[teammember.introduction]]</span></div>
 			</div>
 		</div>
 		<div ng-show="controlinfo=='productinfo'" id="productinfo">
-			<span class="sizeh11">产品详细图文介绍</span>
+			<div class="sizeh11"><span>产品详细图文介绍</span></div>
 			<img src=[[projectdetail.introduction]]>
-			<table>
 				<tr>
 					<td><span class="sizeh11">网站链接</span></td>
 					<td><a href=[[projectdetail.link]] class="sizeh12">[[projectdetail.link]]</a></td>

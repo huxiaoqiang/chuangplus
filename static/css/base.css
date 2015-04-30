@@ -1450,13 +1450,11 @@ body > #wrap {
   width: 90px;
 }
 #projectdetail #projectinfo {
-  position: relative;
-  left: 90px;
+  width: 1200px;
   background-color: rgba(255, 255, 255, 0.3);
-  margin-top: 20px;
-  width: 80%;
   margin: 0 auto;
   dispaly: block;
+  padding-top: 20px;
 }
 #projectdetail #projectinfo .info {
   width: 240px;
@@ -1482,43 +1480,63 @@ body > #wrap {
   color: #FFFFFF;
 }
 #projectdetail #projectcontent {
-  margin-left: 90px;
   width: 1200px;
   background-color: #e1e1e1;
-  width: 80%;
   margin: 0 auto;
+  margin-top: 80px;
+  padding-top: 1px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   dispaly: block;
 }
 #projectdetail #projectcontent #teammember {
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 40px;
-  padding-bottom: 40px;
+  background-color: #FFFFFF;
+  margin-top: 20px;
+  padding: 30px;
+}
+#projectdetail #projectcontent #teammember img {
+  position: relative;
+  left: 0;
+  top: 0;
 }
 #projectdetail #projectcontent #teammember #sizeh8 {
+  position: relative;
+  left: 20px;
+  top: -15px;
   font-size: 18px;
   color: #777777;
   font-family: 微软雅黑;
 }
 #projectdetail #projectcontent #teammember #sizeh9 {
+  position: relative;
+  left: -37px;
+  top: 13px;
   font-size: 14px;
   color: #777777;
   font-family: 微软雅黑;
 }
 #projectdetail #projectcontent #teammember #sizeh10 {
+  padding-bottom: 30px;
+  width: 100%;
+  position: relative;
+  left: 0px;
+  top: 20px;
   font-size: 16px;
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #productinfo {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
 #projectdetail #projectcontent #productinfo .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
+}
+#projectdetail #projectcontent #productinfo img {
+  background-color: #FFFFFF;
+  padding: 10px;
 }
 #projectdetail #projectcontent #productinfo .sizeh12 {
   font-size: 16px;

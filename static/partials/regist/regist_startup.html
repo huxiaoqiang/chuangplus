@@ -10,35 +10,35 @@
 	 <div class="row" id="bg_reg">
 		<div class="col-md-6" id="startup_reg">
 		</div>
-		<div class="col-md-6" >
+		<div class="col-md-6" id="startup-rrregist">
 			<form class="ui form segment" ng-submit="startup_regist()">
 				<div class="form-group">  
 				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+				      <div class="input-group-addon"><i class="icon-user icon-large"></i></div>
 				      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="startup.username" required>
 				    </div>
 				</div>
 				<div class="form-group">  
 				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+				      <div class="input-group-addon"><i class="icon-envelope icon-large"></i></div>
 				      <input type="text" class="form-control" id="email" placeholder="邮箱" ng-model="startup.email" required>
 				    </div>
 				</div>
 				<div class="form-group">  
 				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				      <div class="input-group-addon"><i class="icon-key icon-large"></i></div>
 				      <input type="password" class="form-control" id="password" placeholder="密码" ng-model="startup.password" required>	
 				    </div>
 				</div>
 				<div class="form-group">  
 				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				      <div class="input-group-addon"><i class="icon-key icon-large"></i></div>
 				      <input type="password" class="form-control" id="password" placeholder="再次输入密码" ng-model="startup.repassword" required>	
 				    </div>
 				</div>
 				<div class="form-group">  
 				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+				      <div class="input-group-addon"><i class="icon-picture icon-large"></i></div>
 				      <input type="text" class="form-control" id="password" placeholder="验证码" ng-model="startup.captcha" required>
 				    </div>
 				    <img ng-src='[[captcha_url]]' id="captcha" alt="验证码">
@@ -46,7 +46,8 @@
 				    <button type="button" ng-click="refresh()" class="btn btn-link">看不清？刷新验证码</button>
 				</div>
 				<error-message error="error"></error-message>
-	        	<input type="submit" value="注册" class="button" id="regist_button">
+	        	<button id="regist_button"><font face="Microsoft YaHei UI">注册</font><img src='/static/img/regist/narrow.png'></button>
+	        	<!--<input type="submit" value="注册" class="button" id="regist_button">-->
 	        	<br/>
 	        </form>
 		</div>

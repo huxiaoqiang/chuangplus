@@ -90,7 +90,7 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 ```
 #### 新建一个 project
 如果使用 POST 方法把一个 project 数据以 json 的形式推到这个 url，将会建立一条新数据。如果成功则返回该数据本身，包括 id。
-### /api/data/project/[id]
+### /api/data/project/[id]/
 访问、修改或删除索引为 id 的项目。
 #### 后缀
 同列表一样，当以 GET 方式访问时，在 url 后添加后缀可选择返回格式。

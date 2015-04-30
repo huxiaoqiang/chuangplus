@@ -1,0 +1,347 @@
+<div class="project-apply">
+  <h2 class="page-header">创建你的项目</h2>
+  <form name="createprojectForm" class="apply-form ui form" ng-submit="create_project()">
+  <!-- 步骤一 基本信息 -->
+      <div ng-form="basicInfoForm" ng-show="view_tab == 'tab1'">
+        <h3 class="sub-title">step1：基本信息</h3>
+        <div class="sub-form">
+          <div class="field">
+            <label>项目名称</label>
+            <div class="ui corner labeled input">
+              <input name="projectName" type="text" ng-model="apply_info.name" placeholder="不超过8个字" required>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>项目理念</label>
+            <div class="ui corner labeled input">
+              <input name="projectValue" type="text" ng-model="apply_info.slogan" placeholder="不超过20字" required>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field" id="area">
+            <label>项目领域</label>
+            <div class="row">
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.game" ><label>游戏</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.social" ><label>社交</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.ebusiness" ><label>电子商务</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.media" ><label>媒体</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.education" ><label>教育</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.health" ><label>健康医疗</label></div>		  
+    		</div>
+    		<div class="row">
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.search" ><label>搜索安全</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.PE" ><label>体育</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.financial" ><label>金融</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.travel" ><label>旅游</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.culture" ><label>文化艺术</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.livingConsumption" ><label>生活消费</label></div>	
+    		</div>
+    		<div class="row">
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.tools"><label>工具</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.hardware"><label>硬件</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.housingAuto"><label>房产汽车</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.energyMaterials "><label>能源材料</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.enterpriseService"><label>企业服务</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.stationAgentTools"><label>站长工具</label></div>	
+    		</div>
+    		<div class="row">
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.entrepreneurServices"><label>创业服务</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.marketingCampaign"><label>营销广告</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.mobileInternet"><label>移动互联网</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.videoEntertainment"><label>视频娱乐</label></div>
+    		  <div class="col-md-2"><input type="checkbox" ng-model="apply_info.area.others"><label>其他</label></div>
+    		</div>
+    	</div>
+
+          <div class="field" id="type">
+            <label>项目类型</label>
+              <div class="row">
+    		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="entityProduct"><label>实体产品</label></div>
+    		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="onlineProduct"><label>线上产品</label></div>
+    		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="offlineProduct"><label>线下服务</label></div>
+    		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="O2O"><label>O2O</label></div>
+    		  <div class="col-md-2"><input type="radio" ng-model="apply_info.type" value="others"><label>其他</label></div>
+    		</div>
+          </div>
+
+          <div class="field">
+            <label>项目总览</label>
+            <div class="ui left labeled input">
+              <textarea ng-model="apply_info.summary" placeholder="任意长度" required></textarea>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>项目所在地</label>
+            <div class="ui corner labeled input">
+              <input type="text" ng-model="apply_info.province" placeholder="项目所在地" required>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>融资情况</label>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="angel"><label>天使轮</label></div>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Around"><label>A轮</label></div>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Bround"><label>B轮</label></div>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Cround"><label>C轮</label></div>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Dround"><label>D轮</label></div>
+            <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="others"><label>上市</label></div>
+
+          </div>
+
+            <div class="field">
+          	    <label>项目logo</label>
+            	<input type="file" ng-model="apply_info.logo" nv-file-select uploader="uploader" required><br/>
+          	</div>
+        </div>
+        <error-message error="error"></error-message>
+        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+        </div>
+
+<!-- 步骤2 团队联系人信息 -->
+    <div ng-form="contactInfoForm" ng-show="view_tab == 'tab2'">
+          <h3 class="sub-title">step2:团队联系人信息</h3> 
+        <div class="sub-form">
+          <div class="field">
+            <div class="field">
+              <label>姓名</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="apply_info.contact_name" placeholder="姓名" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>职位</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="apply_info.contactInfoPosition" placeholder="职位" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+            <div class="field">
+              <label>手机号</label>
+              <div class="ui left labeled input">
+                <input name="phoneNumber" type="phone" ng-model="apply_info.contact_phone" placeholder="手机号" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>邮箱</label>
+              <div class="ui left labeled input">
+                <input name="email" type="email" ng-model="apply_info.contact_email" placeholder="邮箱" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>微信号</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="apply_info.contact_weixin" placeholder="微信号" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+        <error-message error="error"></error-message>
+        </div>
+
+        <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+    </div>
+
+<!-- 第三步，建立团队成员 -->
+    <div ng-form="groupMemberForm" ng-show="view_tab == 'tab3'">
+         <span>
+          <h3 class="sub-title">团队成员
+            <input type="button" class="submit button ui green" ng-click="add_member()" value="添加新成员">  
+          </h3>    
+         </span>
+      <div ng-repeat="member_info in apply_info.member_list">
+        <div class="sub-form ui segment">
+            <div class="field">
+              <label>姓名</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.m_name" placeholder="成员姓名" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>头像</label>
+              <input ng-model="member_info.m_head_path"  type="file" nv-file-select uploader="uploader" required><br/>
+            </div>
+
+            <div class="field">
+              <label>职位</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="member_info.m_title" placeholder="成员职位" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+
+          <div class="field">
+            <label>职位简介</label>
+            <div class="ui corner labeled input">
+              <textarea ng-model="member_info.introduction" placeholder="成员职位简介（100字左右）" required></textarea>
+              <div class="ui corner label">
+                <i class="asterisk icon"></i>
+              </div>
+            </div>
+          </div>
+          <input type="botton" class="ui button red" ng-click="show=!show" value="删除">
+          <div ng-init="show=false" class="alert alert-danger alert-dismissible fade in" role="alert" ng-show="show">
+            <h4 id="oh-snap!-you-got-an-error!">确认删除？</h4>
+            <button type="button" class="btn btn-danger" ng-click="del_member(member_info)">确认</button>
+            <button type="button" class="btn btn-default" ng-click="show=!show">取消</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    
+    <error-message error="error"></error-message>
+    </br>
+    <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+    <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+    </div>
+
+    <!-- 第四步：产品/服务图文介绍 -->
+    <div ng-form="imageTextForm" ng-show="view_tab == 'tab4'">
+        <h3 class="sub-title">产品/服务图文介绍</h3>
+      <div class="sub-form">
+      <div class="field">
+        <label>图文介绍</label>
+            <input type="file" nv-file-select uploader="uploader" required><br/>
+      </div>
+
+      <div class="field">
+          <label>相关链接</label>
+          <div class="ui corner labeled input">
+            <input type="text" ng-model="apply_info.link" placeholder="相关链接" required>
+            <div class="ui corner label">
+              <i class="asterisk icon"></i>
+            </div>
+          </div>
+        </div>
+
+      <div class="field">
+        <label>项目相关二维码</label>
+            <input ng-model="apply_info.qrcode" type="file" nv-file-select uploader="uploader" required><br/>
+      </div>
+      <label>保密说明：本部分只对投资人可见</label></br>
+      <error-message error="error"></error-message>
+        <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+      </div>
+    </div>
+
+<!-- 第五步：未来规划 -->
+    <div ng-form="planningForm" ng-show="view_tab == 'tab5'">
+         <h3 class="sub-title">step5：未来规划</h3>
+    <div class="sub-form">
+      <div class="field">
+        <label>商业模式</label>
+        <div class="ui left labeled input">
+          <textarea ng-model="apply_info.business_model" placeholder="商业模式（100字）" required></textarea>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>短/中/长期规划</label>
+        <div class="ui left labeled input">
+          <textarea ng-model="apply_info.plan" placeholder="规划（100字）"></textarea>
+        </div>
+      </div>
+    </div>
+    <label>保密说明：本部分只对投资人可见</label></br>
+    <error-message error="error"></error-message>
+    <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+    <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+    </div>
+
+<!-- 第六步：项目大事记 -->
+    <div ng-form="chronicleForm" ng-show="view_tab == 'tab6'">
+     <h3 class="sub-title">项目大事记
+        <input type="button" class="submit button ui green" ng-click="add_event()" value="添加事件">
+     </h3>
+
+      <div ng-repeat="event in apply_info.event_list">
+        <div class="sub-form ui segment">
+            <div class="field">
+              <label>事件日期</label>
+              <div class="ui left labeled input">
+                <input type="date" separator="/" min-date="2014-01-01" limit="1 day" ng-model="event.date" placeholder="事件日期" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>事件标题</label>
+              <div class="ui left labeled input">
+                <input type="text" ng-model="event.title" placeholder="事件标题" required>
+                <div class="ui corner label">
+                  <i class="asterisk icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+                <label>事件内容</label>
+                <div class="ui left labeled input">
+                  <textarea ng-model="event.content" placeholder="事件内容" required></textarea>
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>事件链接</label>
+                <div class="ui left labeled input">
+                  <textarea ng-model="event.link" placeholder="事件链接，没有则不填" required></textarea>
+                </div>
+            </div>
+            <div class="field">
+              <label>相关图片</label>
+              <input ng-model="event.image_path"  type="file" nv-file-select uploader="uploader" required><br/>
+            </div>
+          <input type="botton" class="ui button red" ng-click="show=!show" value="删除">
+          <div ng-init="show=false" class="alert alert-danger alert-dismissible fade in" role="alert" ng-show="show">
+            <h4 id="oh-snap!-you-got-an-error!">确认删除？</h4>
+            <button type="button" class="btn btn-danger" ng-click="del_event(event)">确认</button>
+            <button type="button" class="btn btn-default" ng-click="show=!show">取消</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <error-message error="error"></error-message>
+      <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+      <input type="submit" class="submit button ui green" value="提交项目申请">
+    </div>
+    </form>
+</div>

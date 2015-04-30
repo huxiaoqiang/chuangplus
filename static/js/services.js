@@ -8,6 +8,7 @@
 angular.module('chuangplus.services', []).
     value('version', '0.1').
     service('CsrfService', ['$cookies' ,function($cookies){
+        var error = {};
         return {
             'val': function() {
                 return $cookies.csrftoken;
@@ -18,14 +19,13 @@ angular.module('chuangplus.services', []).
             'set_csrf_array': function(data){
                 data.push({'csrfmiddlewaretoken': $cookies.csrftoken});
             },
-            'format_error': function(error) {
-                if(error.code == 1){
-                    error.type = 'success';
-                }else{
-                    error.type = 'danger';
-                }
+            'format_error': function(err) {
                 error.show = true;
+                error.message = err;
                 return error;
+            },
+            'remove_error':function(){
+                error.show = false;
             }
         };
     }]).

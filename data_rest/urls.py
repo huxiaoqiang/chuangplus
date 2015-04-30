@@ -6,8 +6,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^userinfo/(?P<username>.+)/$', views.userinfo_retrieve),
     url(r'^userinfo/createorupdate/$', views.userinfo_create_or_update),
+    url(r'^userinfo/(?P<username>.+)/$', views.userinfo_retrieve),
 
     url(r'^project/$', views.ProjectList.as_view()),
     url(r'^project/(?P<pk>[0-9]+)/$', views.ProjectDetail.as_view()),

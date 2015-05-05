@@ -66,14 +66,6 @@ angular.module('chuangplus', [
 
         
         $routeProvider.when('/createproject', {templateUrl: urls.part + '/createproject.html', controller: 'createproject', title: 'createproject'});
-        //createproject pages
-        $routeProvider.when('/createproject/step1', {templateUrl: urls.part + '/createproject/step1.html', controller: 'Step1Ctrl', title: 'Step1'});
-        $routeProvider.when('/createproject/step2', {templateUrl: urls.part + '/createproject/step2.html', controller: 'Step2Ctrl', title: 'Step2'});
-        $routeProvider.when('/createproject/step3', {templateUrl: urls.part + '/createproject/step3.html', controller: 'Step3Ctrl', title: 'Step3'});
-        $routeProvider.when('/createproject/step4', {templateUrl: urls.part + '/createproject/step4.html', controller: 'Step4Ctrl', title: 'Step4'});
-        $routeProvider.when('/createproject/step5', {templateUrl: urls.part + '/createproject/step5.html', controller: 'Step5Ctrl', title: 'Step5'});
-        $routeProvider.when('/createproject/step6', {templateUrl: urls.part + '/createproject/step6.html', controller: 'Step6Ctrl', title: 'Step6'});
-        
         // staticpage of "aboutus"
         $routeProvider.when('/about', {templateUrl: urls.part + '/staticpage/about.html', controller: 'AboutCtrl', title: 'AboutPage'});
         $routeProvider.when('/coffee', {templateUrl: urls.part + '/staticpage/coffee.html', controller: 'coffeeCtrl', title: 'coffeePage'});

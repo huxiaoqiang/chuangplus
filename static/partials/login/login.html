@@ -4,61 +4,32 @@
 			<p><font face="Microsoft YaHei UI" color="#777777" size="6">创加   |   </font>
 			<font face="Microsoft YaHei UI" color="#8d5a95" size="6">登录</font></p>	
 		</div>
-		<div class="col-md-6" id="lllogin">
-
-
-			<form class="ui form segment" ng-submit="login_user()" id="login">
-				
+		<div class="col-md-6" id="login">
+			<form class="ui form segment" ng-submit="login_user()">
 				<div class="form-group">  
-				   
-				    <div class="input-group" class="first">
-				     
-				      <div class="input-group-addon">
-				      <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-				      </span>
-				      </div>
-
-				      <input type="username" class="form-control" id="username" placeholder="输入用户名" ng-model="login_info.username" required>
-				    
-
-			<form class="ui form segment" ng-submit="login_user()" id="login">	
-				<div class="form-group">
-					<div class="input-group">
-				      <div class="input-group-addon"><i class="icon-user icon-large"></i></div>
-				      <input type="text" class="form-control" id="username" placeholder="输入用户名" ng-model="login_info.username" required>
-
-				    </div>
-				</div>	
-				<div class="form-group">  		    
 				    <div class="input-group">
-
-				    
-
-				      <div class="input-group-addon">
-				      <span class="glyphicon glyphicon-lock" aria-hidden="true">
-				      </span></div>
-				      <input type="password" class="form-control" id="password" placeholder="输入密码" ng-model="login_info.password" required>	
-
-
-				 	    <div class="input-group-addon"><i class="icon-key icon-large"></i></div>
-				      	<input type="password" class="form-control" id="password" placeholder="输入密码" ng-model="login_info.password" required>	
-
+				      <div class="input-group-addon"><i class="icon-user icon-large"></i></div>
+				      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="login_info.username" required>
 				    </div>
 				</div>
+				<div class="form-group">  
+				    <div class="input-group">
+				      <div class="input-group-addon"><i class="icon-key icon-large"></i></div>
+				      <input type="password" class="form-control" id="password" placeholder="密码" ng-model="login_info.password" required>	
+				    </div>
+				</div>
+				<div class="form-group">  
+				    <div class="input-group">
+				      <div class="input-group-addon"><i class="icon-picture icon-large"></i></div>
+				      <input type="text" class="form-control" id="username" placeholder="验证码" ng-model="startup.captcha" required>
+				    </div>
+				    <img ng-src='[[captcha_url]]' id="captcha" alt="验证码">
+
+				    <button type="button" ng-click="refresh()" class="btn btn-link">看不清？刷新验证码</button>
+				</div>
 				<error-message error="error"></error-message>
-				<button id="login_button"><font face="Microsoft YaHei UI">登录</font><img src='/static/img/regist/narrow.png'></button>
-	        	<!--<input type="submit" value="登录" class="button" id="login_button">-->
+	        	<button id="login_button"><font face="Microsoft YaHei UI">登录</font><i class="icon-circle-arrow-right"></i></button>
 	        	<br/>
-
-	        	<span style="font-family:'Microsoft YaHei UI'" id="regist_link">没有账号，请点击
-	        	<a style="font-family:'Microsoft YaHei UI'" href="/regist"><font color="#8d5a95">注册</font></a></span>
-
-	        	
-
-
-	        	<span style="font-family:'Microsoft YaHei UI'" id="regist_link" >没有账号，请点击
-	        	<a style="font-family:'Microsoft YaHei UI'" href="/regist_startup"><font color="#8d5a95">注册</font></a></span>
-
 	        </form>
 		</div>
 	</div>

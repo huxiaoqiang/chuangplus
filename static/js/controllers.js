@@ -26,29 +26,10 @@ angular.module('chuangplus.controllers', []).
         {image: "/static/img/index/bannerslide2.jpg"}
       ];
     }]).
-    controller('LoginCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('LoginCtrl');
-        $scope.login_info = {};
-        $scope.login_user = function(){
-            $csrf.set_csrf($scope.login_info);
-            $http.post('/account/login', JSON.stringify($scope.login_info)).success(function(data){
-                console.log(data);
-            //     if(data.error.code != 1){
-            //         $scope.error = $csrf.format_error(data.error);
-            //     }else{
-            //         if ($user.isFromProject()){
-            //             window.location.href="/project_apply";
-            //          }
-            //         else{
-            //             window.location.href="/";
-            //         }
-            //     }
-            });
-        };
-    }]).
     controller('RegistStartupCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupCtrl');
         $scope.startup = {};
+        $scope.flag = false;
         $scope.captcha_url = urls.api+'/captcha/image/';
         $scope.startup_regist = function(){
             if($scope.startup.password != $scope.startup.repassword){
@@ -59,22 +40,8 @@ angular.module('chuangplus.controllers', []).
             $csrf.set_csrf($scope.startup);
             $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
                 $cookieStore.put("user",$scope.startup.username);
-                window.location.href="/regist_startup_finish";
-                // $scope.userinfo = {
-                //     "role": 1,
-                //     "name": $scope.startup_regist.username
-                // };
-                // $csrf.set_csrf($scope.userinfo);
+                $scope.putuserinfo();
 
-                // $http.post(urls.api+"/data/userinfo/createorupdate/", JSON.stringify($scope.userinfo)).
-                //     success(function(data){
-                //         console.log(data);
-
-                //     }).
-                //     error(function(data){
-                //         console.log(data);
-                //     });
-                console.log("success");
             }).error(function(data,status,headers, config){
                 if (data.email){
                     $scope.error =  $csrf.format_error(data.email[0]);
@@ -94,6 +61,21 @@ angular.module('chuangplus.controllers', []).
         $scope.refresh=function(){
             $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
+        $scope.putuserinfo=function(){
+            $scope.userinfo = {
+                role:"1",
+                name: $scope.startup.username
+            }
+            $csrf.set_csrf($scope.userinfo);
+            $http.post(urls.api+"/data/userinfo/createorupdate/",JSON.stringify($scope.userinfo)).
+            success(function(data){
+                console.log(data);
+                window.location.href="/regist_startup_finish";
+            }).
+            error(function(data){
+                console.log(data);
+            });
+        };
     }]).
     controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistStartupFinishCtrl');
@@ -111,6 +93,10 @@ angular.module('chuangplus.controllers', []).
     controller('LoginCtrl', ['$scope','$cookieStore', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('LoginCtrl');
         $scope.login_info = {};
+        $scope.captcha_url = urls.api+'/captcha/image/';
+        $scope.refresh=function(){
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
+        };
         $scope.login_user = function(){
             $csrf.set_csrf($scope.login_info);
             $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
@@ -120,6 +106,7 @@ angular.module('chuangplus.controllers', []).
                     window.location.href="/";
                 })
                 .error(function(data){
+                    console.log(data);
                     $scope.error = $csrf.format_error(data.non_field_errors[0]);
                 }); 
         };
@@ -210,7 +197,8 @@ angular.module('chuangplus.controllers', []).
                 ]
             }
         ];
-        $scope.projects=[
+        // $scope.getproject
+        $scope.projects =[
         {
             image:"/static/img/index/inacup_pumpkin.jpg",
             projectName:"我是一个项目",
@@ -434,7 +422,6 @@ angular.module('chuangplus.controllers', []).
                 //图片上传
                 $scope.uploader.uploadAll();
                 window.location.href="/user/myproject";
-
            }).
            error(function(data){
                 console.log(data);
@@ -610,10 +597,13 @@ angular.module('chuangplus.controllers', []).
                 success(function(data){
                 }).
                 error();
-
         };
+        $scope.getproject();
     }]).  
     controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserinfoCtrl');
         $scope.view_tab = 'tab1';
+        $scope.changeTab = function(tab) {
+            $scope.view_tab = tab;
+        };
     }]);

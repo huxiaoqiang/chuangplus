@@ -13,6 +13,11 @@
 		            <a class="btn-lg" ng-click="changeTab('tab1')" href="">修改密码</a>
 		        </li>
 		    </ul>
+		    <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+		        <li ng-class="{'active': view_tab == 'tab2'}">
+		            <a class="btn-lg" ng-click="changeTab('tab2')" href="">个人信息</a>
+		        </li>
+		    </ul>
 		</div>
 		<div class="col-sm-9">
 	        <div class="tab-pane" ng-show="view_tab == 'tab1'">
@@ -50,6 +55,8 @@
 	        <input type="submit" class="submit button ui green" value="提交">
 	        </form>
         </div>
-
+        <div class="tab-pane" ng-show="view_tab == 'tab2'">
+        	
+        </div>
 	</div>
 </div>

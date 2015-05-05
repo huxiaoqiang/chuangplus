@@ -1446,8 +1446,14 @@ body > #wrap {
   right: 90px;
   top: 232px;
   background-color: #959595;
-  height: 300px;
-  width: 90px;
+  height: 418px;
+  width: 130px;
+}
+#projectdetail #text #rightbar img {
+  margin: 0 auto;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #projectdetail #projectinfo {
   width: 1200px;
@@ -1534,21 +1540,23 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #productinfo img {
+#projectdetail #projectcontent #productinfo .sizeimg {
   background-color: #FFFFFF;
-  padding: 10px;
+  width: 1120px;
+  height: 630px;
+  padding: 20px;
 }
 #projectdetail #projectcontent #productinfo .sizeh12 {
+  padding-left: 20px;
+  padding-top: 10px;
   font-size: 16px;
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #industryanalysis {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
 #projectdetail #projectcontent #industryanalysis .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
@@ -1558,12 +1566,10 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #futureplan {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
 #projectdetail #projectcontent #futureplan .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
@@ -1573,18 +1579,9 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #breaknew {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
 #projectdetail #projectcontent #breaknew .sizeh13 {
-  font-size: 24px;
-  color: #777777;
-  font-family: 微软雅黑;
-}
-#projectdetail #projectcontent #breaknew .sizeh14 {
-  font-size: 16px;
+  padding-top: 30px;
+  font-size: 20px;
   color: #777777;
   font-family: 微软雅黑;
 }

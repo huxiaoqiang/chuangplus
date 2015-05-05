@@ -475,6 +475,11 @@ angular.module('chuangplus.controllers', []).
             ],
             introduction:"/static/img/projectdetail/introduction.png",
             code2D:"/static/img/projectdetail/2Dcode.png",
+            relatedlinks:[
+                            {name:"http://www.woyaomaishuiguo.com"},
+                            {name:"http://www.woyaomaishuiguo.com"},
+                            {name:"http://www.woyaomaishuiguo.com"},
+            ],
             marketanalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
             competitoranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
             consumeranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
@@ -486,6 +491,7 @@ angular.module('chuangplus.controllers', []).
                         {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
             ],
         };
+        
     }]).
     controller('projectdetailJoinusCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('projectdetailJoinusCtrl');

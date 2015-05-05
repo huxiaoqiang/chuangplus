@@ -85,13 +85,14 @@
 		</div>
 		<div ng-show="controlinfo=='productinfo'" id="productinfo">
 			<div class="sizeh11"><span>产品详细图文介绍</span></div>
-			<img src=[[projectdetail.introduction]]>
+			<img class="sizeimg" src=[[projectdetail.introduction]]>
+			<table>
 				<tr>
-					<td><span class="sizeh11">网站链接</span></td>
-					<td><a href=[[projectdetail.link]] class="sizeh12">[[projectdetail.link]]</a></td>
+					<td><div class="sizeh11"><span>网站链接</span></div></td>
+					<td ng-repeat="relatedlink in projectdetail.relatedlinks"><div class="sizeh12"><a href=[[relatedlink.name]]>[[relatedlink.name]]</a></div></td>
 				</tr>
 				<tr>
-					<td><span class="sizeh11">二维码</span></td>
+					<td style="vertical-align:bottom;"><div class="sizeh11"><span>二维码</span></div></td>
 					<td><img src=[[projectdetail.code2D]]></td>
 				</tr>
 			</table>
@@ -99,19 +100,19 @@
 		<div ng-show="controlinfo=='industryanalysis'" id="industryanalysis">
 			<table>
 				<tr>
-					<td><span class="sizeh11">总体市场分析</span></td>
+					<td><div class="sizeh11"><span>总体市场分析</span></div></td>
 				</tr>
 				<tr>
 					<td><span class="sizeh12">[[projectdetail.marketanalysis]]</span></td>
 				</tr>
 				<tr>
-					<td><span class="sizeh11">竞争者分析</span></td>
+					<td><div class="sizeh11"><span>竞争者分析</span></div></td>
 				</tr>
 				<tr>
 					<td><span class="sizeh12">[[projectdetail.competitoranalysis]]</span></td>
 				</tr>
 				<tr>
-					<td><span class="sizeh11">消费者分析</span></td>
+					<td><div class="sizeh11"><span>消费者分析</span></div></td>
 				</tr>
 				<tr>
 					<td><span class="sizeh12">[[projectdetail.consumeranalysis]]</span></td>
@@ -121,13 +122,13 @@
 		<div ng-show="controlinfo=='futureplan'" id="futureplan">
 			<table>
 				<tr>
-					<td><span class="sizeh11">商业模式</span></td>
+					<td><div class="sizeh11"><span>商业模式</span></div></td>
 				</tr>
 				<tr>
 					<td><span class="sizeh12">[[projectdetail.businessmodel]]</span></td>
 				</tr>
 				<tr>
-					<td><span class="sizeh11">未来规划</span></td>
+					<td><div class="sizeh11"><span>未来规划</span></div></td>
 				</tr>
 				<tr>
 					<td><span class="sizeh12">[[projectdetail.futureplan]]</span></td>
@@ -136,9 +137,9 @@
 		</div>
 		<div ng-show="controlinfo=='breaknews'" id="breaknew">
 			<div ng-repeat="breaknew in projectdetail.breaknews">
-				<span class="sizeh14">[[breaknew.date]]</span>
-				<span class="sizeh14">[[breaknew.content]]</span>
-				<a href=[[breaknew.link]] class="sizeh14">[[breaknew.link]]</a>
+				<div class="sizeh13"><span>[[breaknew.date]]</span></div>
+				<div class="sizeh13"><span>[[breaknew.content]]</span></div>
+				<div class="sizeh13"><a href=[[breaknew.link]]>[[breaknew.link]]</a></div>
 			</div>
 		</div>
 	</div>

@@ -31,14 +31,14 @@ angular.module('chuangplus.services', []).
     }]).
     service('UserService', ['urls', '$http', '$cookies', function(urls, $http, $cookies){
         var user = {};
-        $.get(urls.api + '/user/status', function(data){
-            user = data;
-        });
+        // $.get(urls.api + '/user/status', function(data){
+        //     user = data;
+        // });
         if($cookies.username){
             user.username = $cookies.username;
         }
-        if($cookies.status){
-            user.status = $cookies.status;
+        if($cookies.id){
+            user.id = $cookies.id;
         }
         if($cookies.role){
             user.role = $cookies.role;
@@ -52,8 +52,8 @@ angular.module('chuangplus.services', []).
                     user = data;
                 });
             },
-            'status': function(){
-                return user.status;
+            'id': function(){
+                return user.id;
             },
             'role': function(){
                 if(!('role' in user)){
@@ -80,7 +80,7 @@ angular.module('chuangplus.services', []).
                 $http.get(urls.api + '/user/logout').success(function(data){
                     delete $cookies['username'];
                     delete $cookies['role'];
-                    delete $cookies['status'];
+                    delete $cookies['id'];
                     console.log(data);
                     if(data.error.code == 1){
                         window.location.href = '/';

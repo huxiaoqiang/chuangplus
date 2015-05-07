@@ -30,6 +30,7 @@ angular.module('chuangplus.controllers', []).
         console.log('RegistStartupCtrl');
         $scope.startup = {};
         $scope.flag = false;
+        $scope.token = "";
         $scope.captcha_url = urls.api+'/captcha/image/';
         $scope.startup_regist = function(){
             if($scope.startup.password != $scope.startup.repassword){
@@ -39,9 +40,8 @@ angular.module('chuangplus.controllers', []).
             }
             $csrf.set_csrf($scope.startup);
             $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
-                $cookieStore.put("user",$scope.startup.username);
                 $scope.putuserinfo();
-
+                
             }).error(function(data,status,headers, config){
                 if (data.email){
                     $scope.error =  $csrf.format_error(data.email[0]);
@@ -58,34 +58,68 @@ angular.module('chuangplus.controllers', []).
                 console.log(data);
             });
         };
+        $scope.putuserinfo=function(){
+            $scope.login_info={
+                username: $scope.startup.username,
+                password: $scope.startup.password
+            };
+            $csrf.set_csrf($scope.login_info);
+            $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
+            .success(function(data){
+                    $cookieStore.put("username",$scope.login_info.username);
+                    $cookieStore.put("token",data.token);
+                    $scope.token = data.token;
+
+                    //post userinfo
+                    $scope.userinfo = {
+                        role: "1",
+                        name: $scope.startup.username,
+                    };
+                    $csrf.set_csrf($scope.userinfo);
+                    console.log($scope.userinfo);
+                    var req = {
+                         method: 'POST',
+                         url: urls.api+"/data/userinfo/createorupdate/",
+                         headers: {
+                           'Content-Type': 'application/json',
+                           'Authorization': "Token "+$scope.token
+                         },
+                         data: JSON.stringify($scope.userinfo)
+                    }
+                    console.log(req);
+                    $http(req).
+                    success(function(_data){
+                        console.log(_data);
+                        $cookieStore.put("id",_data.id);
+                        window.location.href="/regist_startup_finish";
+                    }).
+                    error(function(_data){
+                        console.log(_data);
+                    });
+
+                })
+                .error(function(data){
+                    console.log(data);
+                    $scope.error = $csrf.format_error(data.non_field_errors[0]);
+                }); 
+
+        };
         $scope.refresh=function(){
             $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
-        $scope.putuserinfo=function(){
-            $scope.userinfo = {
-                role:"1",
-                name: $scope.startup.username
-            }
-            $csrf.set_csrf($scope.userinfo);
-            $http.post(urls.api+"/data/userinfo/createorupdate/",JSON.stringify($scope.userinfo)).
-            success(function(data){
-                console.log(data);
-                window.location.href="/regist_startup_finish";
-            }).
-            error(function(data){
-                console.log(data);
-            });
-        };
     }]).
-    controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+    controller('RegistStartupFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','$cookieStore', function($scope, $http, $csrf, urls, $filter, $routeParams, $user, $cookieStore){
         console.log('RegistStartupFinishCtrl');
-
     }]).
     controller('RegistInvestAuthCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestAuthCtrl');
     }]).
     controller('RegistInvestInfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestInfoCtrl');
+        $scope.captcha_url = urls.api+'/captcha/image/';
+        $scope.refresh=function(){
+            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
+        };
     }]).
     controller('RegistInvestFinishCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('RegistInvestFinishCtrl');
@@ -101,21 +135,14 @@ angular.module('chuangplus.controllers', []).
             $csrf.set_csrf($scope.login_info);
             $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
                 .success(function(data){
-                    $cookieStore.put("user",$scope.login_info.username);
-                    // $cookieStore.put("userID",);
+                    $cookieStore.put("username",$scope.login_info.username);
+                    $cookieStore.put("token",data.token);
                     window.location.href="/";
                 })
                 .error(function(data){
                     console.log(data);
                     $scope.error = $csrf.format_error(data.non_field_errors[0]);
                 }); 
-        };
-    }]).
-    controller('RegistInvestInfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
-        console.log('RegistInvestInfoCtrl');
-        $scope.captcha_url = urls.api+'/captcha/image/';
-        $scope.refresh=function(){
-            $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
     }]).
     controller('internshipCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -155,7 +182,6 @@ angular.module('chuangplus.controllers', []).
                         {name:"文化艺术",tag:"whys"},
                     ]
             },
-            
             {
                 name:"地区",
                 types:[
@@ -230,8 +256,8 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('UserCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope,$cookieStore,$http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserCtrl');
-        $scope.user = $cookieStore.get("user");
-        console.log("user"+$scope.user);
+        $scope.user=$cookieStore.get("username");
+        //console.log("user"+$scope.user);
         $scope.login = false;
         if ($scope.user==undefined){
              $scope.login = false;
@@ -240,11 +266,13 @@ angular.module('chuangplus.controllers', []).
             $scope.login = true; 
          }
          $scope.logout=function(){
-            $cookieStore.remove("user");
+            $cookieStore.remove("username");
+            $cookieStore.remove("id");
+            $cookieStore.remove("token");
             window.location.href="/";
          };
     }]).
-    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader){
+    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader','$cookieStore', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader, $cookieStore){
         console.log('createproject');
         // 处理翻页
         $scope.apply_info = {};
@@ -421,6 +449,23 @@ angular.module('chuangplus.controllers', []).
                 }
                 //图片上传
                 $scope.uploader.uploadAll();
+
+                //联系上传
+                $scope.relation = {
+                    user_id: $cookieStore.get('username'),
+                    pro_id: data.id,
+                    date: data.date,
+                    type: 0
+                };
+                $csrf.set_csrf($scope.relation);
+                $http.post(urls.api+'/data/relation/',JSON.stringify($scope.relation)).
+                success(function(relationdata){
+                    console.log(relationdata);
+                }).
+                error(function(relationdata){
+                    console.log(relationdata);
+                });
+
                 window.location.href="/user/myproject";
            }).
            error(function(data){
@@ -443,6 +488,33 @@ angular.module('chuangplus.controllers', []).
     controller('projectdetailTextCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('projectdetailTextCtrl');
         $scope.controlinfo = "teaminfo";
+        $scope.tab1 = true;
+        $scope.tab = true;
+        $scope.teaminfo = function(){
+            $scope.controlinfo = "teaminfo";
+            $scope.tab1 = true;
+            $scope.tab2=$scope.tab3=$scope.tab4=$scope.tab5=false;
+        };
+        $scope.productinfo = function(){
+            $scope.controlinfo = "productinfo";
+            $scope.tab2 = true;
+            $scope.tab1=$scope.tab3=$scope.tab4=$scope.tab5=false;
+        };
+        $scope.industryanalysis = function(){
+            $scope.controlinfo = "industryanalysis";
+            $scope.tab3 = true;
+            $scope.tab1=$scope.tab2=$scope.tab4=$scope.tab5=false;
+        };
+        $scope.futureplan = function(){
+            $scope.controlinfo = "futureplan";
+            $scope.tab4 = true;
+            $scope.tab1=$scope.tab2=$scope.tab3=$scope.tab5=false;
+        };
+        $scope.breaknews = function(){
+            $scope.controlinfo = "breaknews";
+            $scope.tab5 = true;
+            $scope.tab1=$scope.tab2=$scope.tab3=$scope.tab4=false;
+        };
         $scope.projectdetail = {
             name:"我是一个项目而且这是我的名字",
             philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",
@@ -588,11 +660,7 @@ angular.module('chuangplus.controllers', []).
             window.location.href="/financingprocess";
         };
         $scope.getproject = function(){
-            $scope.user = $cookieStore.get("user");
-            $http.get(urls.api+'/data/userinfo/'+$scope.user+"/").
-            success(function(data){
-
-            });
+            $scope.userid = $cookieStore.get("id");
             $http.get(urls.api+'/data/project/').
                 success(function(data){
                 }).

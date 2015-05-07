@@ -22,20 +22,20 @@
 			<img src="/static/img/projectdetail/logo2.jpg" class="img-square">
 			<table id="projecttext" cellspacing="15px" cellpadding="80">
 				<tr>
-					<td class="td1"><span class="sizeh6">项目理念</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.philosophy]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目理念</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.philosophy]]</span></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">项目总览</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.overview]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目总览</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span  class="sizeh7">[[projectdetail.overview]]</span></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">相关链接</span></td>
-					<td class="td2"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">相关链接</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></div></td>
 				</tr>
 				<tr>
-					<td class="td1"><span class="sizeh6">融资情况</span></td>
-					<td class="td2"><span class="sizeh7">[[projectdetail.financing]]</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">融资情况</span></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.financing]]</span></div></td>
 				</tr>
 			</table>		
 		</div>
@@ -71,8 +71,8 @@
 			</div>
 		</div>
 		<div ng-show="controlinfo=='productinfo'" id="productinfo">
-			<span class="sizeh11">产品详细图文介绍</span>
-			<img src=[[projectdetail.introduction]]>
+			<div class="sizeh11"><span>产品详细图文介绍</span></div>
+			<img class="sizeimg" src=[[projectdetail.introduction]]>
 			<table>
 				<tr>
 					<td><span class="sizeh11">相关网站链接&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
@@ -97,13 +97,12 @@
 			<p class="sizeh12">[[projectdetail.businessmodel]]</p>
 			<p class="sizeh11">未来规划</p>
 			<p class="sizeh12">[[projectdetail.futureplan]]</p>
-
 		</div>
 		<div ng-show="controlinfo=='breaknews'" id="breaknew">
 			<div ng-repeat="breaknew in projectdetail.breaknews">
-				<span class="sizeh14">[[breaknew.date]]</span>
-				<span class="sizeh14">[[breaknew.content]]</span>
-				<a href=[[breaknew.link]] class="sizeh14">[[breaknew.link]]</a>
+				<div class="sizeh13"><span>[[breaknew.date]]</span></div>
+				<div class="sizeh13"><span>[[breaknew.content]]</span></div>
+				<div class="sizeh13"><a href=[[breaknew.link]]>[[breaknew.link]]</a></div>
 			</div>
 		</div>
 	</div>

@@ -1478,6 +1478,7 @@ body > #wrap {
   width: 100%;
   margin: 0 auto;
   dispaly: block;
+  padding-top: 20px;
 }
 #projectdetail #projectinfo .tab-bar {
   background-color: #8e5a96;
@@ -1548,6 +1549,7 @@ body > #wrap {
   top: 70px;
   left: 0px;
 }
+
 #projectdetail #projectcontent #productinfo {
   width: 80%;
   margin: 0 auto;
@@ -1560,16 +1562,29 @@ body > #wrap {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
 #projectdetail #projectcontent #productinfo .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
 }
+#projectdetail #projectcontent #productinfo .sizeimg {
+  background-color: #FFFFFF;
+  width: 1120px;
+  height: 630px;
+  padding: 20px;
+}
 #projectdetail #projectcontent #productinfo .sizeh12 {
+  padding-left: 20px;
+  padding-top: 10px;
   font-size: 16px;
   color: #777777;
   font-family: 微软雅黑;
 }
+
 #projectdetail #projectcontent #productinfo #qrcodeImg {
   width: 130px;
   height: 130px;
@@ -1580,7 +1595,11 @@ body > #wrap {
   margin-top: 20px;
   padding-top: 30px;
 }
+
 #projectdetail #projectcontent #industryanalysis .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
@@ -1592,13 +1611,18 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
+
 #projectdetail #projectcontent #futureplan {
   width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   padding-top: 30px;
 }
+
 #projectdetail #projectcontent #futureplan .sizeh11 {
+  dispaly: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
@@ -1608,19 +1632,17 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
+
 #projectdetail #projectcontent #breaknew {
   width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   padding-top: 30px;
 }
+
 #projectdetail #projectcontent #breaknew .sizeh13 {
-  font-size: 24px;
-  color: #777777;
-  font-family: 微软雅黑;
-}
-#projectdetail #projectcontent #breaknew .sizeh14 {
-  font-size: 16px;
+  padding-top: 30px;
+  font-size: 20px;
   color: #777777;
   font-family: 微软雅黑;
 }

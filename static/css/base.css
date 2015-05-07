@@ -1313,7 +1313,7 @@ body > #wrap {
   font-family: '黑体', 'Arial';
   font-size: 18px;
   height: 60px;
-  width: 380px;
+  width: 568px;
   float: left;
   color: #fff;
   padding-top: 18px;
@@ -1324,17 +1324,17 @@ body > #wrap {
 }
 #projectdetail .tab-bar .width-limited .pulldown_roadshow {
   position: absolute;
-  margin-left: -955px;
+  margin-left: -860px;
   margin-top: 55px;
 }
 #projectdetail .tab-bar .width-limited .pulldown_text {
   position: absolute;
-  margin-left: -580px;
+  margin-left: -310px;
   margin-top: 55px;
 }
 #projectdetail .tab-bar .width-limited .pulldown_joinus {
   position: absolute;
-  margin-left: -198px;
+  margin-left: -292px;
   margin-top: 55px;
 }
 #projectdetail #header {
@@ -1347,7 +1347,6 @@ body > #wrap {
   margin: 0 auto;
   display: block;
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 #projectdetail #header .name {
   margin: 0 auto;
@@ -1379,7 +1378,7 @@ body > #wrap {
   left: 12%;
   top: 0;
   background-color: #959595;
-  height: 418px;
+  height: 340px;
   width: 130px;
 }
 #projectdetail #roadshowimg img {
@@ -1390,9 +1389,9 @@ body > #wrap {
 #projectdetail #text .name {
   margin: 0 auto;
   display: table;
+  margin-left: 10%;
   margin-top: 15px;
   margin-bottom: 15px;
-  margin-left: 90px;
 }
 #projectdetail #text .name .img-guanzhuicon {
   margin-left: 20px;
@@ -1429,20 +1428,20 @@ body > #wrap {
   height: 418px;
 }
 #projectdetail #text .project img {
-  width: 338px;
+  width: 22%;
   margin: 0 auto;
   display: block;
   padding-top: 45px;
   padding-bottom: 45px;
-  margin-left: 90px;
+  margin-left: 10%;
 }
 #projectdetail #text .project #projecttext {
   position: absolute;
-  left: 460px;
+  left: 34%;
   top: 40px;
 }
 #projectdetail #text .project #projecttext .td1 {
-  width: 80px;
+  width: 16%;
 }
 #projectdetail #text .project #projecttext .td1 .sizeh6 {
   font-family: '黑体', 'Arial';
@@ -1451,7 +1450,7 @@ body > #wrap {
   font-size: 20px;
 }
 #projectdetail #text .project #projecttext .td2 {
-  width: 565px;
+  width: 550px;
 }
 #projectdetail #text .project #projecttext .td2 .sizeh7 {
   font-family: '黑体', 'Arial';
@@ -1461,77 +1460,105 @@ body > #wrap {
 }
 #projectdetail #text #rightbar {
   position: absolute;
-  right: 90px;
+  right: 248px;
   top: 232px;
   background-color: #959595;
-  height: 300px;
-  width: 90px;
+  height: 340px;
+  width: 130px;
+}
+#projectdetail #text #rightbar img {
+  margin: 0 auto;
+  display: block;
+  padding-top: 20px;
 }
 #projectdetail #projectinfo {
   position: relative;
-  left: 90px;
   background-color: rgba(255, 255, 255, 0.3);
   margin-top: 20px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   dispaly: block;
 }
-#projectdetail #projectinfo .info {
-  width: 240px;
-  height: 80px;
+#projectdetail #projectinfo .tab-bar {
   background-color: #8e5a96;
-  float: left;
-  cursor: pointer;
-  font-family: 微软雅黑;
-  color: white;
+  border-bottom: solid 10px #e1e1e1;
 }
-#projectdetail #projectinfo .info .info1 {
-  width: 50px;
-  height: 46px;
-  float: left;
+#projectdetail #projectinfo .tab-bar .width-limited {
+  height: 80px;
 }
-#projectdetail #projectinfo .info .info2 {
-  width: auto;
+#projectdetail #projectinfo .tab-bar .width-limited .tab {
+  font-family: '黑体', 'Arial';
+  font-size: 18px;
+  height: 80px;
+  width: 20%;
+  float: left;
+  color: #ffffff;
+  padding-top: 28px;
   text-align: center;
-  margin-top: 25px;
-  float: left;
-  font-size: 20px;
-  font-family: 微软雅黑;
-  color: #FFFFFF;
+}
+#projectdetail #projectinfo .tab-bar .width-limited .tab-active {
+  background-color: #e1e1e1;
+  color: #777777;
 }
 #projectdetail #projectcontent {
-  margin-left: 90px;
-  width: 1200px;
   background-color: #e1e1e1;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  dispaly: block;
-}
-#projectdetail #projectcontent #teammember {
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 40px;
+  margin-top: -20px;
   padding-bottom: 40px;
 }
-#projectdetail #projectcontent #teammember #sizeh8 {
+#projectdetail #projectcontent #teammember {
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin-top: 20px;
+  padding-top: 30px;
+}
+#projectdetail #projectcontent #teammember #member {
+  position: relative;
+  width: 93%;
+  display: block;
+  margin: 0 auto;
+}
+#projectdetail #projectcontent #teammember #member img {
+  width: 60px;
+  height: 60px;
+}
+#projectdetail #projectcontent #teammember #member #sizeh8 {
+  position: absolute;
+  left: 85px;
   font-size: 18px;
   color: #777777;
   font-family: 微软雅黑;
 }
-#projectdetail #projectcontent #teammember #sizeh9 {
+#projectdetail #projectcontent #teammember #member #sizeh9 {
+  position: absolute;
+  left: 85px;
   font-size: 14px;
   color: #777777;
   font-family: 微软雅黑;
+  top: 30px;
 }
-#projectdetail #projectcontent #teammember #sizeh10 {
+#projectdetail #projectcontent #teammember #member #sizeh10 {
+  position: absolute;
   font-size: 16px;
   color: #777777;
   font-family: 微软雅黑;
+  top: 70px;
+  left: 0px;
 }
 #projectdetail #projectcontent #productinfo {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 30px;
+}
+#projectdetail #projectcontent #productinfo img {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 #projectdetail #projectcontent #productinfo .sizeh11 {
   font-size: 24px;
@@ -1543,15 +1570,22 @@ body > #wrap {
   color: #777777;
   font-family: 微软雅黑;
 }
+#projectdetail #projectcontent #productinfo #qrcodeImg {
+  width: 130px;
+  height: 130px;
+}
 #projectdetail #projectcontent #industryanalysis {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 30px;
 }
 #projectdetail #projectcontent #industryanalysis .sizeh11 {
   font-size: 24px;
   color: #777777;
   font-family: 微软雅黑;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 #projectdetail #projectcontent #industryanalysis .sizeh12 {
   font-size: 16px;
@@ -1559,9 +1593,10 @@ body > #wrap {
   font-family: 微软雅黑;
 }
 #projectdetail #projectcontent #futureplan {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 30px;
 }
 #projectdetail #projectcontent #futureplan .sizeh11 {
   font-size: 24px;
@@ -1574,9 +1609,10 @@ body > #wrap {
   font-family: 微软雅黑;
 }
 #projectdetail #projectcontent #breaknew {
-  margin-top: 100px;
-  margin-left: 60px;
-  margin-right: 60px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 30px;
 }
 #projectdetail #projectcontent #breaknew .sizeh13 {
   font-size: 24px;

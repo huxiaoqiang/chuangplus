@@ -7,13 +7,13 @@ angular.module('chuangplus', [
     'ui.tinymce',
     'ui.bootstrap',
     'ngCookies',
-    'angularFileUpload',
     'angular-google-analytics',
     'angularFileUpload',
     'chuangplus.filters',
     'chuangplus.services',
     'chuangplus.directives',
     'chuangplus.controllers',
+    
     //semantic directives
     'angularify.semantic.accordion',
 	'angularify.semantic.checkbox',

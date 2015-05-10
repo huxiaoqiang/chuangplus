@@ -4,11 +4,15 @@ from django.contrib.auth.models import User
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
+
 from .serializers import UserinfoSerializer, ProjectSerializer, MemberSerializer, PostSerializer, RelationSerializer, ImageSerializer
 from .models import Userinfo, Project, Member, Post, Relation, Image
 
 
 @api_view(['POST', 'PUT'])
+@permission_classes((IsAuthenticated, ))
 def userinfo_create_or_update(request):
     try:
         userinfo = Userinfo.objects.get(user=request.user)
@@ -29,6 +33,7 @@ def userinfo_create_or_update(request):
         return Response(serialized.data, status=status.HTTP_202_ACCEPTED)
     else:
         return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 def userinfo_retrieve(request, username):

@@ -86,7 +86,6 @@ angular.module('chuangplus.controllers', []).
                          },
                          data: JSON.stringify($scope.userinfo)
                     }
-                    console.log(req);
                     $http(req).
                     success(function(_data){
                         console.log(_data);
@@ -96,7 +95,6 @@ angular.module('chuangplus.controllers', []).
                     error(function(_data){
                         console.log(_data);
                     });
-
                 })
                 .error(function(data){
                     console.log(data);
@@ -272,9 +270,9 @@ angular.module('chuangplus.controllers', []).
             window.location.href="/";
          };
     }]).
-    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','FileUploader','$cookieStore', function($scope, $http, $csrf, urls, $filter, $routeParams, $user,FileUploader, $cookieStore){
+    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','$cookieStore', 'FileUploader',function($scope, $http, $csrf, urls, $filter, $routeParams, $user, $cookieStore, FileUploader){
         console.log('createproject');
-        // 处理翻页
+        $scope.uploader = new FileUploader();
         $scope.apply_info = {};
         $scope.apply_info.field1 = "";
         $scope.apply_info.field2 = "";
@@ -321,7 +319,8 @@ angular.module('chuangplus.controllers', []).
                     else{
                         $scope.apply_info.field1 = $scope.field[0];
                         $scope.apply_info.field2 = $scope.field[1];
-                        $scope.apply_info.field3 = $scope.field[2];                        $scope.tabindex = $scope.tabindex+1;
+                        $scope.apply_info.field3 = $scope.field[2];                        
+                        $scope.tabindex = $scope.tabindex+1;
                         $scope.view_tab = "tab" + $scope.tabindex;
                         $csrf.remove_error();
                     }
@@ -398,8 +397,7 @@ angular.module('chuangplus.controllers', []).
             $scope.tabindex = $scope.tabindex-1;
             $scope.view_tab = "tab" + $scope.tabindex;
         }
-        // 处理第一步
-        $scope.uploader = new FileUploader();
+        
         // 处理第三步
         $scope.apply_info.member_list = [];
         $scope.add_member = function(){
@@ -447,7 +445,7 @@ angular.module('chuangplus.controllers', []).
                         console.log("eventdata"+eventdata);
                     });
                 }
-                //图片上传
+                //文件上传
                 $scope.uploader.uploadAll();
 
                 //联系上传

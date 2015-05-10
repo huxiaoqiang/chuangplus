@@ -68,7 +68,7 @@ class Post(models.Model):
 
 # 关系表
 class Relation(models.Model):
-    user_id = models.CharField()
+    user_id = models.CharField(max_length=30)
     pro_id = models.IntegerField(Project)
     date = models.DateField()
     type = models.IntegerField(default=0) # 0:用户创建项目; 1:关注; 2:收藏; 3:爆灯

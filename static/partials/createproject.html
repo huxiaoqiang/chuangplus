@@ -98,16 +98,17 @@
             <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Cround"><label>C轮</label></div>
             <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="Dround"><label>D轮</label></div>
             <div class="col-md-2"><input type="radio" ng-model="apply_info.stage" value="others"><label>上市</label></div>
-
           </div>
 
             <div class="field">
           	    <label>项目logo</label>
-            	<input type="file" ng-model="apply_info.logo" nv-file-select uploader="uploader" required><br/>
+              <div type="file" ng-model="apply_info.logo" ngf-select>上传</div>
+              <span ng-repeat="f in apply_info.logo" style="font:smaller">[[f.name]]</span>
+            	<!-- <div class="button" ng-model="apply_info.logo" ngf-select required>上传</div> -->
           	</div>
         </div>
         <error-message error="error"></error-message>
-        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+        <input scroll-to="" type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
         </div>
 
 <!-- 步骤2 团队联系人信息 -->
@@ -165,8 +166,8 @@
         <error-message error="error"></error-message>
         </div>
 
-        <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
-        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+        <input scroll-to=""  type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+        <input scroll-to=""  type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
     </div>
 
 <!-- 第三步，建立团队成员 -->
@@ -190,7 +191,9 @@
 
             <div class="field">
               <label>头像</label>
-              <input ng-model="member_info.m_head_path"  type="file" nv-file-select uploader="uploader" required><br/>
+              <input type="file" ng-model="member_info.m_head_path" ng-file-select="onFileSelect($files)" mutiple>
+<!--               <div class="button" ng-model="member_info.m_head_path" ngf-select required><br/>上传</div> -->
+              <br/>
             </div>
 
             <div class="field">
@@ -224,8 +227,8 @@
     
     <error-message error="error"></error-message>
     </br>
-    <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
-    <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+    <input scroll-to=""  type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+    <input scroll-to=""  type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
     </div>
 
     <!-- 第四步：产品/服务图文介绍 -->
@@ -234,7 +237,9 @@
       <div class="sub-form">
       <div class="field">
         <label>图文介绍</label>
-            <input type="file" nv-file-select uploader="uploader" required><br/>
+        <div type="file" ng-model="apply_info.description"  ngf-select>上传</div>
+        <span ng-repeat="f in apply_info.description" style="font:smaller">[[f.name]]</span>
+            <!-- <div class="button" ng-model="apply_info.description" ngf-select required>上传</div><br/> -->
       </div>
 
       <div class="field">
@@ -249,12 +254,15 @@
 
       <div class="field">
         <label>项目相关二维码</label>
-            <input ng-model="apply_info.qrcode" type="file" nv-file-select uploader="uploader" required><br/>
+        <div type="file" ng-model="apply_info.qrcode" ngf-select>上传</div>
+        <span ng-repeat="f in apply_info.qrcode" style="font:smaller">[[f.name]]</span>
+        <!-- <div class="button" ng-model="apply_info.qrcode" ngf-select required>上传</div> -->
+        <br/>
       </div>
       <label>保密说明：本部分只对投资人可见</label></br>
       <error-message error="error"></error-message>
-        <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
-        <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+        <input scroll-to=""  type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+        <input scroll-to=""  type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
       </div>
     </div>
 
@@ -281,8 +289,8 @@
     </div>
     <label>保密说明：本部分只对投资人可见</label></br>
     <error-message error="error"></error-message>
-    <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
-    <input type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
+    <input scroll-to=""  type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+    <input scroll-to=""  type="botton" class="button ui green" ng-click="tabnext()" value="下一步">
     </div>
 
 <!-- 第六步：项目大事记 -->
@@ -328,7 +336,8 @@
             </div>
             <div class="field">
               <label>相关图片</label>
-              <input ng-model="event.image_path"  type="file" nv-file-select uploader="uploader" required><br/>
+              <input type="file" ng-model="event.image_path" ng-file-select="onFileSelect($files)" mutiple>
+             <!-- <div class="button" ng-model="event.image_path" ngf-select required>上传</div><br/> -->
             </div>
           <input type="botton" class="ui button red" ng-click="show=!show" value="删除">
           <div ng-init="show=false" class="alert alert-danger alert-dismissible fade in" role="alert" ng-show="show">
@@ -340,8 +349,8 @@
         </div>
       </div>
       <error-message error="error"></error-message>
-      <input type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
-      <input type="submit" class="submit button ui green" value="提交项目申请">
+      <input scroll-to=""  type="botton" class="button ui green" ng-click="tabprior()" value="上一步">
+      <input scroll-to=""  type="submit" class="submit button ui green" value="提交项目申请">
     </div>
     </form>
 </div>

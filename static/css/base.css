@@ -1091,6 +1091,26 @@ body > #wrap {
   padding-left: 10%;
   color: white;
 }
+#project #endoftext {
+  position: absolute;
+  bottom: 50px;
+  width: 195px;
+}
+#project #fieldlist {
+  margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+#project #fieldlist #field {
+  font-family: '黑体', 'Arial';
+  font-size: 15px;
+  background: #7495CA;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
 #options {
   position: absolute;
   left: 10%;

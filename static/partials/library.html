@@ -14,19 +14,24 @@
 					<div class="opt-pos"></div>
 				</a>
 				<ul ng-show="show">
-					<a ng-repeat="type in branch.types" href="?field=[[type.tag]]"><li>[[type.name]]</li></a>
+					<a ng-repeat="type in branch.types" ng-href="/library/[[menus[branch.name] ]]?[[type.tag]]"><li>[[type.name]]</li></a>
 				</ul>
 			</div>
 	    </div>
 	</div>
-	<div class="row" id="project" ng-repeat="project in projects">
-        <div class="col-md-5 projectImg"><img ng-src="[[project.image]]"></div>
+	<div class="row" id="project" ng-repeat="project in projectlist">
+        <div class="col-md-5 projectImg"><img ng-src="[[project.logo_path]]"></div>
         <div class="col-md-6 projectDetail">
-            <h2>[[project.projectName]]</h2>
-            <h4><i class="icon-user"></i>&nbsp;&nbsp;[[project.CEO]]&nbsp;&nbsp;<i class="icon-globe"></i>&nbsp;&nbsp;[[project.financing]]</h4>
-            <h4>[[project.detail]]</h4>
+            <h2>[[project.name]]</h2>
+            <h4><i class="icon-user"></i>&nbsp;&nbsp;[[project.CEO]]&nbsp;&nbsp;<i class="icon-globe"></i>&nbsp;&nbsp;[[project.stage]]</h4>
+            <h4>[[project.summary]]</h4>
             <div id="endoftext"></div>
+            <div id = "fieldlist">
+          		<button ng-repeat="fieldshow in project.field1" class="btn btn-default" id="field">[[type[fieldshow] ]]</button>
+          	</div>
         </div>
-        <a href="/projectdetail/roadshow"><div class="col-md-1 rightBar"><img src="static/img/project/seemore.png"></div></a>
+        <a ng-href="/projectdetail/roadshow/[[project.id]]">
+        	<div class="col-md-1 rightBar"><img ng-src="static/img/project/seemore.png"></div>
+        </a>
     </div>
 </div>

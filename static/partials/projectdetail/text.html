@@ -1,8 +1,8 @@
 <div id="projectdetail">
 	<div class="tab-bar">
       <div class="width-limited">
-        <a href="/projectdetail/roadshow"><div class="tab">项目路演</div></a>
-        <a href="/projectdetail/text"><div class="tab tab-active">项目文本</div></a>
+        <a ng-href="/projectdetail/roadshow/[[pro_id]]"><div class="tab">项目路演</div></a>
+        <a ng-href="/projectdetail/text/[[pro_id]]"><div class="tab tab-active">项目文本</div></a>
         <!-- <a href="/projectdetail/joinus"><div class="tab">创业实习招聘</div></a> -->
         <img class="pulldown_text" src="/static/img/index/jiao.png">
       </div>
@@ -12,9 +12,7 @@
     		<span id="sizeh3">
     			[[projectdetail.name]]
     		</span>
-    		<span id="sizeh4" ng-repeat="tag in projectdetail.tags">
-				[[tag.name]]
-			</span>
+    		<span id="sizeh4" ng-repeat="field in projectdetail.field1">[[type[field] ]]&nbsp;&nbsp;</span>
 			<img src="/static/img/projectdetail/guanzhuicon.png" class="img-guanzhuicon">
 			<span id="sizeh5">[[projectdetail.guanzhu]]人关注</span>
     	</div>
@@ -23,19 +21,19 @@
 			<table id="projecttext" cellspacing="15px" cellpadding="80">
 				<tr>
 					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目理念</span></td>
-					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.philosophy]]</span></div></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.slogan]]</span></div></td>
 				</tr>
 				<tr>
 					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">项目总览</span></td>
-					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span  class="sizeh7">[[projectdetail.overview]]</span></div></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span  class="sizeh7">[[projectdetail.summary]]</span></div></td>
 				</tr>
 				<tr>
 					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">相关链接</span></td>
-					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link]]</a></div></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><a href=[[projectdetail.link]] class="sizeh7">[[projectdetail.link1]]</a></div></td>
 				</tr>
 				<tr>
 					<td style="vertical-align:top;text-align:left;" class="td1"><span class="sizeh6">融资情况</span></td>
-					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.financing]]</span></div></td>
+					<td style="vertical-align:top;text-align:left;" class="td2"><div style="margin-left:35px"><span class="sizeh7">[[projectdetail.stage]]</span></div></td>
 				</tr>
 			</table>		
 		</div>

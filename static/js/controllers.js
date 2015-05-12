@@ -270,13 +270,31 @@ angular.module('chuangplus.controllers', []).
             window.location.href="/";
          };
     }]).
-    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','$cookieStore', 'FileUploader',function($scope, $http, $csrf, urls, $filter, $routeParams, $user, $cookieStore, FileUploader){
+    controller('createproject', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService','$cookieStore', 'Upload',function($scope, $http, $csrf, urls, $filter, $routeParams, $user, $cookieStore, Upload){
         console.log('createproject');
-        $scope.uploader = new FileUploader();
+        $scope.username=$cookieStore.get("username");
+
+
+
+        $scope.upload_img = function(file){
+            var param = {
+                'file_type': 'picture',
+                'category': 'homepage_carousel_' + homepage_carousel_id
+            };
+            Upload.upload({
+                url: urls.api+'/fileUpload',
+                file: file
+            }).success(function(data){
+                console.log(data);
+            }).error(function(data){
+                console.log(data);
+            });
+        };
+        // $scope.$watch("apply_info.logo",function(){
+        //     $scope.upload_img($scope.apply_info.logo);
+        // });
         $scope.apply_info = {};
         $scope.apply_info.field1 = "";
-        $scope.apply_info.field2 = "";
-        $scope.apply_info.field3 = "";
         $scope.field = [];
         $scope.fieldCount = 0;
         $scope.tabindex = 1;
@@ -318,11 +336,16 @@ angular.module('chuangplus.controllers', []).
                     }
                     else{
                         $scope.apply_info.field1 = $scope.field[0];
-                        $scope.apply_info.field2 = $scope.field[1];
-                        $scope.apply_info.field3 = $scope.field[2];                        
+                        if ($scope.field[1]!=undefined) {
+                            $scope.apply_info.field1=$scope.apply_info.field1+";"+$scope.field[1];
+                        }
+                        if ($scope.field[2]!=undefined) { 
+                            $scope.apply_info.field1=$scope.apply_info.field1+";"+$scope.field[2];
+                        }              
                         $scope.tabindex = $scope.tabindex+1;
                         $scope.view_tab = "tab" + $scope.tabindex;
                         $csrf.remove_error();
+                        console.log($scope.apply_info.field1);
                     }
                 }
                 else{
@@ -420,6 +443,10 @@ angular.module('chuangplus.controllers', []).
            console.log($scope.apply_info);
            $http.post(urls.api+'/data/project/',JSON.stringify($scope.apply_info)).
             success(function(data){
+                $scope.upload_img($scope.apply_info.logo);
+                $scope.upload_img($scope.apply_info.description);
+                $scope.upload_img($scope.apply_info.qrcode);
+
                 console.log(data);
                 //上传团队成员信息
                 for(var i = 0; i < $scope.apply_info.member_list.length;i++){
@@ -445,12 +472,10 @@ angular.module('chuangplus.controllers', []).
                         console.log("eventdata"+eventdata);
                     });
                 }
-                //文件上传
-                $scope.uploader.uploadAll();
-
+                
                 //联系上传
                 $scope.relation = {
-                    user_id: $cookieStore.get('username'),
+                    username: $cookieStore.get('username'),
                     pro_id: data.id,
                     date: data.date,
                     type: 0
@@ -476,15 +501,104 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('projectdetailRoadshowCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('projectdetailRoadshowCtrl');
+        $scope.type={
+            game:"游戏",
+            social:"社交",
+            ebusiness:"电子商务",
+            media:"媒体",
+            education:"教育",
+            health:"健康医疗",
+            mobileInternet:"互联网",
+            tools:"工具",
+            stationAgentTools:"站长工具",
+            entrepreneurServices:"创业服务",
+            marketingCampaign:"营销广告",
+            enterpriseService:"企业服务",
+            financial:"金融",
+            travel:"旅游",
+            hardware:"硬件",
+            PE:"体育",
+            videoEntertainment:"视频娱乐",
+            search:"搜索安全",
+            livingConsumption:"生活消费",
+            culture:"文化艺术",
+            housingAuto:"房产汽车",
+            energyMaterials:"能源材料",
+            others:"其他",
+        }
+        $scope.pro_id = $routeParams.pro_id;
+        $scope.projectdetail = {};
         $scope.projectdetail = {
             name:"我是一个项目",
             philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",
             tags: "游戏 社交 虚拟现实",
             financing: "天使轮"
         };
+        
+        $scope.getproject=function(){
+            $http.get(urls.api+'/data/project/'+$scope.pro_id+"/").
+                success(function(data){
+                    $scope.projectdetail = data;
+                    $scope.projectdetail.field1  = $scope.projectdetail.field1.split(";");
+                    console.log($scope.projectdetail.field1);
+                }).
+                error(function(data){
+                    console.log(data);
+                });
+        }
+        $scope.getproject();
     }]).
     controller('projectdetailTextCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('projectdetailTextCtrl');
+        $scope.type={
+            game:"游戏",
+            social:"社交",
+            ebusiness:"电子商务",
+            media:"媒体",
+            education:"教育",
+            health:"健康医疗",
+            mobileInternet:"互联网",
+            tools:"工具",
+            stationAgentTools:"站长工具",
+            entrepreneurServices:"创业服务",
+            marketingCampaign:"营销广告",
+            enterpriseService:"企业服务",
+            financial:"金融",
+            travel:"旅游",
+            hardware:"硬件",
+            PE:"体育",
+            videoEntertainment:"视频娱乐",
+            search:"搜索安全",
+            livingConsumption:"生活消费",
+            culture:"文化艺术",
+            housingAuto:"房产汽车",
+            energyMaterials:"能源材料",
+            others:"其他",
+        }
+        $scope.pro_id = $routeParams.pro_id;
+        $scope.projectdetail = {};
+        $scope.getproject=function(){
+            $http.get(urls.api+'/data/project/'+$scope.pro_id+"/").
+                success(function(data){
+                    $scope.projectdetail = data;
+                    $scope.projectdetail.field1  = $scope.projectdetail.field1.split(";");
+                    console.log($scope.projectdetail.field1);
+                    console.log(data);
+                }).
+                error(function(data){
+                    console.log(data);
+                });
+        }
+        $scope.getproject();
+        $scope.getTeam=function(){
+            $http.get(urls.api+'/data/Member/'+$scope.pro_id+"/").
+                success(function(data){
+                    $scope.projectdetail = data;
+                }).
+                error(function(data){
+                    console.log(data);
+                });
+        };
         $scope.controlinfo = "teaminfo";
         $scope.tab1 = true;
         $scope.tab = true;
@@ -513,41 +627,41 @@ angular.module('chuangplus.controllers', []).
             $scope.tab5 = true;
             $scope.tab1=$scope.tab2=$scope.tab3=$scope.tab4=false;
         };
-        $scope.projectdetail = {
-            name:"我是一个项目而且这是我的名字",
-            philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",
-            tags:[
-                    {name:"游戏",tag:"yx"},
-                    {name:"社交",tag:"sj"},
-                    {name:"虚拟现实",tag:"xnxs"},
-            ],
-            financing: "天使轮",
-            guanzhu:"888",
-            link:"http://www.woyaomaishuiguo.com",
-            overview:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            teammembers:[
-                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CEO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
-                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CTO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
-                            {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CMO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
-            ],
-            introduction:"/static/img/projectdetail/introduction.png",
-            code2D:"/static/img/projectdetail/2Dcode.png",
-            relatedlinks:[
-                            {name:"http://www.woyaomaishuiguo.com"},
-                            {name:"http://www.woyaomaishuiguo.com"},
-                            {name:"http://www.woyaomaishuiguo.com"},
-            ],
-            marketanalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            competitoranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            consumeranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            businessmodel:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            futureplan:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
-            breaknews:[
-                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
-                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
-                        {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
-            ],
-        };
+        // $scope.projectdetail = {
+        //     name:"我是一个项目而且这是我的名字",
+        //     philosophy:"我的目标是没有蛀牙，我的目标是没有蛀牙，我的目标是没有蛀牙",
+        //     tags:[
+        //             {name:"游戏",tag:"yx"},
+        //             {name:"社交",tag:"sj"},
+        //             {name:"虚拟现实",tag:"xnxs"},
+        //     ],
+        //     financing: "天使轮",
+        //     guanzhu:"888",
+        //     link:"http://www.woyaomaishuiguo.com",
+        //     overview:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     teammembers:[
+        //                     {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CEO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+        //                     {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CTO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+        //                     {image:"/static/img/projectdetail/WZR.png",name:"王自如",position:"CMO",introduction:"ZEALER（载乐网络科技）创始人 ，1988年生于齐齐哈尔，毕业于西安翻译学院，后就读于香港理工大学。王自如从2009年开始做数码产品的开箱视频，而之后拓展到科技评论，迄今已完成近300个，现在每个视频的访问量在15万以上。如今他辞掉干了三年的工作，开始一门心思建立自己的科技媒体，且已拿到雷军名下的顺为创投基金的第一笔投资。"},
+        //     ],
+        //     introduction:"/static/img/projectdetail/introduction.png",
+        //     code2D:"/static/img/projectdetail/2Dcode.png",
+        //     relatedlinks:[
+        //                     {name:"http://www.woyaomaishuiguo.com"},
+        //                     {name:"http://www.woyaomaishuiguo.com"},
+        //                     {name:"http://www.woyaomaishuiguo.com"},
+        //     ],
+        //     marketanalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     competitoranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     consumeranalysis:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     businessmodel:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     futureplan:"一个开放的O2O服务整合平台，上游整合美团、团购、打车、酒店机票、家政服务等O2O服务，打通账号，统一订单管理。下游跟联想、酷派、中兴、金立、天语等一线手机厂商合作，集成到系统，让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。为这些超级APP的流量找到除游戏、广告之外的第三个变现出口。现在总用户超过一千万，在总用户超过一千万刚完成A轮1000万美金融资。让用户买到手机就买到O2O服务，同时还开放SDK给如高德地图、凤凰新闻、有信这样的超级APP。",
+        //     breaknews:[
+        //                 {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+        //                 {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+        //                 {date:"2015.1.1",content:"一个重大的事件发生。",link:"http://www.woyaomaishuiguo.com"},
+        //     ],
+        // };
         
     }]).
     controller('projectdetailJoinusCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
@@ -555,29 +669,67 @@ angular.module('chuangplus.controllers', []).
     }]).
     controller('libraryCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('libraryCtrl');
+        $scope.filters = $routeParams.filters;
+        $scope.type={
+            game:"游戏",
+            social:"社交",
+            ebusiness:"电子商务",
+            media:"媒体",
+            education:"教育",
+            health:"健康医疗",
+            mobileInternet:"互联网",
+            tools:"工具",
+            stationAgentTools:"站长工具",
+            entrepreneurServices:"创业服务",
+            marketingCampaign:"营销广告",
+            enterpriseService:"企业服务",
+            financial:"金融",
+            travel:"旅游",
+            hardware:"硬件",
+            PE:"体育",
+            videoEntertainment:"视频娱乐",
+            search:"搜索安全",
+            livingConsumption:"生活消费",
+            culture:"文化艺术",
+            housingAuto:"房产汽车",
+            energyMaterials:"能源材料",
+            others:"其他",
+        };
+
+        $scope.menus={
+            领域:"field",
+            地区:"province",
+            类型:"type",
+            阶段:"stage",
+            推荐:"recommend"
+        };
          $scope.branches = [
             {
                 name:"领域",
                 types:[
-                        {name:"游戏",tag:"yx"},
-                        {name:"社交",tag:"sj"},
-                        {name:"互联网",tag:"hlw"},
-                        {name:"人才招聘",tag:"rczp"},
-                        {name:"健康医疗",tag:"jkyl"},
-                        {name:"媒体",tag:"mt"},
-                        {name:"教育",tag:"jy"},
-                        {name:"物联网",tag:"wlw"},
-                        {name:"企业服务",tag:"qyfw"},
-                        {name:"营销推广",tag:"yxtg"},
-                        {name:"金融",tag:"jr"},
-                        {name:"旅游",tag:"ly"},
-                        {name:"宠物",tag:"cw"},
-                        {name:"硬件",tag:"yj"},
-                        {name:"体育",tag:"ty"},
-                        {name:"视频娱乐",tag:"spyl"},
-                        {name:"搜索安全",tag:"ssaq"},
-                        {name:"生活消费",tag:"shxf"},
-                        {name:"文化艺术",tag:"whys"},
+                        {name:"游戏",tag:"game"},
+                        {name:"社交",tag:"social"},
+                        {name:"电子商务",tag:"ebusiness"},
+                        {name:"媒体",tag:"media"},
+                        {name:"教育",tag:"education"},
+                        {name:"健康医疗",tag:"health"},
+                        {name:"互联网",tag:"mobileInternet"},
+                        {name:"工具",tag:"tools"},
+                        {name:"站长工具",tag:"stationAgentTools"},
+                        {name:"创业服务",tag:"entrepreneurServices"},
+                        {name:"营销广告",tag:"marketingCampaign"},
+                        {name:"企业服务",tag:"enterpriseService"},
+                        {name:"金融",tag:"financial"},
+                        {name:"旅游",tag:"travel"},
+                        {name:"硬件",tag:"hardware"},
+                        {name:"体育",tag:"PE"},
+                        {name:"视频娱乐",tag:"videoEntertainment"},
+                        {name:"搜索安全",tag:"search"},
+                        {name:"生活消费",tag:"livingConsumption"},
+                        {name:"文化艺术",tag:"culture"},
+                        {name:"房产汽车",tag:"housingAuto"},
+                        {name:"能源材料",tag:"energyMaterials"},
+                        {name:"其他",tag:"others"},
                     ]
             },
             {
@@ -621,39 +773,61 @@ angular.module('chuangplus.controllers', []).
                 ]
             }
         ];
-        $scope.projects=[
-        {
-            image:"/static/img/index/inacup_pumpkin.jpg",
-            projectName:"我是一个项目",
-            CEO:"我是CEO",
-            financing:"A轮",
-            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
-            tags:"游戏 社交 虚拟现实",
-            isRoadshow:"yes"
-        },
-        {
-            image:"/static/img/index/inacup_pumpkin.jpg",
-            projectName:"我是一个项目",
-            CEO:"我是CEO",
-            financing:"A轮",
-            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
-            tags:"游戏 社交 虚拟现实",
-            isRoadshow:"yes"
-        },
-        {
-            image:"/static/img/index/inacup_pumpkin.jpg",
-            projectName:"我是一个项目",
-            CEO:"我是CEO",
-            financing:"A轮",
-            detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
-            tags:"游戏 社交 虚拟现实",
-            isRoadshow:"yes"
+        $scope.projectlist = [];
+        $scope.area=[];
+        $scope.nextpage = "";
+        $scope.previouspage = "";
+        $scope.getproject=function(){
+            $http.get(urls.api+'/data/project/.json?filter={}').
+                success(function(data){
+                    $scope.projectlist = data.results;
+                    $scope.nextpage = data.next;
+                    $scope.previouspage = data.previous;
+                    for(var x in $scope.projectlist){
+                       $scope.projectlist[x].field1  = $scope.projectlist[x].field1.split(";");
+                    }
+                    console.log($scope.projectlist);
+                }).
+                error(function(data){
+                    console.log(data);
+                });
+            
         }
-        ];
-    }]).   
+        $scope.getproject();
+        // $scope.projects=[
+        // {
+        //     image:"/static/img/index/inacup_pumpkin.jpg",
+        //     projectName:"我是一个项目",
+        //     CEO:"我是CEO",
+        //     financing:"A轮",
+        //     detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+        //     tags:"游戏 社交 虚拟现实",
+        //     isRoadshow:"yes"
+        // },
+        // {
+        //     image:"/static/img/index/inacup_pumpkin.jpg",
+        //     projectName:"我是一个项目",
+        //     CEO:"我是CEO",
+        //     financing:"A轮",
+        //     detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+        //     tags:"游戏 社交 虚拟现实",
+        //     isRoadshow:"yes"
+        // },
+        // {
+        //     image:"/static/img/index/inacup_pumpkin.jpg",
+        //     projectName:"我是一个项目",
+        //     CEO:"我是CEO",
+        //     financing:"A轮",
+        //     detail:"wo shi yige xiang mu fdsajfldsafjlkdjfladsjf;ladjfla;dsjfaldjfajdsflajdfajdfjadsfkasjfkdajsfl;a",
+        //     tags:"游戏 社交 虚拟现实",
+        //     isRoadshow:"yes"
+        // }
+        // ];
+    }]).
     controller('MyprojectCtrl', ['$scope', '$cookieStore','$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope,$cookieStore, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('MyprojectCtrl');
         $scope.view_tab = 'tab1';
+        
         $scope.changeTab = function(tab) {
             $scope.view_tab = tab;
         };
@@ -663,14 +837,7 @@ angular.module('chuangplus.controllers', []).
         $scope.financing=function(){
             window.location.href="/financingprocess";
         };
-        $scope.getproject = function(){
-            $scope.userid = $cookieStore.get("id");
-            $http.get(urls.api+'/data/project/').
-                success(function(data){
-                }).
-                error();
-        };
-        $scope.getproject();
+
     }]).  
     controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserinfoCtrl');

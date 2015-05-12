@@ -82,3 +82,13 @@ class Image(models.Model):
     text = models.CharField(max_length=60)
     link = models.CharField(max_length=250)
     date = models.DateField()
+
+
+class ImageFile(models.Model):
+    image = models.ImageField(upload_to='images/')
+    name = models.CharField(max_length=200)
+
+
+class OtherFile(models.Model):
+    file = models.FileField(upload_to='files/')
+    name = models.CharField(max_length=200)

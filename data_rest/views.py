@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
 
-from .serializers import UserinfoSerializer, ProjectSerializer, MemberSerializer, PostSerializer, RelationSerializer, ImageSerializer
+from .serializers import UserinfoSerializer, ProjectSerializer, MemberSerializer, PostSerializer, RelationSerializer, ImageSerializer, ImageFileSerializer, OtherFileSerializer
 from .models import Userinfo, Project, Member, Post, Relation, Image
 
 
@@ -114,3 +114,31 @@ class ImageList(generics.ListCreateAPIView):
 class ImageDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Image.objects.all()
     serializer_class = RelationSerializer
+
+
+class ImageFileList(generics.ListCreateAPIView):
+    serializer_class = ImageFileSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Image.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Image.objects.all()
+
+class ImageFileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageFileSerializer
+
+
+class OtherFileList(generics.ListCreateAPIView):
+    serializer_class = OtherFileSerializer
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'filter' in self.request.GET:
+            return Image.objects.filter(**eval(self.request.GET['filter']))
+        else:
+            return Image.objects.all()
+
+class OtherFileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Image.objects.all()
+    serializer_class = OtherFileSerializer

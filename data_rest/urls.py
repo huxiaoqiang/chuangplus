@@ -23,6 +23,12 @@ urlpatterns = [
 
     url(r'^image/$', views.ImageList.as_view()),
     url(r'^image/(?P<pk>[0-9]+)/$', views.ImageDetail.as_view()),
+
+    url(r'^imagefile/$', views.ImageFileList.as_view()),
+    url(r'^imagefile/(?P<pk>[0-9]+)/$', views.ImageFileDetail.as_view()),
+
+    url(r'^otherfile/$', views.OtherFileList.as_view()),
+    url(r'^otherfile/(?P<pk>[0-9]+)/$', views.OtherFileDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Userinfo, Project, Member, Post, Relation, Image
+from .models import Userinfo, Project, Member, Post, Relation, Image, ImageFile, OtherFile
 
 
 class UserinfoSerializer(serializers.ModelSerializer):
@@ -28,3 +28,10 @@ class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
 
+class ImageFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageFile
+
+class OtherFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OtherFile

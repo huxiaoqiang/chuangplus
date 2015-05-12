@@ -12,6 +12,50 @@
 		color: white;
 	}
 }
+#project{
+	#endoftext{
+		position: absolute;
+		bottom: 50px;
+		width: 195px;
+	}
+	#fieldlist{
+		margin-top:10px;
+		position: absolute;
+  		bottom: 10px;
+		#field{
+		font-family:'黑体','Arial';
+		font-size: 15px;
+		background: #7495CA;
+		color: white;
+		.border-top-radius(5px);
+		.border-right-radius(5px);
+		.border-bottom-radius(5px);
+		.border-left-radius(5px);
+	}
+	}
+
+}
+
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}
 #options{
 	position:absolute;
 	left:10%;

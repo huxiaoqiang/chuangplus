@@ -102,7 +102,7 @@
 
             <div class="field">
           	    <label>项目logo</label>
-              <div type="file" ng-model="apply_info.logo" ngf-select>上传</div>
+              <div accept="image/*" ng-model="apply_info.logo" ngf-select>上传</div>
               <span ng-repeat="f in apply_info.logo" style="font:smaller">[[f.name]]</span>
             	<!-- <div class="button" ng-model="apply_info.logo" ngf-select required>上传</div> -->
           	</div>

@@ -274,25 +274,38 @@ angular.module('chuangplus.controllers', []).
         console.log('createproject');
         $scope.username=$cookieStore.get("username");
 
-
-
-        $scope.upload_img = function(file){
-            var param = {
-                'file_type': 'picture',
-                'category': 'homepage_carousel_' + homepage_carousel_id
-            };
-            Upload.upload({
-                url: urls.api+'/fileUpload',
-                file: file
-            }).success(function(data){
-                console.log(data);
-            }).error(function(data){
-                console.log(data);
-            });
+        $scope.upload_img = function(file,picname){
+            if (file!=null) {
+                var file_current = file[0];
+                var param = {
+                    'name': picname
+                };
+                $csrf.set_csrf(param);
+                // Upload.http({
+                //     url: urls.api+'/imagefile',
+                //     headers : {
+                //         'Content-Type': file_current.type,
+                //         'X-CSRFToken': $csrf.val()
+                //     },
+                //     data: file_current
+                // }).
+                Upload.upload({
+                    url: urls.api+'/imagefile',
+                    method: 'POST',
+                    fields: param,
+                    file: file_current
+                }).
+                success(function(data){
+                    console.log(data);
+                }).error(function(data){
+                    console.log(data);
+                });
+            }
         };
-        // $scope.$watch("apply_info.logo",function(){
-        //     $scope.upload_img($scope.apply_info.logo);
-        // });
+        $scope.$watch("apply_info.logo",function(){
+            $scope.upload_img($scope.apply_info.logo,"logo");
+            console.log($scope.apply_info.logo);
+        });
         $scope.apply_info = {};
         $scope.apply_info.field1 = "";
         $scope.field = [];
@@ -837,7 +850,6 @@ angular.module('chuangplus.controllers', []).
         $scope.financing=function(){
             window.location.href="/financingprocess";
         };
-
     }]).  
     controller('UserinfoCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
         console.log('UserinfoCtrl');
@@ -845,4 +857,8 @@ angular.module('chuangplus.controllers', []).
         $scope.changeTab = function(tab) {
             $scope.view_tab = tab;
         };
-    }]);
+    }]).    
+    controller('FinancingProcessCtrl', ['$scope', '$http', 'CsrfService', 'urls', '$filter', '$routeParams', 'UserService', function($scope, $http, $csrf, urls, $filter, $routeParams, $user){
+        console.log('FinancingProcessCtrl');
+        
+    }])

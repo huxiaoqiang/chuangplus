@@ -10,14 +10,15 @@ from wheezy.captcha.image import text
 from wheezy.captcha.image import offset
 from wheezy.captcha.image import rotate
 from wheezy.captcha.image import warp
+import os
 
 
 def getNewCaptcha():
     captcha_image = captcha(drawings=[
        background(),
        text(fonts=[
-           'fonts/CourierNew-Bold.ttf',
-           'fonts/LiberationMono-Bold.ttf'],
+          os.path.join(os.path.dirname(os.path.dirname(__file__)), 'fonts/CourierNew-Bold.ttf'),
+          os.path.join(os.path.dirname(os.path.dirname(__file__)), 'fonts/LiberationMono-Bold.ttf')],
         drawings=[
             warp(),
             rotate(),

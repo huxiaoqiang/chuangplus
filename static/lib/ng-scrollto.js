@@ -30,6 +30,7 @@ angular.module('ngScrollTo')
           element.bind("click", function(event){
             ScrollTo.idOrName(attr.scrollTo, attr.offset);
           });
+          
         };
       }
     };

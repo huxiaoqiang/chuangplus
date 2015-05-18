@@ -19,6 +19,15 @@ body > #wrap {
   height: auto;
   min-height: 100%;
 }
+#wrap #back-to-top {
+  color: #D1D1D1;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
+#wrap #back-to-top .icon-circle-arrow-up {
+  font-size: 350%;
+}
 #main-container {
   margin-left: auto;
   margin-right: auto;
@@ -224,22 +233,20 @@ body > #wrap {
   width: 100%;
   margin: 0 auto;
 }
-.width-limited {
-  width: 1200px;
-  margin: auto;
-}
 .tab-bar {
   background-color: #444;
   border-bottom: solid 4px #58b;
 }
 .tab-bar .width-limited {
   height: 60px;
+  margin-left: 10%;
+  width: 80%;
 }
 .tab-bar .width-limited .tab {
   font-family: '黑体', 'Arial';
   font-size: 18px;
   height: 60px;
-  width: 568px;
+  width: 50%;
   float: left;
   color: #fff;
   padding-top: 18px;
@@ -250,23 +257,29 @@ body > #wrap {
 }
 .tab-bar .width-limited .xiaojiao {
   position: absolute;
-  margin-left: -861px;
+  margin-left: -60%;
   margin-top: 55px;
 }
 .tab-bar .width-limited .xiaojiao-inv {
   position: absolute;
-  margin-left: -310px;
+  margin-left: -20%;
   margin-top: 55px;
 }
 .banner {
   height: 400px;
   margin-top: 70px;
+  margin-top: 2%;
+  margin-left: 10%;
+  width: 80%;
 }
-.cyz-icon {
+.banner .cyz-icon {
   float: left;
   margin: 20px 175px 20px 175px;
 }
-.cyz-icon h3 {
+.banner .cyz-icon img {
+  width: 100%;
+}
+.banner .cyz-icon h3 {
   text-align: center;
   font-size: 24px;
   font-family: 微软雅黑;
@@ -360,6 +373,10 @@ body > #wrap {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 40px;
+}
+.hzdw img {
+  margin-left: 10%;
+  width: 80%;
 }
 #chuangp-header {
   font-family: "微软雅黑";

@@ -7,31 +7,23 @@
 ubuntu 预安装  windows 自行百度
 ###pip
 ```
-sudo apt-get install python-pip
+apt-get install python-pip
 ```
-###django
+###安装所有 python 依赖包
 ```
-pip install django==1.8
+pip install -r requirement.txt
+```
+###更新 python 依赖包列表
+```
+pip freeze > requirement.txt
 ```
 ###mysql
 ```
-sudo apt-get install mysql-server
+apt-get install mysql-server
 ```
 ###mysqldb module
 ```
-sudo apt-get install python-mysqldb
-```
-###appconf
-```
-sudo apt-get install python-appconf
-```
-###pytz
-```
-sudo apt-get install pytz
-```
-###djangorestframework
-```
-sudo pip install djangorestframework
+apt-get install python-mysqldb
 ```
 ##接口使用
 请查看 api.md。

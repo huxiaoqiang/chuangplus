@@ -116,28 +116,16 @@ class ImageDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RelationSerializer
 
 
-class ImageFileList(generics.ListCreateAPIView):
+class ImageFileCreate(generics.CreateAPIView):
     serializer_class = ImageFileSerializer
-
-    def get_queryset(self):
-        if self.request.method == 'GET' and 'filter' in self.request.GET:
-            return Image.objects.filter(**eval(self.request.GET['filter']))
-        else:
-            return Image.objects.all()
 
 class ImageFileDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageFileSerializer
 
 
-class OtherFileList(generics.ListCreateAPIView):
+class OtherFileCreate(generics.CreateAPIView):
     serializer_class = OtherFileSerializer
-
-    def get_queryset(self):
-        if self.request.method == 'GET' and 'filter' in self.request.GET:
-            return Image.objects.filter(**eval(self.request.GET['filter']))
-        else:
-            return Image.objects.all()
 
 class OtherFileDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Image.objects.all()

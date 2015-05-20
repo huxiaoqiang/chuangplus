@@ -26,10 +26,11 @@ def register(request):
 
     if serialized.is_valid():
         user_data = {field: data for (field, data) in request.data.items() if field in VALID_USER_FIELDS}
-        try:
-            user = User.objects.create_user(**user_data)
-        except MySQLdb.IntegrityError:
-            pass
+        user = User.objects.create_user(**user_data)
+        #try:
+        #    user = User.objects.create_user(**user_data)
+        #except MySQLdb.IntegrityError:
+        #    return Response({'email': 'Email 已经注册。'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(UserSerializer(instance=user).data, status=status.HTTP_201_CREATED)
 
     return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)

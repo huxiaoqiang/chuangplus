@@ -43,7 +43,9 @@ INSTALLED_APPS = (
     'app',
     'captcha_rest',
     'account_rest',
-    'data_rest',
+    'project_rest',
+    'about_rest',
+    #'data_rest',
 )
 
 MIDDLEWARE_CLASSES = (

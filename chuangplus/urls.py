@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^api/account/', include('account_rest.urls')),
     url(r'^api/project/', include('project_rest.urls')),
     url(r'^api/about/', include('about_rest.urls')),
-    # url(r'^api/data/', include('data_rest.urls')),
+    url(r'^api/data/', include('data_rest.urls')),
 
     url(r'^.*$', 'app.views.index'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

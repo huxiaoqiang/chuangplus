@@ -145,7 +145,7 @@ name        | Char      | 最大长度：200     | 文件名称
 ### 注意
 Django 具有 CSRF 机制。所以 POST 的时候，需要在 HTTP 请求添加头 X-CSRFToken ，内容为 cookie 中的 csrftoken。详见
 <https://docs.djangoproject.com/en/1.8/ref/csrf/#ajax>
-## /api/checkusername/
+## /api/account/checkusername/
 验证用户名是否可用。
 在注册页面，可以通过Ajax来测试用户名是否可用。向该 url 发送一个 json 来检测。发送内容只有一个键 "username"，内容是需要检测的用户名。返回的 json 也只有一个键 "exist"，即用户是否存在。
 ## /api/account/login/
@@ -161,9 +161,9 @@ Django 具有 CSRF 机制。所以 POST 的时候，需要在 HTTP 请求添加�
 ```
 Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 ```
-## /api/data/userinfo/[username]/
+## /api/account/userinfo/[username]/
 获取 username 的用户信息。其中 username 为对应账户的用户名。
-## /api/data/userinfo/createorupdate/
+## /api/account/userinfo/createorupdate/
 创建或更新当前登陆用户的用户信息。
 ## /api/project/projects/
 获取项目列表。

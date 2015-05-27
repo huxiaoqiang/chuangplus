@@ -241,11 +241,11 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 关系信息
 ## /api/about/notices/
 网站公告列表
-## /api/project/notice/[id]/
+## /api/about/notice/[id]/
 网站公告信息
 ## /api/about/news/
 平台新闻列表
-## /api/project/news/[id]/
+## /api/about/news/[id]/
 平台新闻信息
 ## /api/data/imagefileupload/
 上传图片

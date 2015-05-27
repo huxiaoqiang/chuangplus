@@ -7,7 +7,7 @@ from data_rest.models import ImageFile
 # 项目表
 class Project(models.Model):
     name = models.CharField(max_length=30)
-    field = models.CharField(max_length=30)
+    field = models.CharField(max_length=90)
     type = models.CharField(max_length=30)
     slogan = models.CharField(max_length=120)
     summary = models.TextField(blank=True)

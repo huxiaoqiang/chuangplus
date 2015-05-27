@@ -11,7 +11,7 @@ class Userinfo(models.Model):
     phone = models.CharField(max_length=30,blank=True)
     weixin = models.CharField(max_length=30,blank=True)
     province = models.CharField(max_length=30,blank=True)
-    field = models.CharField(max_length=30,blank=True)
+    field = models.CharField(max_length=90,blank=True)
     company = models.CharField(max_length=30,blank=True)
     title = models.CharField(max_length=30,blank=True)
     introduction = models.TextField(blank=True)

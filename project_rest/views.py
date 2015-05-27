@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+from django.shortcuts import redirect
+from django.core.urlresolvers import reverse_lazy
+from django.db.models import Q
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -17,9 +21,11 @@ class ProjectList(generics.ListCreateAPIView):
             return Project.objects.all()
 
 def projectfilterbyuser(request, username, type):
-    project_ids = Relation.objects.filter(username=username, type=type)
-    redirect('%1?filter={"id__in":"%2"}'%reverse('project-list')%username%project_ids)
+    project_ids = [relation.project.id for relation in Relation.objects.filter(username=username, type=type)]
+    print(project_ids)
+    return redirect('%s?filter={"id__in":%s}' % (reverse_lazy('project-list'),project_ids) )
 
+@api_view(['GET'])
 def projectinmyfield(request):
     try:
         userinfo = Userinfo.objects.get(user=request.user)
@@ -32,9 +38,9 @@ def projectinmyfield(request):
     elif len(field_list) == 1:
         queryset = Project.objects.filter(field__contains=field_list[0])
     elif len(field_list) == 2:
-        queryset = Project.objects.filter(Q(field__contains=field_list[0] | Q(field__contains=field_list[1]))
+        queryset = Project.objects.filter(Q(field__contains=field_list[0]) | Q(field__contains=field_list[1]))
     elif len(field_list) == 3:
-        queryset = Project.objects.filter(Q(field__contains=field_list[0] | Q(field__contains=field_list[1]) | Q(field__contains=field_list[2]))
+        queryset = Project.objects.filter(Q(field__contains=field_list[0]) | Q(field__contains=field_list[1]) | Q(field__contains=field_list[2]))
     else:
         return Response({"detail": "Too many fields."}, status=status.HTTP_400_BAD_REQUEST)
 

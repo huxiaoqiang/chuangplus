@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
 #import MySQLdb
 
+from .models import Userinfo
 from .serializers import UserSerializer, UserinfoSerializer
 
 

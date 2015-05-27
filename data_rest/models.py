@@ -17,7 +17,13 @@ class ImageFile(models.Model):
     image = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=200)
 
+    def __unicode__(self):
+        return self.name
+
 
 class OtherFile(models.Model):
     file = models.FileField(upload_to='files/')
     name = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.name

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -15,3 +16,6 @@ class Userinfo(models.Model):
     title = models.CharField(max_length=30,blank=True)
     introduction = models.TextField(blank=True)
     user = models.OneToOneField(User, related_name="userinfo")
+
+    def __unicode__(self):
+        return self.user.username

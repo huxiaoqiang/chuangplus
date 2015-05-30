@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# 用户信息表
+# userinfo 
 class Userinfo(models.Model):
     role = models.IntegerField(default=1)
     name = models.CharField(max_length=30)

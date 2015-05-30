@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -10,10 +11,11 @@ class Userinfo(models.Model):
     phone = models.CharField(max_length=30,blank=True)
     weixin = models.CharField(max_length=30,blank=True)
     province = models.CharField(max_length=30,blank=True)
-    field1 = models.CharField(max_length=30,blank=True)
-    field2 = models.CharField(max_length=30,blank=True)
-    field3 = models.CharField(max_length=30,blank=True)
+    field = models.CharField(max_length=90,blank=True)
     company = models.CharField(max_length=30,blank=True)
     title = models.CharField(max_length=30,blank=True)
     introduction = models.TextField(blank=True)
     user = models.OneToOneField(User, related_name="userinfo")
+
+    def __unicode__(self):
+        return self.user.username

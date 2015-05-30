@@ -28,8 +28,9 @@ def getNewCaptcha():
         noise(),
         smooth()
     ])
-     
+
     rand_string = random.sample(string.uppercase + string.digits, 4)
+    print(rand_string)
     image = captcha_image(rand_string)
 
     return ''.join(rand_string), image

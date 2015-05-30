@@ -1,13 +1,18 @@
 # encoding:utf-8
 
+import sys
+
 from django.contrib.auth.models import User
 from django.contrib import auth
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import sys
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 #import MySQLdb
-from .serializers import UserSerializer
+
+from .models import Userinfo
+from .serializers import UserSerializer, UserinfoSerializer
 
 
 @api_view(['POST'])
@@ -35,6 +40,7 @@ def register(request):
 
     return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['POST'])
 def check_username(request):
     try:
@@ -46,3 +52,44 @@ def check_username(request):
         return Response({'exist': 'True'})
     else:
         return Response({'exist': 'False'})
+
+
+@api_view(['POST', 'PUT'])
+@permission_classes((IsAuthenticated, ))
+def userinfo_create_or_update(request):
+    try:
+        userinfo = Userinfo.objects.get(user=request.user)
+
+    except Userinfo.DoesNotExist:
+        serialized = UserinfoSerializer(data=request.DATA)
+
+        if serialized.is_valid():
+            serialized.save(user=request.user)
+            return Response(serialized.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    serialized = UserinfoSerializer(userinfo, data=request.DATA)
+
+    if serialized.is_valid():
+        serialized.save(user=request.user)
+        return Response(serialized.data, status=status.HTTP_202_ACCEPTED)
+    else:
+        return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def userinfo_retrieve(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return Response({"username": "用户不存在。"}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        userinfo = Userinfo.objects.get(user=user)
+    except Userinfo.DoesNotExist:
+        return Response({"username": "用户尚未填写资料。"}, status=status.HTTP_400_BAD_REQUEST)
+
+    serialized = UserinfoSerializer(userinfo)
+    return Response(serialized.data)
+

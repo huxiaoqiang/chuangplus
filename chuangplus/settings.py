@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'account_rest',
     'project_rest',
     'about_rest',
-    #'data_rest',
+    'data_rest',
 )
 
 MIDDLEWARE_CLASSES = (

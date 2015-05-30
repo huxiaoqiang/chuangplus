@@ -6,7 +6,7 @@ from .tools import getNewCaptcha
 
 def image(request):
     response = HttpResponse(content_type="image/png")
-    
+
     randstr,img = getNewCaptcha()
     img.save(response, 'png')
 

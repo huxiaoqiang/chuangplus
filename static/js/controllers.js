@@ -40,8 +40,8 @@ angular.module('chuangplus.controllers', []).
             }
             $csrf.set_csrf($scope.startup);
             $http.post(urls.api+'/account/register/', JSON.stringify($scope.startup)).success(function(data){
-                $scope.putuserinfo();
-                
+                alert("注册成功，请登陆");
+                window.location.href="/login";
             }).error(function(data,status,headers, config){
                 if (data.email){
                     $scope.error =  $csrf.format_error(data.email[0]);
@@ -58,50 +58,49 @@ angular.module('chuangplus.controllers', []).
                 console.log(data);
             });
         };
-        $scope.putuserinfo=function(){
-            $scope.login_info={
-                username: $scope.startup.username,
-                password: $scope.startup.password
-            };
-            $csrf.set_csrf($scope.login_info);
-            $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
-            .success(function(data){
-                    $cookieStore.put("username",$scope.login_info.username);
-                    $cookieStore.put("token",data.token);
-                    $scope.token = data.token;
+        // $scope.putuserinfo=function(){
+        //     $scope.login_info={
+        //         username: $scope.startup.username,
+        //         password: $scope.startup.password
+        //     };
+        //     $csrf.set_csrf($scope.login_info);
+        //     $http.post(urls.api+'/account/login/',JSON.stringify($scope.login_info))
+        //     .success(function(data){
+        //             $cookieStore.put("username",$scope.login_info.username);
+        //             $cookieStore.put("token",data.token);
+        //             $scope.token = data.token;
 
-                    //post userinfo
-                    $scope.userinfo = {
-                        role: "1",
-                        name: $scope.startup.username,
-                    };
-                    $csrf.set_csrf($scope.userinfo);
-                    console.log($scope.userinfo);
-                    var req = {
-                         method: 'POST',
-                         url: urls.api+"/data/userinfo/createorupdate/",
-                         headers: {
-                           'Content-Type': 'application/json',
-                           'Authorization': "Token "+$scope.token
-                         },
-                         data: JSON.stringify($scope.userinfo)
-                    }
-                    $http(req).
-                    success(function(_data){
-                        console.log(_data);
-                        $cookieStore.put("id",_data.id);
-                        window.location.href="/regist_startup_finish";
-                    }).
-                    error(function(_data){
-                        console.log(_data);
-                    });
-                })
-                .error(function(data){
-                    console.log(data);
-                    $scope.error = $csrf.format_error(data.non_field_errors[0]);
-                }); 
-
-        };
+        //             //post userinfo
+        //             $scope.userinfo = {
+        //                 role: "1",
+        //                 name: $scope.startup.username,
+        //             };
+        //             $csrf.set_csrf($scope.userinfo);
+        //             console.log($scope.userinfo);
+        //             var req = {
+        //                  method: 'POST',
+        //                  url: urls.api+"/data/userinfo/createorupdate/",
+        //                  headers: {
+        //                    'Content-Type': 'application/json',
+        //                    'Authorization': "Token "+$scope.token
+        //                  },
+        //                  data: JSON.stringify($scope.userinfo)
+        //             }
+        //             $http(req).
+        //             success(function(_data){
+        //                 console.log(_data);
+        //                 $cookieStore.put("id",_data.id);
+        //                 window.location.href="/regist_startup_finish";
+        //             }).
+        //             error(function(_data){
+        //                 console.log(_data);
+        //             });
+        //         })
+        //         .error(function(data){
+        //             console.log(data);
+        //             $scope.error = $csrf.format_error(data.non_field_errors[0]);
+        //         }); 
+        // };
         $scope.refresh=function(){
             $scope.captcha_url = urls.api+'/captcha/image/?'+Math.random();
         };
@@ -135,6 +134,7 @@ angular.module('chuangplus.controllers', []).
                 .success(function(data){
                     $cookieStore.put("username",$scope.login_info.username);
                     $cookieStore.put("token",data.token);
+                    alert("登陆成功！");
                     window.location.href="/";
                 })
                 .error(function(data){
